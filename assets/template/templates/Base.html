@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {include 'head'}
+</head>
+<body>
+<div class="container">
+  {block 'Header'}
+    {include 'Header'}
+  {/block}
+  {block 'content'}
+    {$_modx->resource.content}
+  {/block}
+  {block 'Footer'}
+    {include 'Footer'}
+  {/block}
+</div>
+</body>
+</html>
