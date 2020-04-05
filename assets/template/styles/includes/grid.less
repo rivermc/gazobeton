@@ -8,20 +8,26 @@
   flex-wrap: @wrap;
 }
 
+._flex(@a: center, @j: space-between, @wrap: wrap) {
+  .flex(@wrap);
+  align-items: @a;
+  justify-content: @j;
+}
+
 .f_col(@size, @resize, @col) {
   flex: @size @resize (@col_size * @col);
 }
 
-.cols(@numb) {
-  width: @col_size * @numb;
+.cols(@count) {
+  width: @col_size * @count;
 }
 
-.colsOf(@numb) {
-  margin-left: @col_size * @numb;
+.colsOf(@count) {
+  margin-left: @col_size * @count;
 }
 
-.colsOfR(@numb) {
-  margin-right: @col_size * @numb;
+.colsOfR(@count) {
+  margin-right: @col_size * @count;
 }
 
 

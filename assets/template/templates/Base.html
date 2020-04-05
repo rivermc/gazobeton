@@ -4,18 +4,21 @@
     {include 'MetaData'}
   </head>
   <body>
-    <div class="Container">
-      {block 'Header'}
-        {include 'Header'}
-      {/block}
+    {block 'Header'}
+      {include 'Header'}
+    {/block}
+
+    <main>
       {block 'Content'}
         {$_modx->resource.content}
       {/block}
-      {block 'Footer'}
-        {include 'Footer'}
-      {/block}
-      {include 'ToUp'}
-      {include 'AssetsLoad'}
-    </div>
+    </main>
+
+    {block 'Footer'}
+      {include 'Footer'}
+    {/block}
+
+    {include 'ToUp'}
+    {include 'AssetsLoad'}
   </body>
 </html>

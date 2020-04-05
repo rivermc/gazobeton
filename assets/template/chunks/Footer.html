@@ -1,10 +1,18 @@
 <footer>
   <div class="Footer">
-    <a href="/">
-      <img src="/assets/template/images/logo_short.png" alt="">
-    </a>
-    [[#1.SitePhone]]
-    [[#1.SiteEmail]]
+    <div class="Footer__phone">
+      {1 | resource: 'SitePhone'}
+    </div>
+    <div class="Footer__logo">
+      <a href="/">
+        <img src="/assets/template/images/logo.png" alt="">
+      </a>
+    </div>
+    <div class="Footer__menu">
+      {$_modx->runSnippet('pdoMenu@PropertySet', [
+        'parents' => 0,
+      ])}
+    </div>
   </div>
 </footer>
 
