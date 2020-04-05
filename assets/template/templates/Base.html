@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  {include 'head'}
-</head>
-<body>
-<div class="container">
-  {block 'Header'}
-    {include 'Header'}
-  {/block}
-  {block 'content'}
-    {$_modx->resource.content}
-  {/block}
-  {block 'Footer'}
-    {include 'Footer'}
-  {/block}
-</div>
-</body>
+<html lang="ru">
+  <head>
+    {include 'MetaData'}
+  </head>
+  <body>
+    <div class="Container">
+      {block 'Header'}
+        {include 'Header'}
+      {/block}
+      {block 'Content'}
+        {$_modx->resource.content}
+      {/block}
+      {block 'Footer'}
+        {include 'Footer'}
+      {/block}
+      {include 'ToUp'}
+      {include 'AssetsLoad'}
+    </div>
+  </body>
 </html>

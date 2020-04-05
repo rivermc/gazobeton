@@ -1,0 +1,59 @@
+//-------------------------------------------------------------------------//
+// Grids // 16 cols // _j - Justify content, _a - Align Items
+//-------------------------------------------------------------------------//
+@col_size: 6.25%;
+
+.flex (@wrap: wrap) {
+  display: flex;
+  flex-wrap: @wrap;
+}
+
+.f_col(@size, @resize, @col) {
+  flex: @size @resize (@col_size * @col);
+}
+
+.cols(@numb) {
+  width: @col_size * @numb;
+}
+
+.colsOf(@numb) {
+  margin-left: @col_size * @numb;
+}
+
+.colsOfR(@numb) {
+  margin-right: @col_size * @numb;
+}
+
+
+.g_flex {
+  .flex();
+
+  &_j { // justify-content
+
+    &_between {
+      justify-content: space-between;
+    }
+    &_center {
+      justify-content: center;
+    }
+    &_start {
+      justify-content: flex-start;
+    }
+    &_end {
+      justify-content: flex-end;
+    }
+  }
+
+  &_a { // align-items
+
+    &_center {
+      align-items: center;
+    }
+    &_start {
+      align-items: flex-start;
+    }
+    &_end {
+      align-items: flex-end;
+    }
+  }
+}
