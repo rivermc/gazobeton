@@ -3,7 +3,7 @@
     <div class="Container Header__topWrap">
       <div class="Header__phone">
         {$_modx->runSnippet('IncSvg@PropertySet', [
-        'file' => 'icons/phone.svg',
+          'file' => 'icons/phone.svg',
         ])}
         {1 | resource: 'SitePhone'}
       </div>
@@ -30,7 +30,7 @@
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c2 A_s2" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c2 A_s1" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
     </div>

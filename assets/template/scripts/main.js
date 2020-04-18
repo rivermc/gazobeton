@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   if (typeof ymaps != 'undefined') {
     ymaps.ready(function() {
-      new Map('contactMap');
+      new Map('#contactMap');
     });
   }
 

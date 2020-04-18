@@ -1,0 +1,28 @@
+//-------------------------------------------------------------------------//
+// TopBlock //
+//-------------------------------------------------------------------------//
+
+.TopBlock {
+  background: url("/assets/template/images/top_block/bg.jpg");
+
+  &__wrap {
+    ._flex(@wrap:nowrap);
+  }
+
+  &__text {
+    .cols(9);
+  }
+
+  &__images {
+    ._flex(@wrap:nowrap);
+    .cols(7);
+  }
+
+  &__image {
+    max-width: none;
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,29 +1,31 @@
 export default class Map {
-  constructor(id) {
-    this.id = id;
-    this.$map = $('#' + this.id);
-    this.address = this.$map.data('address');
+  constructor(el) {
+    this.$el = $(el);
+    this.id = this.$el.attr('id');
+    this.address = this.$el.data('address');
+
     new Promise((resolve) => {
-      this.geocoding(resolve);
-    }).then(() => {
-      this.initialize();
+      this.geocoding(this.address, resolve);
+    }).then((coords) => {
+      this.coords = coords;
+      this.createMap();
       this.addPlacemark();
     });
   }
 
-  initialize() {
+  createMap() {
     this.Map = new ymaps.Map(this.id, {
       center: this.coords,
       controls: ['typeSelector', 'fullscreenControl'],
       zoom: 10
     });
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 768) {
       this.Map.behaviors.disable('drag');
     }
   }
 
   addPlacemark() {
-    var Placemark = new ymaps.Placemark(this.coords, {
+    const Placemark = new ymaps.Placemark(this.coords, {
       hintContent: this.address,
       balloonContent: '<p>' + this.address + '</p>'
     }, {
@@ -35,13 +37,12 @@ export default class Map {
     this.Map.geoObjects.add(Placemark);
   }
 
-  geocoding(resolve) {
-    ymaps.geocode(this.address, {
+  geocoding(address, resolve) {
+    ymaps.geocode(address, {
       results: 1
     }).then((res) => {
-      var firstGeoObject = res.geoObjects.get(0);
-      this.coords = firstGeoObject.geometry.getCoordinates();
-      resolve();
+      const firstGeoObject = res.geoObjects.get(0);
+      resolve(firstGeoObject.geometry.getCoordinates());
     });
   }
 }
