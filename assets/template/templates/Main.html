@@ -3,7 +3,9 @@
 {block 'Content'}
   <div class="Container">
     <h1>{$_modx->resource.pagetitle}</h1>
-    {parent}
+    <div class="content">
+      {parent}
+    </div>
     {include 'Contacts'}
   </div>
 {/block}
