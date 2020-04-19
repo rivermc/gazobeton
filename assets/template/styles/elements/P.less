@@ -1,14 +1,21 @@
 //-------------------------------------------------------------------------//
-// Paragraph // _s - Size; _m - Margin; v_ - Version;
+// Paragraph // _s - Size; _m - Margin; v_ - Version; _b - Background; _p - Padding
 //-------------------------------------------------------------------------//
-
 .P {
 
   &_s1 {font-size: @s_text_4;}
+  &_s2 {font-size: @s_text_2;}
 
   &_m1 {margin: 30px 0;}
+  &_m2 {margin: 0 0 10px;}
 
   &_c1 {color: @c_main;}
+  &_c2 {color: @c_red;}
+  &_c3 {color: @c_white;}
+
+  &_b1 {background: @c_main;}
+
+  &_p1 {padding: 15px;}
 
   &_v1 {
     text-transform: uppercase;
