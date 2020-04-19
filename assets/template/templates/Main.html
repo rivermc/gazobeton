@@ -3,11 +3,12 @@
 {block 'Content'}
   {include 'TopBlock'}
   {include 'SalesBlock'}
+  {include 'PriceBlock'}
   <div class="Container">
     <h1>{$_modx->resource.pagetitle}</h1>
     <div class="content">
       {parent}
     </div>
-    {include 'Contacts'}
   </div>
+  {include 'ContactsBlock'}
 {/block}

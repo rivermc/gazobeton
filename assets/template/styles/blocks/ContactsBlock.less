@@ -1,20 +1,23 @@
 //-------------------------------------------------------------------------//
-// Contacts //
+// Contacts Block //
 //-------------------------------------------------------------------------//
-.Contacts {
-  ._flex();
+.ContactsBlock {
+
+  &__wrap {
+    .flex();
+  }
 
   &__map {
-    .cols(7.5);
+    .flex_cols(7.5);
     border-left: 15px solid @c_main;
 
-    #contactMap {
+    #Map_contact {
       height: 655px;
     }
   }
 
   &__text {
-    .cols(7.5);
+    .flex_cols(7.5);
     font-size: @s_text_0;
   }
 }

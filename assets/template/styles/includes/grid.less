@@ -3,36 +3,37 @@
 //-------------------------------------------------------------------------//
 @col_size: 6.25%;
 
-.flex (@wrap: wrap) {
+._flex(@wrap: wrap) {
   display: flex;
   flex-wrap: @wrap;
 }
 
-._flex(@a: center, @j: space-between, @wrap: wrap) {
-  .flex(@wrap);
+.flex(@a: center, @j: space-between, @wrap: wrap, @dir: row) {
+  ._flex(@wrap);
   align-items: @a;
   justify-content: @j;
+  flex-direction: @dir;
 }
 
-.f_col(@size, @resize, @col) {
-  flex: @size @resize (@col_size * @col);
-}
-
-.cols(@count) {
+.flex_cols(@count) {
   width: @col_size * @count;
 }
 
-.colsOf(@count) {
+.flex_offset_l(@count) {
   margin-left: @col_size * @count;
 }
 
-.colsOfR(@count) {
+.flex_offset_r(@count) {
   margin-right: @col_size * @count;
+}
+
+.flex_col(@size, @resize, @col) {
+  flex: @size @resize (@col_size * @col);
 }
 
 
 .g_flex {
-  .flex();
+  ._flex();
 
   &_j { // justify-content
 

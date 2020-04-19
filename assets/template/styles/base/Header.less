@@ -4,12 +4,12 @@
 .Header {
 
   &__topWrap {
-    ._flex(center);
+    .flex();
   }
 
   &__phone {
-    .cols(16);
-    ._flex(@j:flex-end);
+    .flex_cols(16);
+    .flex(@j:flex-end);
     padding: 10px 0 0;
 
     .SitePhone {
@@ -21,16 +21,15 @@
   }
 
   &__logo {
-    .cols(3);
+    .flex_cols(3);
   }
 
   &__menu {
-    .cols(13);
-    padding: 10px 0;
+    .flex_cols(13);
   }
 
   &__catalogMenu {
-    .cols(16);
+    .flex_cols(16);
     background: @c_main_l;
     padding: 10px 0;
   }
