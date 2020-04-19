@@ -1,16 +1,36 @@
 //-------------------------------------------------------------------------//
-// Button // _V - Version;
+// Button // _v - Version; _m - Margin;
 //-------------------------------------------------------------------------//
 .Button {
+  .animation();
   font-size: @s_text_0;
   border: 2px solid @c_red;
-  color: @c_red;
+  font-family: @f_Monserat_b;
   text-transform: uppercase;
-  padding: 10px 20px;
   display: inline-block;
+  padding: 15px 20px;
+  line-height: 1em;
 
+  //-------------------------------------------------------------------------//
+  &_m1 {margin: 0 10px 0 0;}
+
+  //-------------------------------------------------------------------------//
   &_v1 {
     color: @c_white;
     background: @c_red;
+
+    &:hover {
+      color: @c_red;
+      background: @c_white;
+    }
+  }
+
+  &_v2 {
+    color: @c_red;
+
+    &:hover {
+      color: @c_white;
+      background: @c_red;
+    }
   }
 }
