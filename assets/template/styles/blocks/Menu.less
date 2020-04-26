@@ -4,8 +4,8 @@
 .Menu {
   .flex();
 
-  &__icon {
-    margin-right: 10px;
+  &_stretch {
+    align-items: stretch;
   }
 
   &__item {
@@ -13,5 +13,33 @@
     &_icon {
       .flex();
     }
+
+    &_block {
+      .animation();
+      flex: 1;
+
+      & + & {
+        border-left: 1px solid @c_white;
+      }
+
+      &:hover {
+        background: @c_main;
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__img {
+    margin: 10px auto;
+    display: block;
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
+    padding: 40px 10px;
   }
 }

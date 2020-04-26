@@ -1,0 +1,16 @@
+<div class="CatalogBlock">
+  <div class="Container CatalogBlock__title">
+    <h2 class="H H_s3 H_c1 H_m2">Продукция завода ЕАБ:</h2>
+  </div>
+  <div class="CatalogBlock__wrap">
+    <div class="Container">
+      {$_modx->runSnippet('pdoMenu@PropertySet', [
+        'parents' => 2,
+        'outerClass' => 'Menu Menu_stretch',
+        'rowClass' => 'Menu__item Menu__item_block',
+        'hereClass' => 'Menu__item_active',
+      'tpl' => '@INLINE <li [[+classes]]><a class="A_c2 A_s2 Menu__link" href="[[+link]]">[[+attributes:notempty=`<img class="Menu__img" src="[[+attributes]]"/>`]] <span>[[+menutitle]]</span></a></li>',
+      ])}
+    </div>
+  </div>
+</div>
