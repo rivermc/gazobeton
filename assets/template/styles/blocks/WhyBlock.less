@@ -1,0 +1,27 @@
+.WhyBlock {
+  margin: 100px 0;
+
+  &__wrap {
+    .flex();
+  }
+
+  &__block {
+    .flex_cols(7.5);
+    .flex();
+
+    & + & {
+      margin-top: 40px;
+    }
+  }
+
+  &__img {
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__text {
+    flex: 1;
+    padding: 0 0 0 20px;
+  }
+}

@@ -27,10 +27,11 @@
       <div class="Container">
         {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 2,
+          'resources' => '-7',
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c2 A_s1" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c2 A_s2" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
     </div>
