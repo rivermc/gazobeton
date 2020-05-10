@@ -141,8 +141,8 @@ html.noscroll {
 body {
   color: #333333;
   font-family: 'Montserrat-Regular', sans-serif;
-  overflow-x: hidden;
   min-width: 320px;
+  overflow: initial;
 }
 input,
 select,
@@ -246,7 +246,7 @@ strong {
   text-transform: uppercase;
 }
 .Button {
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
   font-size: 12pt;
   font-family: 'Montserrat-Regular', sans-serif;
   border-radius: 50px;
@@ -256,8 +256,22 @@ strong {
   line-height: 1em;
   cursor: pointer;
 }
+.Button_clear {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
 .Button_m1 {
   margin: 0 10px 0 0;
+}
+.Button_m2 {
+  margin: 10px 0 0;
+}
+.Button_c1 {
+  color: #3d73dd;
+}
+.Button_s2 {
+  font-size: 12pt;
 }
 .Button_mw1 {
   min-width: 250px;
@@ -278,6 +292,9 @@ strong {
   color: #ffffff;
   background: #b10814;
 }
+.Button_v3 {
+  font-family: 'Montserrat-Bold', sans-serif;
+}
 .A {
   display: inline-block;
 }
@@ -296,14 +313,32 @@ strong {
 .A_s2 {
   font-size: 10pt;
 }
+.A_s3 {
+  font-size: 12pt;
+}
 .A_p1 {
   padding: 10px;
 }
+.A_v1 {
+  text-transform: uppercase;
+}
+.A_v2 {
+  font-family: 'Montserrat-Bold', sans-serif;
+}
+.A_m1 {
+  margin: 10px 0 0;
+}
+.P_s0 {
+  font-size: 8pt;
+}
 .P_s1 {
-  font-size: 24px;
+  font-size: 10pt;
 }
 .P_s2 {
   font-size: 12pt;
+}
+.P_s3 {
+  font-size: 18pt;
 }
 .P_m1 {
   margin: 30px 0;
@@ -311,16 +346,16 @@ strong {
 .P_m2 {
   margin: 0 0 10px;
 }
+.P_m3 {
+  margin: 0 0 5px;
+}
 .P_c1 {
   color: #3d73dd;
 }
 .P_c2 {
-  color: #b10814;
-}
-.P_c3 {
   color: #ffffff;
 }
-.P_c4 {
+.P_c3 {
   color: #333333;
 }
 .P_b1 {
@@ -354,7 +389,7 @@ strong {
   justify-content: flex-start;
 }
 .Form__fieldWrap_checkbox .check {
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
   opacity: 0;
 }
 .Form .Icon {
@@ -387,7 +422,7 @@ strong {
   margin-left: 25px;
 }
 .ToUp {
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
   display: flex;
   flex-wrap: wrap;
   background: #3d73dd;
@@ -405,12 +440,19 @@ strong {
 .ToUp:hover {
   background: #3d73dd;
 }
+.Header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 .Header__topWrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  padding: 20px 0;
 }
 .Header__phone {
   display: flex;
@@ -421,21 +463,50 @@ strong {
   padding: 10px 0 0;
 }
 .Header__phone .SitePhone {
-  color: #3d73dd;
-  font-size: 24px;
+  color: #454549;
+  font-size: 18pt;
   font-family: 'Montserrat-Bold', sans-serif;
   margin-left: 10px;
 }
 .Header__logo {
-  width: 18.75%;
+  width: 25%;
 }
 .Header__menu {
-  width: 81.25%;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 10px 0 0;
 }
 .Header__menuWrap {
   width: 100%;
   background: #3d73dd;
-  padding: 10px 0;
+  padding: 0 0 15px;
+}
+.Header__catalogButton {
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: url('/assets/template/images/icons/block.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 62px;
+  max-width: 280px;
+}
+.Header__catalogButton svg {
+  transition: all 0.2s linear;
+}
+.Header__catalogButton .js_active svg {
+  transform: rotate(180deg);
+}
+.Header__catalogWrap {
+  display: none;
 }
 .Menu {
   display: flex;
@@ -444,18 +515,23 @@ strong {
   justify-content: space-between;
   flex-direction: row;
 }
+.Menu_topBlock {
+  width: 100%;
+  padding: 0 0 0 20px;
+}
 .Menu_stretch {
   align-items: stretch;
 }
 .Menu__item_icon {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
+  width: 21.875%;
 }
 .Menu__item_block {
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
   flex: 1;
 }
 .Menu__item_block + .Menu__item_block {
@@ -463,11 +539,6 @@ strong {
 }
 .Menu__item_block:hover {
   background: #3d73dd;
-}
-.Menu__icon {
-  margin-right: 10px;
-  max-width: 30px;
-  width: 100%;
 }
 .Menu__img {
   margin: 10px auto;
@@ -483,7 +554,7 @@ strong {
   background: url("/assets/template/images/top_block/bg.png");
   background-repeat: no-repeat;
   background-position: center;
-  padding: 50px 0;
+  padding: 20px 0 50px;
 }
 .TopBlock__wrap {
   display: flex;

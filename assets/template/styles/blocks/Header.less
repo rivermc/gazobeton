@@ -2,9 +2,14 @@
 // Header //
 //-------------------------------------------------------------------------//
 .Header {
+  background: @c_white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   &__topWrap {
     .flex();
+    padding: 20px 0;
   }
 
   &__phone {
@@ -12,24 +17,51 @@
     padding: 10px 0 0;
 
     .SitePhone {
-      color: @c_main;
-      font-size: @s_text_4;
+      color: @c_gray_d;
+      font-size: @s_text_3;
       font-family: @f_Monserat_b;
       margin-left: 10px;
     }
   }
 
   &__logo {
-    .flex_cols(3);
+    .flex_cols(4);
   }
 
   &__menu {
-    .flex_cols(13);
+    .flex_cols(12);
+    .flex();
+    margin: 10px 0 0;
   }
 
   &__menuWrap {
     .flex_cols(16);
     background: @c_main;
-    padding: 10px 0;
+    padding: 0 0 15px;
+  }
+
+  &__catalogButton {
+    .flex_cols(4);
+    .flex(@j:center);
+    background: url('/assets/template/images/icons/block.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 62px;
+    max-width: 280px;
+
+    svg {
+      .animation();
+    }
+
+    .js_active {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__catalogWrap {
+    display: none;
   }
 }

@@ -1,49 +1,57 @@
-<header>
-  <div class="Header">
-    <div class="Container Header__topWrap">
+
+<header class="Header">
+  <div class="Container">
+    <div class="Header__topWrap">
       <div class="Header__logo">
         <a href="/">
           <img src="/assets/template/images/logo.png" alt="">
         </a>
       </div>
       <div class="Header__textWrap">
-        <p>Качественный газобетон в СПБ</p>
-        <div class="Header__address">
+        <p class="P_s1 P_m3">Качественный газобетон в СПБ</p>
+        <p class="P_s2 P_c1">
           {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/geo.svg',])}
           {1 | resource: 'SiteAddress'}
-        </div>
+        </p>
       </div>
       <div class="Header__phone">
         {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}
         {1 | resource: 'SitePhone'}
       </div>
     </div>
-    <div class="Header__menuWrap">
-      <div class="Container">
-        <div class="Header__menu">
-          {$_modx->runSnippet('pdoMenu@PropertySet', [
+  </div>
+  <div class="Header__menuWrap">
+    <div class="Container g_flex">
+      <div class="Header__catalogButton">
+        <button class="Button_clear Button_c1 Button_s2 Button_v3 Button_m2 js_openMenu">
+          Продукция
+          {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/arrow.svg',])}
+        </button>
+      </div>
+      <div class="Header__menu">
+        {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 0,
+          'resources' => -2,
           'level' => 1,
-          'outerClass' => 'Menu',
+          'outerClass' => 'Menu Menu_topBlock',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]><a class="A A_c2 A_s1 A_p1" href="[[+link]]"> [[+menutitle]]</a></li>',
-          ])}
-        </div>
+          'tpl' => '@INLINE <li [[+classes]]><a class="A A_c2 A_s3 A_v2" href="[[+link]]"> [[+menutitle]]</a></li>',
+        ])}
       </div>
     </div>
-    <div class="Header__catalogWrap">
-      <div class="Container">
-        <div class="Header__catalog">
-          {$_modx->runSnippet('pdoMenu@PropertySet', [
+  </div>
+  <div class="Header__catalogWrap">
+    <div class="Container">
+      <div class="Header__catalog">
+        {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 2,
           'resources' => '-7',
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c3 A_s2" href="[[+link]]"> [[+menutitle]]</a></li>',
-          ])}
-        </div>
+          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c3 A_s3 A_v1 A_v2" href="[[+link]]"> [[+menutitle]]</a></li>',
+        ])}
       </div>
     </div>
   </div>

@@ -36,6 +36,11 @@ $(document).ready(function() {
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
 
+  $('.js_openMenu').click(function() {
+    $(this).toggleClass('js_active');
+    $('.Header__catalogWrap').slideToggle();
+  });
+
 });
 
 

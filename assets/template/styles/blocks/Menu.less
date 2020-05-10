@@ -4,6 +4,11 @@
 .Menu {
   .flex();
 
+  &_topBlock {
+    .flex_cols(16);
+    padding: 0 0 0 20px;
+  }
+
   &_stretch {
     align-items: stretch;
   }
@@ -11,7 +16,8 @@
   &__item {
 
     &_icon {
-      .flex();
+      .flex(@j:flex-start, @wrap:nowrap);
+      .flex_cols(3.5);
     }
 
     &_block {
@@ -26,12 +32,6 @@
         background: @c_main;
       }
     }
-  }
-
-  &__icon {
-    margin-right: 10px;
-    max-width: 30px;
-    width: 100%;
   }
 
   &__img {
