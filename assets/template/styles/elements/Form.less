@@ -3,22 +3,39 @@
 //-------------------------------------------------------------------------//
 .Form {
 
+  label {
+    cursor: pointer;
+  }
+
   &__fieldWrap {
     .flex();
     position: relative;
     width: 100%;
     margin: 10px 0;
 
-    &_policy {
-      justify-content: flex-start;
+    &_checkbox {
       flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .check {
+        .animation();
+        opacity: 0;
+      }
     }
   }
 
   .Icon {
     position: absolute;
-    left: 15px;
     line-height: 1em;
+
+    &_checkbox {
+      left: 0;
+    }
+
+    &_text {
+      left: 15px;
+    }
   }
 
   &__field {
@@ -32,17 +49,25 @@
       padding: 10px 25px 10px 40px;
     }
 
+    &_checkbox {
+      &:checked + .Icon {
+        .check {
+          opacity: 1;
+        }
+      }
+    }
+
     &_w1 {
       max-width: 250px;
       width: 100%;
     }
   }
 
-  &__text {
+  &__label {
 
-    &_policy {
+    &_checkbox {
       font-size: @s_text_0;
-      margin-left: 20px;
+      margin-left: 25px;
     }
   }
 }
