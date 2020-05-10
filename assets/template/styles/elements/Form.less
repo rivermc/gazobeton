@@ -1,0 +1,48 @@
+//-------------------------------------------------------------------------//
+// Form //
+//-------------------------------------------------------------------------//
+.Form {
+
+  &__fieldWrap {
+    .flex();
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+
+    &_policy {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+    }
+  }
+
+  .Icon {
+    position: absolute;
+    left: 15px;
+    line-height: 1em;
+  }
+
+  &__field {
+
+    &_text {
+      border: 1px solid @c_gray;
+      border-radius: @radius;
+      color: @c_gray;
+      font-size: @s_text_2;
+      width: 100%;
+      padding: 10px 25px 10px 40px;
+    }
+
+    &_w1 {
+      max-width: 250px;
+      width: 100%;
+    }
+  }
+
+  &__text {
+
+    &_policy {
+      font-size: @s_text_0;
+      margin-left: 20px;
+    }
+  }
+}

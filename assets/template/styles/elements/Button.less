@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------//
-// Button // _v - Version; _m - Margin; _min-w - Min Width;
+// Button // _v - Version; _m - Margin; _mw - Min Width;
 //-------------------------------------------------------------------------//
 .Button {
   .animation();
   font-size: @s_text_2;
   font-family: @f_Monserat;
   border-radius: @radius;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   display: inline-block;
   padding: 10px 20px;
   line-height: 1em;
@@ -16,7 +16,7 @@
   &_m1 {margin: 0 10px 0 0;}
 
   //-------------------------------------------------------------------------//
-  &_min-w1 {min-width: 250px;}
+  &_mw1 {min-width: 250px;}
 
   //-------------------------------------------------------------------------//
   &_v1 {
@@ -26,7 +26,7 @@
     &:hover {
       color: @c_main;
       background: @c_white;
-      border: 2px solid @c_main;
+      border: 1px solid @c_main;
     }
   }
 

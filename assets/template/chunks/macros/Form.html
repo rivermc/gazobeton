@@ -1,0 +1,47 @@
+{set $default_opts = [
+  'type' => 'default',
+  'button_class' => 'Button Button_v1 Button_m1 Button_mw1',
+  'text_button' => 'Заказать'
+  'fields' => [
+    'text_mod' => '',
+    'name' => 0,
+    'phone' => 1,
+    'email' => 0,
+    'policy' => 0,
+  ]
+]}
+{set $default_opts = $_modx->runSnippet('SetMacrosOpts@PropertySet', ['default_opts' => $default_opts, 'opts' => $opts])}
+
+<form method="POST" class="Form Form__{$default_opts.type}" id="Form__{$default_opts.type}">
+  {if $default_opts.fields.name == 1}
+    <label class="Form__fieldWrap">
+      <input type="text" name="name" class="Form__field Form__field_text {if $default_opts.fields.text_mod} Form__field_{$default_opts.fields.text_mod} {/if}" placeholder="Ваше имя">
+      <span class="Icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/name.svg',])}</span>
+    </label>
+  {/if}
+  {if $default_opts.fields.phone == 1}
+    <label class="Form__fieldWrap">
+      <input type="text" name="phone" class="Form__field Form__field_text {if $default_opts.fields.text_mod} Form__field_{$default_opts.fields.text_mod} {/if}" placeholder="Ваш телефон">
+      <span class="Icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}</span>
+    </label>
+  {else}
+    <input type="text" name="phone" hidden value="00000000000">
+  {/if}
+  {if $default_opts.fields.email == 1}
+    <label class="Form__fieldWrap">
+      <input type="text" name="email" class="Form__field Form__field_text {if $default_opts.fields.text_mod} Form__field_{$default_opts.fields.text_mod} {/if}" placeholder="Ваша почта">
+      <span class="Icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/email.svg',])}</span>
+    </label>
+  {else}
+    <input type="text" name="email" hidden value="empty@gazobeton.ru">
+  {/if}
+    <button type="submit" class="{$default_opts.button_class}">{$default_opts.text_button}</button>
+  {if $default_opts.fields.policy == 1}
+    <label class="Form__fieldWrap Form__fieldWrap_policy">
+      <input type="checkbox" name="policy" checked hidden class="Form__field Form__field_policy">
+      <span class="Icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/checkbox.svg',])}</span>
+      <span class="Form__text_policy">Нажимая на кнопку вы даете согласие на обработку своих персональных данных. Мы гарантируем их безопасность</span>
+    </label>
+  {/if}
+</form>
+<div class="Form__error"></div>

@@ -8,8 +8,11 @@
         <p class="P_s2 P_c4 P_m1">Газобетон заводского качества по отличной цене! Быстрая доставка со склада производителя и оплата на месте разгрузки</p>
         {$_modx->getChunk('Callback', [
           'opts' => [
-            'class' => 'test',
-            'field_policy' => 1,
+            'type' => 'TopBlock',
+            'fields' => [
+              'policy' => 1,
+              'text_mod' => 'w1',
+            ]
           ]
         ])}
       </div>
