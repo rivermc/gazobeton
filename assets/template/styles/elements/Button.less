@@ -1,27 +1,32 @@
 //-------------------------------------------------------------------------//
-// Button // _v - Version; _m - Margin;
+// Button // _v - Version; _m - Margin; _min-w - Min Width;
 //-------------------------------------------------------------------------//
 .Button {
   .animation();
-  font-size: @s_text_0;
-  border: 2px solid @c_red;
-  font-family: @f_Monserat_b;
-  text-transform: uppercase;
+  font-size: @s_text_2;
+  font-family: @f_Monserat;
+  border-radius: @radius;
+  border: 2px solid transparent;
   display: inline-block;
-  padding: 15px 20px;
+  padding: 10px 20px;
   line-height: 1em;
+  cursor: pointer;
 
   //-------------------------------------------------------------------------//
   &_m1 {margin: 0 10px 0 0;}
 
   //-------------------------------------------------------------------------//
+  &_min-w1 {min-width: 250px;}
+
+  //-------------------------------------------------------------------------//
   &_v1 {
     color: @c_white;
-    background: @c_red;
+    background: @c_main;
 
     &:hover {
-      color: @c_red;
+      color: @c_main;
       background: @c_white;
+      border: 2px solid @c_main;
     }
   }
 

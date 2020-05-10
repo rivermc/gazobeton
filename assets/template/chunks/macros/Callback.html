@@ -1,0 +1,52 @@
+{set $default_opts = [
+  'class' => 'Callback',
+  'field_name' => 0,
+  'field_phone' => 1,
+  'field_email' => 0,
+  'field_policy' => 0,
+  'title' => ''
+  'text_button' => 'Заказать'
+]}
+{set $default_keys} [{foreach $default_opts as $key => $value}'{$key}',{/foreach}] {/set}
+{foreach $opts as $key => $value} {if $key | in : $default_keys} {set $default_opts[$key] = $value} {/if} {/foreach}
+
+
+<div class="callback {$opts.class}">
+  {if $default_opts.title != ''}
+    <p class="H">{$default_opts.title}</p>
+  {/if}
+  <div class="callback__wrap [[+class:notempty=`[[+class]]`]]__wrap">
+    <div class="callback__error"></div>
+    <form action="POST" class="form callback__form" id="callback__form_[[+class]]">
+      {if $default_opts.field_name == 1}
+        <label class="form_group">
+          <input type="text" name="name" class="form_group_input callback__form_group_input_name" placeholder="Ваше имя">
+          <span class="icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/name.svg',])}</span>
+        </label>
+      {/if}
+      {if $default_opts.field_phone == 1}
+        <label class="form_group">
+          <input type="text" name="phone" class="form_group_input callback__form_group_input_phone" placeholder="Ваш телефон">
+          <span class="icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}</span>
+        </label>
+      {else}
+        <input type="text" name="phone" class="hidden" value="00000000000">
+      {/if}
+      {if $default_opts.field_email == 1}
+        <label class="form_group">
+          <input type="text" name="email" class="form_group_input callback__form_group_input_email" placeholder="Ваша почта">
+          <span class="icon">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/email.svg',])}</span>
+        </label>
+      {else}
+        <input type="text" name="email" class="hidden"  value="empty@gazobeton.ru">
+      {/if}
+      <button type="submit" class="Button Button_v1 Button_m1 Button_min-w1">{$default_opts.text_button}</button>
+      {if $default_opts.field_policy == 1}
+        <label class="form_group">
+          <input type="checkbox" name="policy" checked>
+          <p>Согласен с <a href="{$_modx->makeUrl(14)}">политикой конфиденциальности</a></p>
+        </label>
+      {/if}
+    </form>
+  </div>
+</div>
