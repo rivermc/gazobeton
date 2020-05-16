@@ -249,7 +249,7 @@ strong {
   transition: all 0.2s linear;
   font-size: 12pt;
   font-family: 'Montserrat-Regular', sans-serif;
-  border-radius: 50px;
+  border-radius: 30px;
   border: 1px solid transparent;
   display: inline-block;
   padding: 10px 20px;
@@ -342,6 +342,18 @@ strong {
 .P_s3 {
   font-size: 18pt;
 }
+.P_s4 {
+  font-size: 24px;
+}
+.P_s5 {
+  font-size: 20pt;
+}
+.P_s6 {
+  font-size: 24pt;
+}
+.P_s7 {
+  font-size: 26pt;
+}
 .P_c1 {
   color: #3d73dd;
 }
@@ -351,6 +363,9 @@ strong {
 .P_c3 {
   color: #333333;
 }
+.P_c4 {
+  color: #ffb743;
+}
 .P_m1 {
   margin: 30px 0;
 }
@@ -359,6 +374,12 @@ strong {
 }
 .P_m3 {
   margin: 0 0 5px;
+}
+.P_m4 {
+  margin: 0 0 20px;
+}
+.P_m5 {
+  margin: 20px 0;
 }
 .P_p1 {
   padding: 15px;
@@ -371,6 +392,12 @@ strong {
 }
 .P_v1 {
   text-transform: uppercase;
+}
+.P_v2 {
+  font-family: 'Montserrat-Bold', sans-serif;
+}
+.P_v3 {
+  line-height: 2.2em;
 }
 .Form label {
   cursor: pointer;
@@ -406,7 +433,7 @@ strong {
 }
 .Form__field_text {
   border: 1px solid #999999;
-  border-radius: 50px;
+  border-radius: 30px;
   color: #999999;
   font-size: 12pt;
   width: 100%;
@@ -627,24 +654,22 @@ strong {
   flex-direction: row;
 }
 .PriceBlock__item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
+  transition: all 0.2s linear;
   width: 23.4375%;
-  border: 4px solid #3d73dd;
-  text-align: center;
-  min-height: 270px;
+  background: #3d73dd;
+  border-radius: 30px;
+  padding: 20px;
+  position: relative;
+  top: 0;
+}
+.PriceBlock__item:nth-child(n+4) {
+  background: #ffb743;
+}
+.PriceBlock__item:hover {
+  top: -20px;
 }
 .PriceBlock__title {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
   font-family: 'Montserrat-Bold', sans-serif;
-  min-height: 4em;
 }
 .CatalogBlock {
   margin: 40px 0;
