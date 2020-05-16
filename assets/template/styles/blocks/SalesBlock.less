@@ -1,20 +1,25 @@
 .SalesBlock {
-  background: @c_gray;
-  padding: 100px 0;
+  background: @c_gray_l url('/assets/template/images/sales_block/bg.svg') center 100px no-repeat;
+  padding: 20px 0;
+  background-size: auto 90%;
 
   &__wrap {
-    border: 4px solid @c_main;
-    max-width: 850px;
+    .flex();
     margin: 0 auto;
-    padding: 10px 250px 0 0;
     position: relative;
     text-align: center;
   }
 
-  &__img {
-    position: absolute;
-    right: -30px;
-    bottom: -30px;
+  &__notify {
+    .flex();
+  }
+
+  &__image {
+    .flex_cols(8);
+  }
+
+  &__text {
+    .flex_cols(7);
   }
 
   .SitePhone {

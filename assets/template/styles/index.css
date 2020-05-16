@@ -256,11 +256,6 @@ strong {
   line-height: 1em;
   cursor: pointer;
 }
-.Button_clear {
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
 .Button_m1 {
   margin: 0 10px 0 0;
 }
@@ -296,6 +291,11 @@ strong {
   font-family: 'Montserrat-Bold', sans-serif;
   padding-left: 12px;
   text-transform: uppercase;
+}
+.Button_v4 {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 .A {
   display: inline-block;
@@ -586,21 +586,32 @@ strong {
   max-width: 350px;
 }
 .SalesBlock {
-  background: #999999;
-  padding: 100px 0;
+  background: #eff3f4 url('/assets/template/images/sales_block/bg.svg') center 100px no-repeat;
+  padding: 20px 0;
+  background-size: auto 90%;
 }
 .SalesBlock__wrap {
-  border: 4px solid #3d73dd;
-  max-width: 850px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
   margin: 0 auto;
-  padding: 10px 250px 0 0;
   position: relative;
   text-align: center;
 }
-.SalesBlock__img {
-  position: absolute;
-  right: -30px;
-  bottom: -30px;
+.SalesBlock__notify {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.SalesBlock__image {
+  width: 50%;
+}
+.SalesBlock__text {
+  width: 43.75%;
 }
 .SalesBlock .SitePhone {
   color: #ffffff;
