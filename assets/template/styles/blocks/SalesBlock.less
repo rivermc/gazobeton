@@ -4,25 +4,44 @@
   background-size: auto 90%;
 
   &__wrap {
-    .flex();
+    .flex(@j:flex-start);
     margin: 0 auto;
     position: relative;
-    text-align: center;
+  }
+
+  &__notifies {
+    .flex(@j:flex-start);
   }
 
   &__notify {
-    .flex();
+    background: #ffb743;
+    padding: 10px 20px;
+    transform: skew(-20deg, 0);
+    border-radius: 5px;
+    color: #3d73dd;
+    margin: 0 10px 0 0;
+
+    &_revert {
+      transform: skew(20deg,0);
+      display: block;
+      color: #3d73dd;
+    }
   }
+
 
   &__image {
     .flex_cols(8);
+    .flex_offset_r(1);
+    text-align: center;
   }
 
   &__text {
-    .flex_cols(7);
+    .flex_cols(6);
   }
 
   .SitePhone {
-    color: @c_white;
+    color: @c_blue;
+    font-size: @s_text_4;
+    font-family: @f_Monserat_b;
   }
 }

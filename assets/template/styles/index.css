@@ -181,6 +181,9 @@ h4 {
 strong {
   font-family: 'Montserrat-Bold', sans-serif;
 }
+sup {
+  line-height: 1em;
+}
 .Container {
   padding: 0 15px;
   margin: 0 auto;
@@ -380,6 +383,9 @@ strong {
 }
 .P_m5 {
   margin: 20px 0;
+}
+.P_m6 {
+  margin: 50px 0;
 }
 .P_p1 {
   padding: 15px;
@@ -621,27 +627,43 @@ strong {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
   margin: 0 auto;
   position: relative;
-  text-align: center;
 }
-.SalesBlock__notify {
+.SalesBlock__notifies {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
+}
+.SalesBlock__notify {
+  background: #ffb743;
+  padding: 10px 20px;
+  transform: skew(-20deg, 0);
+  border-radius: 5px;
+  color: #3d73dd;
+  margin: 0 10px 0 0;
+}
+.SalesBlock__notify_revert {
+  transform: skew(20deg, 0);
+  display: block;
+  color: #3d73dd;
 }
 .SalesBlock__image {
   width: 50%;
+  margin-right: 6.25%;
+  text-align: center;
 }
 .SalesBlock__text {
-  width: 43.75%;
+  width: 37.5%;
 }
 .SalesBlock .SitePhone {
-  color: #ffffff;
+  color: #3d73dd;
+  font-size: 24px;
+  font-family: 'Montserrat-Bold', sans-serif;
 }
 .PriceBlock {
   margin: 100px 0;
