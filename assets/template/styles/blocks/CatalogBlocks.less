@@ -1,7 +1,31 @@
 .CatalogBlock {
-  margin: 40px 0;
+  margin: 100px 0;
 
-  &__wrap {
-    background: @c_blue;
+  &__menu {
+    .flex(@j:center);
+  }
+
+  &__item {
+    .animation();
+    .flex_cols(5.5);
+    border-radius: @radius;
+    margin: 0 2% 2%;
+
+    &:hover {
+      box-shadow: @shadow;
+    }
+  }
+
+  &__link {
+    .flex(@j:flex-start, @wrap:nowrap);
+    padding: 40px 10px;
+
+    &_text {
+      .flex_cols(10);
+    }
+
+    &_img {
+      .flex_cols(6);
+    }
   }
 }

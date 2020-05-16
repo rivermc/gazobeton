@@ -9,35 +9,16 @@
     padding: 0 0 0 20px;
   }
 
-  &_stretch {
-    align-items: stretch;
-  }
-
   &__item {
 
     &_icon {
       .flex(@j:flex-start, @wrap:nowrap);
       .flex_cols(3.5);
     }
-
-    &_block {
-      .animation();
-      flex: 1;
-
-      & + & {
-        border-left: 1px solid @c_white;
-      }
-
-      &:hover {
-        background: @c_blue;
-      }
-    }
   }
 
-  &__img {
-    margin: 10px auto;
-    display: block;
-    max-height: 120px;
+  &__icon {
+    max-height: 90px;
   }
 
   &__link {
