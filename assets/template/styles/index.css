@@ -73,14 +73,14 @@ h5,
 li,
 td {
   letter-spacing: 0;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  line-height: 1.2em;
+  line-height: 1.4em;
   font-weight: normal;
 }
 *:focus,
@@ -189,6 +189,9 @@ sup {
   margin: 0 auto;
   width: 1170px;
 }
+.Container_relative {
+  position: relative;
+}
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .Container {
     width: 992px;
@@ -247,6 +250,9 @@ sup {
 }
 .H_v2 {
   text-transform: uppercase;
+}
+.H_v3 {
+  line-height: 1.2em;
 }
 .Button {
   transition: all 0.2s linear;
@@ -408,6 +414,9 @@ sup {
 .P_v3 {
   line-height: 2.2em;
 }
+.P_v4 {
+  line-height: 1.6em;
+}
 .Form label {
   cursor: pointer;
 }
@@ -530,7 +539,7 @@ sup {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background: url('/assets/template/images/icons/block.svg');
+  background: #ffffff url('/assets/template/images/icons/block.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -629,16 +638,16 @@ sup {
 }
 .SalesBlock__notify {
   background: #ffb743;
+  color: #3d73dd;
   padding: 10px 20px;
   transform: skew(-20deg, 0);
   border-radius: 5px;
-  color: #3d73dd;
   margin: 0 10px 0 0;
 }
 .SalesBlock__notify_revert {
+  color: #3d73dd;
   transform: skew(20deg, 0);
   display: block;
-  color: #3d73dd;
 }
 .SalesBlock__image {
   width: 50%;
@@ -715,7 +724,8 @@ sup {
   width: 37.5%;
 }
 .WhyBlock {
-  margin: 100px 0;
+  background: #3d73dd;
+  margin: 0 0 100px 0;
 }
 .WhyBlock__wrap {
   display: flex;
@@ -765,4 +775,43 @@ sup {
 }
 .Footer {
   border-top: 15px solid #3d73dd;
+}
+.AboutBlock {
+  background: #eff3f4;
+  padding: 50px 0 100px;
+  position: relative;
+}
+.AboutBlock__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 40px 0 0;
+}
+.AboutBlock__item:nth-child(odd) .AboutBlock__image {
+  order: 1;
+}
+.AboutBlock__image {
+  width: 50%;
+}
+.AboutBlock__text {
+  width: 50%;
+}
+.AboutBlock__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: -162px;
+  right: 10px;
+  background: #eff3f4 url('/assets/template/images/icons/block2.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  height: 62px;
+  width: 400px;
 }

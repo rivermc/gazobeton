@@ -1,0 +1,41 @@
+//-------------------------------------------------------------------------//
+// AboutBlock //
+//-------------------------------------------------------------------------//
+.AboutBlock {
+  background: @c_gray_l;
+  padding: 50px 0 100px;
+  position: relative;
+
+  &__item {
+    .flex();
+    margin: 40px 0 0;
+
+    &:nth-child(odd) {
+      .AboutBlock__image {
+        order: 1;
+      }
+    }
+  }
+
+  &__image {
+    .flex_cols(8);
+  }
+
+  &__text {
+    .flex_cols(8);
+  }
+
+  &__link {
+    .flex(@j:center);
+    position: absolute;
+    bottom: -162px;
+    right: 10px;
+    background: @c_gray_l url('/assets/template/images/icons/block2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    height: 62px;
+    width: 400px;
+  }
+}

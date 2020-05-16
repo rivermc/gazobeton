@@ -1,0 +1,22 @@
+<div class="AboutBlock">
+  <div class="Container Container_relative">
+    <h2 class="H H_c1 H_w1 H_s1 H_v1 H_m1 H_v2">О производстве</h2>
+    <div class="AboutBlock__wrap">
+      {set $rows = json_decode(13 | resource : 'tv.AboutBlock', true)}
+      {foreach $rows as $row}
+        <div class="AboutBlock__item">
+          <div class="AboutBlock__image">
+            <img src="{$row.image}" alt="">
+          </div>
+          <div class="AboutBlock__text">
+            <p class="P_s4 P_v2 P_m2">{$row.title}</p>
+            <p class="P_s2 P_v4">{$row.text}</p>
+          </div>
+        </div>
+      {/foreach}
+    </div>
+    <div class="AboutBlock__link">
+      <a class="A_c1 A_s3" href="#">Подробнее о заводе</a>
+    </div>
+  </div>
+</div>
