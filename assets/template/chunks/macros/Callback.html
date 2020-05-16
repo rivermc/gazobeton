@@ -1,13 +1,13 @@
-{set $default_opts = [
+{set $_opts = [
   'type' => 'default',
   'class_wrap' => 'Callback__wrap',
   'title' => ''
 ]}
-{set $default_opts = $_modx->runSnippet('SetMacrosOpts@PropertySet', ['default_opts' => $default_opts, 'opts' => $opts])}
+{set $_opts = array_replace_recursive($_opts, $opts) | php}
 
 <div class="Callback Callback_{$default_opts.type}">
-  {if $default_opts.title != ''}
-    <p class="H">{$default_opts.title}</p>
+  {if $_opts.title != ''}
+    <p class="H">{$_opts.title}</p>
   {/if}
   <div class="Callback__wrap">
     {$_modx->getChunk('Form', [

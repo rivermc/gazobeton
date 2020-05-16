@@ -7,7 +7,13 @@
       'outerClass' => 'CatalogBlock__menu',
       'rowClass' => 'CatalogBlock__item',
       'hereClass' => 'CatalogBlock__item_active',
-      'tpl' => '@INLINE <li [[+classes]]><a class="CatalogBlock__link" href="[[+link]]">[[+attributes:notempty=`<img class="CatalogBlock__link_img" src="[[+attributes]]"/>`]] <span class="CatalogBlock__link_text A_c3 A_s3 A_v1 A_v2">[[+menutitle]]</span></a></li>',
+      'tpl' => '@INLINE
+        <li [[+classes]]>
+          <a class="CatalogBlock__link" href="[[+link]]">
+            [[+attributes:notempty=`<img class="CatalogBlock__link_img" src="[[+attributes]]"/>`]]
+            <span class="CatalogBlock__link_text A_c3 A_s3 A_v1 A_v2">[[+menutitle]]</span>
+          </a>
+        </li>',
     ])}
   </div>
 </div>
