@@ -1,0 +1,41 @@
+<div class="ShipPriceBlock">
+  <div class="Container">
+    <h2 class="H H_c1 H_w1 H_s1 H_v1 H_m1 H_v2">Расчет доставки</h2>
+    <div class="ShipPriceBlock__wrap">
+      <div class="ShipPriceBlock__cols">
+        <p class="P_s1 P_c1 P_m7">Доставка осуществляется следующими машинами</p>
+        {set $shippirce_items = json_decode(11 | resource : 'tv.ShipPriceBlock', true)}
+        {foreach $shippirce_items as $item}
+        <div class="ShipPriceBlock__item">
+          <div class="ShipPriceBlock__text">
+            <p class="P_s2 P_v2 P_m2">{$item.title}</p>
+            <p class="P_s1 P_v4">Вместимость:</p>
+            <p class="P_s1 P_v4">{$item.text_1}</p>
+            <p class="P_s1 P_v4">{$item.text_2}</p>
+          </div>
+          <div class="ShipPriceBlock__images">
+            <img class="ShipPriceBlock__img" src="{$item.image}" alt="">
+          </div>
+        </div>
+        {/foreach}
+      </div>
+      <div class="ShipPriceBlock__cols">
+        {$_modx->getChunk('Form', [
+          'opts' => [
+            'type' => 'ShipPrice'
+            'text_button' => 'Рассчитать стоимость с доставкой',
+            'button_class' => 'Button Button_v1 Button_m3 Button_s1',
+            'fields' => [
+              'policy' => 1,
+              'address' => 1,
+              'address_label' => 'Напишите адрес доставки:',
+              'count' => 1,
+              'count_label' => 'Укажите необходимое количество или объем газобетона',
+              'phone_label' => 'Введите ваш телефон для отправки расчета стоимости доставки',
+            ]
+          ]
+        ])}
+      </div>
+    </div>
+  </div>
+</div>

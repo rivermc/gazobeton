@@ -1,0 +1,40 @@
+.ShipPriceBlock {
+  margin: 100px 0;
+
+  &__wrap {
+    .flex(@a:stretch);
+    box-shadow: @shadow;
+    border-radius: @radius;
+  }
+
+  &__cols {
+    .flex_cols(8);
+    padding: 40px;
+
+    &:nth-child(2) {
+      background: @c_gray_l;
+    }
+  }
+
+  &__item {
+    .flex();
+    margin: 0 0 50px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    .flex_cols(8);
+  }
+
+  &__images {
+    .flex_cols(7);
+    text-align: right;
+  }
+
+  &__img {
+    max-height: 85px;
+  }
+}

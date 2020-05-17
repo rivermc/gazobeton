@@ -7,6 +7,8 @@
     'name' => 0,
     'phone' => 1,
     'email' => 0,
+    'count' => 0,
+    'address' => 0,
     'policy' => 0,
   ]
 ]}
@@ -14,23 +16,45 @@
 
 <form method="POST" class="Form Form__{$_opts.type}" id="Form__{$_opts.type}">
   {if $_opts.fields.name == 1}
+    <label class="Form__fieldWrap {$_opts.wrap_class}">
+      {if $_opts.fields.name_label}
+        <span class="Form__label_text">{$_opts.fields.name_label}</span>
+      {/if}
+      <input type="text" name="name" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваше имя"><span class="Icon Icon_text">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/name.svg',])}</span>
+    </label>
+  {/if}
+  {if $_opts.fields.address == 1}
     <label class="Form__fieldWrap">
-      <input type="text" name="name" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваше имя">
-      <span class="Icon Icon_text">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/name.svg',])}</span>
+      {if $_opts.fields.address_label}
+        <span class="Form__label_text">{$_opts.fields.address_label}</span>
+      {/if}
+      <input type="text" name="address" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="">
+    </label>
+  {/if}
+  {if $_opts.fields.count == 1}
+    <label class="Form__fieldWrap">
+      {if $_opts.fields.count_label}
+        <span class="Form__label_text">{$_opts.fields.count_label}</span>
+      {/if}
+      <input type="text" name="count" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="палетт / м3">
     </label>
   {/if}
   {if $_opts.fields.phone == 1}
     <label class="Form__fieldWrap">
+      {if $_opts.fields.phone_label}
+      <span class="Form__label_text">{$_opts.fields.phone_label}</span>
+      {/if}
       <input type="text" name="phone" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваш телефон">
-      <span class="Icon Icon_text">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}</span>
     </label>
   {else}
     <input type="text" name="phone" hidden value="00000000000">
   {/if}
   {if $_opts.fields.email == 1}
     <label class="Form__fieldWrap">
+      {if $_opts.fields.email_label}
+        <span class="Form__label_text">{$_opts.fields.email_label}</span>
+      {/if}
       <input type="text" name="email" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваша почта">
-      <span class="Icon Icon_text">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/email.svg',])}</span>
     </label>
   {else}
     <input type="text" name="email" hidden value="empty@gazobeton.ru">
@@ -40,7 +64,7 @@
     <label class="Form__fieldWrap Form__fieldWrap_checkbox">
       <input type="checkbox" id="field_policy" name="policy" checked hidden class="Form__field Form__field_checkbox">
       <span class="Icon Icon_checkbox">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/checkbox.svg',])}</span>
-      <span for="field_policy" class="Form__label_checkbox">Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность</span>
+      <span class="Form__label_checkbox">Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность</span>
     </label>
   {/if}
 </form>

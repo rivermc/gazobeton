@@ -283,11 +283,14 @@ sup {
 .Button_m2 {
   margin: 10px 0 0;
 }
+.Button_m3 {
+  margin: 0 0 20px;
+}
 .Button_c1 {
   color: #3d73dd;
 }
-.Button_s2 {
-  font-size: 12pt;
+.Button_s1 {
+  font-size: 10pt;
 }
 .Button_mw1 {
   min-width: 250px;
@@ -430,6 +433,9 @@ sup {
 .P_m6 {
   margin: 50px 0;
 }
+.P_m7 {
+  margin: 0 0 50px;
+}
 .P_p1 {
   padding: 15px;
 }
@@ -493,9 +499,9 @@ sup {
   border: 1px solid #999999;
   border-radius: 30px;
   color: #999999;
-  font-size: 12pt;
+  font-size: 10pt;
   width: 100%;
-  padding: 10px 25px 10px 40px;
+  padding: 10px 25px;
 }
 .Form__field_checkbox:checked + .Icon .check {
   opacity: 1;
@@ -507,6 +513,18 @@ sup {
 .Form__label_checkbox {
   font-size: 8pt;
   margin-left: 25px;
+}
+.Form__label_text {
+  color: #3d73dd;
+  font-size: 10pt;
+  margin: 0 0 15px;
+  width: 100%;
+}
+.Form__ShipPrice .Form__fieldWrap {
+  margin: 0;
+}
+.Form__ShipPrice .Form__field_text {
+  margin: 0 0 50px;
 }
 .ToUp {
   transition: all 0.2s linear;
@@ -913,6 +931,46 @@ sup {
   text-align: center;
   height: 62px;
   width: 400px;
+}
+.ShipPriceBlock {
+  margin: 100px 0;
+}
+.ShipPriceBlock__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+  box-shadow: 0 0 15px -10px #333333;
+  border-radius: 30px;
+}
+.ShipPriceBlock__cols {
+  width: 50%;
+  padding: 40px;
+}
+.ShipPriceBlock__cols:nth-child(2) {
+  background: #eff3f4;
+}
+.ShipPriceBlock__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 0 50px;
+}
+.ShipPriceBlock__item:last-child {
+  margin: 0;
+}
+.ShipPriceBlock__text {
+  width: 50%;
+}
+.ShipPriceBlock__images {
+  width: 43.75%;
+  text-align: right;
+}
+.ShipPriceBlock__img {
+  max-height: 85px;
 }
 /* Slider */
 .slick-slider {
