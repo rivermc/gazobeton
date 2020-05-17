@@ -315,8 +315,11 @@ sup {
 .A {
   display: inline-block;
 }
-.A_s1 {
+.A_s0 {
   font-size: 8pt;
+}
+.A_s1 {
+  font-size: 10pt;
 }
 .A_s2 {
   font-size: 10pt;
@@ -336,17 +339,29 @@ sup {
 .A_c3 {
   color: #333333;
 }
+.A_c4 {
+  color: #ffb743;
+}
 .A_p1 {
   padding: 10px;
 }
 .A_m1 {
   margin: 10px 0 0;
 }
+.A_m2 {
+  margin: 0 0 10px;
+}
 .A_v1 {
   text-transform: uppercase;
 }
 .A_v2 {
   font-family: 'Montserrat-Bold', sans-serif;
+}
+.A_v3 {
+  display: block;
+}
+.A_v4 {
+  display: inline;
 }
 .P_s0 {
   font-size: 8pt;
@@ -423,6 +438,9 @@ sup {
 .P_v4 {
   line-height: 1.6em;
 }
+.P_v5 {
+  display: inline;
+}
 .Form label {
   cursor: pointer;
 }
@@ -476,8 +494,6 @@ sup {
 }
 .ToUp {
   transition: all 0.2s linear;
-  display: flex;
-  flex-wrap: wrap;
   background: #3d73dd;
   color: #ffffff;
   padding: 10px;
@@ -486,12 +502,10 @@ sup {
   right: 10px;
   cursor: pointer;
   z-index: 999;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  border-radius: 10px;
 }
 .ToUp:hover {
-  background: #3d73dd;
+  background: #154893;
 }
 .Header {
   background: #ffffff;
@@ -564,16 +578,16 @@ sup {
 .Header__catalogWrap {
   display: none;
 }
-.Menu {
+.Menu_topBlock {
+  width: 100%;
+  padding: 0 0 0 20px;
+}
+.Menu_gor {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-}
-.Menu_topBlock {
-  width: 100%;
-  padding: 0 0 0 20px;
 }
 .Menu__item_icon {
   display: flex;
@@ -785,7 +799,52 @@ sup {
   background-size: cover;
 }
 .Footer {
-  border-top: 15px solid #3d73dd;
+  background: #154893;
+  padding: 20px 0;
+}
+.Footer__topWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 0 30px;
+}
+.Footer__bottomWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  background: url('/assets/template/images/footer/bg.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.Footer__copyright {
+  width: 31.25%;
+  color: #ffffff;
+}
+.Footer__contacts {
+  width: 31.25%;
+  text-align: right;
+}
+.Footer__logo {
+  width: 31.25%;
+}
+.Footer__phone {
+  color: #ffb743;
+  font-size: 24px;
+  font-family: 'Montserrat-Bold', sans-serif;
+  margin: 0 0 10px;
+}
+.Footer__phone path {
+  fill: #ffffff;
+}
+.Footer__adress {
+  color: #ffffff;
+}
+.Footer__menu {
+  margin-right: 6.25%;
 }
 .AboutBlock {
   background: #eff3f4;

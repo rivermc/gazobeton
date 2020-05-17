@@ -2,5 +2,50 @@
 // Footer //
 //-------------------------------------------------------------------------//
 .Footer {
-  border-top: 15px solid @c_blue;
+  background: @c_blue_d;
+  padding: 20px 0;
+
+  &__topWrap {
+    .flex();
+    margin: 0 0 30px;
+  }
+  &__bottomWrap {
+    .flex(@j:flex-start, @a:flex-start);
+    background: url('/assets/template/images/footer/bg.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  &__copyright {
+    .flex_cols(5);
+    color: @c_white;
+  }
+
+  &__contacts {
+    .flex_cols(5);
+    text-align: right;
+  }
+
+  &__logo {
+    .flex_cols(5);
+  }
+
+  &__phone {
+    color: @c_orange;
+    font-size: @s_text_4;
+    font-family: @f_Monserat_b;
+    margin: 0 0 10px;
+
+    path {
+      fill: @c_white;
+    }
+  }
+
+  &__adress {
+    color: @c_white;
+  }
+
+  &__menu {
+    .flex_offset_r(1);
+  }
 }
