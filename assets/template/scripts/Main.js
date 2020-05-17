@@ -1,6 +1,7 @@
 import Map from './Map.js';
 import ToUp from './ToUp.js';
 import Modal from './Modal.js';
+import Slider from './Slider.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -35,6 +36,7 @@ $(document).ready(function() {
 
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
+  new Slider('.js_Slider');
 
   $('.js_openMenu').click(function() {
     $(this).toggleClass('js_active');

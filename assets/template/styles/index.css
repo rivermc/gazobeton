@@ -1,4 +1,4 @@
-@import "jquery-ui.css";
+@import "libs/jquery-ui.css";
 html {
   height: 101%;
   margin: 0;
@@ -233,6 +233,9 @@ sup {
 .H_s4 {
   font-size: 16pt;
 }
+.H_s5 {
+  font-size: 12pt;
+}
 .H_c1 {
   color: #3d73dd;
 }
@@ -241,6 +244,9 @@ sup {
 }
 .H_c3 {
   color: #333333;
+}
+.H_c4 {
+  color: #ffffff;
 }
 .H_m1 {
   margin: 0 0 50px;
@@ -285,6 +291,10 @@ sup {
 }
 .Button_mw1 {
   min-width: 250px;
+}
+.Button_clear {
+  border: 0;
+  background: transparent;
 }
 .Button_v1 {
   color: #ffffff;
@@ -361,7 +371,10 @@ sup {
   display: block;
 }
 .A_v4 {
-  display: inline;
+  text-decoration: underline;
+}
+.P {
+  display: inline-block;
 }
 .P_s0 {
   font-size: 8pt;
@@ -440,6 +453,9 @@ sup {
 }
 .P_v5 {
   display: inline;
+}
+.P_v6 {
+  text-align: center;
 }
 .Form label {
   cursor: pointer;
@@ -681,6 +697,7 @@ sup {
   color: #3d73dd;
   font-size: 24px;
   font-family: 'Montserrat-Bold', sans-serif;
+  line-height: 1.4em;
 }
 .PriceBlock {
   margin: 100px 0;
@@ -746,31 +763,43 @@ sup {
 .WhyBlock {
   background: #3d73dd;
   margin: 0 0 100px 0;
-}
-.WhyBlock__wrap {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  padding: 130px 0 100px 0;
 }
 .WhyBlock__block {
-  width: 46.875%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  margin-top: 40px;
+  position: relative;
+}
+.WhyBlock__images {
+  margin-bottom: 40px;
 }
 .WhyBlock__img {
-  max-width: 200px;
-  width: 100%;
-  text-align: center;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
 }
 .WhyBlock__text {
-  flex: 1;
-  padding: 0 0 0 20px;
+  width: 200%;
+  opacity: 0;
+  visibility: hidden;
+}
+.WhyBlock__nav .Slider__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.WhyBlock__nav .Slider__button__prev {
+  left: 15px;
+}
+.WhyBlock__nav .Slider__button_next {
+  right: 15px;
+}
+.WhyBlock .slick-center .WhyBlock__text {
+  transition: all 0.2s linear;
+  position: absolute;
+  left: -50%;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.2s;
 }
 .ContactsBlock {
   margin: 100px 0;
@@ -884,4 +913,92 @@ sup {
   text-align: center;
   height: 62px;
   width: 400px;
+}
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+  display: none;
 }

@@ -1,25 +1,53 @@
 .WhyBlock {
   background: @c_blue;
   margin: 0 0 100px 0;
-
-  &__wrap {
-    .flex();
-  }
+  padding: 130px 0 100px 0;
 
   &__block {
-    .flex_cols(7.5);
-    .flex();
-    margin-top: 40px;
+    position: relative;
+  }
+
+  &__images {
+    margin-bottom: 40px;
   }
 
   &__img {
-    max-width: 200px;
-    width: 100%;
-    text-align: center;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
   }
 
   &__text {
-    flex: 1;
-    padding: 0 0 0 20px;
+    width: 200%;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__nav {
+    .Slider__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      &__prev {
+        left: 15px;
+      }
+
+      &_next {
+        right: 15px;
+      }
+    }
+  }
+
+  .slick-center {
+    .WhyBlock__text {
+      .animation();
+      position: absolute;
+      left: -50%;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
   }
 }
