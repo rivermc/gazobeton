@@ -8,17 +8,22 @@
     .flex();
   }
 
-  &__map {
-    .flex_cols(7.5);
-    border-left: 15px solid @c_blue;
-
-    #Map_contact {
-      height: 655px;
-    }
+  &__text {
+    .flex_cols(4);
+    font-size: @s_text_0;
   }
 
-  &__text {
-    .flex_cols(7.5);
-    font-size: @s_text_0;
+  &__map {
+    .flex_cols(11);
+
+    #Map_contact {
+      box-shadow: 15px 15px 0 0 @c_blue;
+      border-radius: @radius_2;
+      height: 420px;
+      overflow: hidden;
+      background: url('/assets/template/images/contact_block/map_bg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 }

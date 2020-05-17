@@ -184,6 +184,12 @@ strong {
 sup {
   line-height: 1em;
 }
+.InText {
+  color: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+}
 .Container {
   padding: 0 15px;
   margin: 0 auto;
@@ -762,16 +768,21 @@ sup {
   justify-content: space-between;
   flex-direction: row;
 }
+.ContactsBlock__text {
+  width: 25%;
+  font-size: 8pt;
+}
 .ContactsBlock__map {
-  width: 46.875%;
-  border-left: 15px solid #3d73dd;
+  width: 68.75%;
 }
 .ContactsBlock__map #Map_contact {
-  height: 655px;
-}
-.ContactsBlock__text {
-  width: 46.875%;
-  font-size: 8pt;
+  box-shadow: 15px 15px 0 0 #3d73dd;
+  border-radius: 50px;
+  height: 420px;
+  overflow: hidden;
+  background: url('/assets/template/images/contact_block/map_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .Footer {
   border-top: 15px solid #3d73dd;

@@ -30,9 +30,9 @@ export default class Map {
       balloonContent: '<p>' + this.address + '</p>'
     }, {
       iconLayout: 'default#image',
-      iconImageHref: '/assets/template/images/icons/map-icon-0.svg',
-      iconImageSize: [64, 90],
-      iconImageOffset: [-32, -90]
+      iconImageHref: '/assets/template/images/icons/geo.svg',
+      iconImageSize: [38, 46],
+      iconImageOffset: [-19, -46]
     });
     this.Map.geoObjects.add(Placemark);
   }
