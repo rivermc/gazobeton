@@ -32,6 +32,9 @@
           'parents' => 0,
           'resources' => -2,
           'level' => 1,
+          'where' => [
+            'template:NOT IN' => [6],
+          ],
           'outerClass' => 'Menu Menu_gor Menu_topBlock',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
@@ -46,6 +49,10 @@
         {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 2,
           'resources' => '-7',
+          'level' => 1,
+          'where' => [
+            'template:NOT IN' => [6],
+          ],
           'outerClass' => 'Menu Menu_gor',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',

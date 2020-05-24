@@ -4,6 +4,9 @@
     {$_modx->runSnippet('pdoMenu@PropertySet', [
       'parents' => 2,
       'resources' => -7,
+      'where' => [
+        'template:NOT IN' => [6],
+      ],
       'outerClass' => 'CatalogBlock__menu',
       'rowClass' => 'CatalogBlock__item',
       'hereClass' => 'CatalogBlock__item_active',

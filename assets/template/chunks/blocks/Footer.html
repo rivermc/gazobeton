@@ -24,6 +24,9 @@
         {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 2,
           'level' => 1,
+          'where' => [
+            'template:NOT IN' => [6],
+          ],
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
@@ -35,6 +38,9 @@
           'parents' => 0,
           'resources' => -2
           'level' => 1,
+          'where' => [
+            'template:NOT IN' => [6],
+          ],
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
