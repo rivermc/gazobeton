@@ -541,6 +541,25 @@ sup {
 .ToUp:hover {
   background: #154893;
 }
+.Crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin: 25px 0;
+}
+.Crumbs__item {
+  font-size: 10pt;
+}
+.Crumbs__item_current {
+  font-family: 'Montserrat-Bold', sans-serif;
+  color: #3d73dd;
+}
+.Crumbs__delimiter {
+  display: inline-block;
+  margin: 0 5px;
+}
 .Header {
   background: #ffffff;
   position: sticky;

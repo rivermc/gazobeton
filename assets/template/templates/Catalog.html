@@ -2,7 +2,15 @@
 
 {block 'Content'}
   <div class="Container">
-    <h1>{$_modx->resource.pagetitle}</h1>
-    Catalog
+    {$_modx->getChunk('Crumbs')}
+    <h1 class="H H_c1 H_w1 H_s1 H_m1 H_v2">{$_modx->resource.pagetitle}</h1>
+    {$_modx->resource.content}
+    <div class="Catalog__list">
+      {$_modx->runSnippet('msProducts@PropertySet', [
+        'parents' => $_modx->resource.id,
+        'tpl' => 'CatalogItem',
+        'limit' => 0
+      ])}
+    </div>
   </div>
 {/block}
