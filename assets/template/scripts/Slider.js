@@ -1,8 +1,9 @@
 export default class Slider {
-  constructor(el) {
+  constructor(el, opts) {
     this.$el = $(el);
+    this.opts = opts;
 
-    this.$el.slick({
+    const default_opts = {
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 3,
@@ -11,6 +12,9 @@ export default class Slider {
       autoplay: true,
       prevArrow: '.Slider__button_prev',
       nextArrow: '.Slider__button_next'
-    });
+    };
+    this.opts = Object.assign(default_opts, opts);
+
+    this.$el.slick(this.opts);
   }
 }

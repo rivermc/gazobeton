@@ -1,0 +1,10 @@
+<div class="AboutSlider js_Slider">
+  {set $about_items = json_decode(13 | resource : 'tv.AboutSlider', true)}
+  {foreach $about_items as $item}
+    <img src="{$item.image}" alt="">
+  {/foreach}
+</div>
+<div class="AboutSlider__nav">
+  <button class="Button_clear Slider__button Slider__button_prev">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/prev.svg',])}</button>
+  <button class="Button_clear Slider__button Slider__button_next">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/next.svg',])}</button>
+</div>

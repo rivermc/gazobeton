@@ -36,7 +36,12 @@ $(document).ready(function() {
 
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
-  new Slider('.js_Slider');
+  new Slider('.WhyBlock .js_Slider');
+  new Slider('.AboutSlider.js_Slider', {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: false,
+  });
 
   $('.js_openMenu').click(function() {
     $(this).toggleClass('js_active');

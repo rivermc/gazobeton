@@ -1,8 +1,57 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-<div class="Container">
-  <h1>{$_modx->resource.pagetitle}</h1>
-  Product
-</div>
+  <div class="Product">
+    <div class="Product__top">
+      <div class="Container">
+        {$_modx->getChunk('Crumbs')}
+      </div>
+    </div>
+    <div class="Product__middle">
+      <div class="Container">
+        <div class="Product__title">
+          <h1 class="H H_c1 H_w1 H_s1 H_m1 H_v2">{$_modx->resource.pagetitle}</h1>
+        </div>
+        <div class="Product__item">
+          <div class="Product__gallery">
+            {$_modx->runSnippet('msGallery', [
+              'tpl' => 'Fotorama'
+            ])}
+          </div>
+          <div class="Product__options">
+            <p class="P_s8 P_v2 P_m2">Характеристики</p>
+            {$_modx->runSnippet('msProductOptionsCustom', [
+              'onlyOptions' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
+              'tpl' => 'ProductOptionsTable',
+              'text_class' => 'P_s2'
+            ])}
+          </div>
+          <div class="Product__price">
+            <p class="P_s8 P_v2 P_m2">Цена</p>
+            <div class="Product__price_wrap">
+              <p class="H H_c1 H_w1 H_s3">{$_modx->resource.price} руб./м<sup>3</sup></p>
+              <a href="#callback" class="Button Button_v1">Заказать</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Product__bottom">
+      <div class="Container">
+        <p class="P_s8 P_v2 P_m2">Описание</p>
+        <div class="Product__content">
+          {$_modx->resource.content}
+        </div>
+        <div class="Product__optionsBlock">
+          <p>Характеристики</p>
+            {$_modx->runSnippet('msProductOptionsCustom', [
+              'tpl' => 'ProductOptionsTable',
+              'text_class' => 'P_s1'
+            ])}
+        </div>
+        <h2 class="H H_c1 H_w1 H_s1 H_m1 H_v1 H_v2">Фотографии с производства</h2>
+        {$_modx->getChunk('AboutSlider')}
+      </div>
+    </div>
+  </div>
 {/block}

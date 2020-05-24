@@ -341,7 +341,7 @@ sup {
   font-size: 12pt;
 }
 .A_s4 {
-  font-size: 14px;
+  font-size: 14pt;
 }
 .A_c1 {
   color: #3d73dd;
@@ -392,7 +392,7 @@ sup {
   font-size: 18pt;
 }
 .P_s4 {
-  font-size: 24px;
+  font-size: 24pt;
 }
 .P_s5 {
   font-size: 20pt;
@@ -402,6 +402,9 @@ sup {
 }
 .P_s7 {
   font-size: 26pt;
+}
+.P_s8 {
+  font-size: 14pt;
 }
 .P_c1 {
   color: #3d73dd;
@@ -526,6 +529,36 @@ sup {
 .Form__ShipPrice .Form__field_text {
   margin: 0 0 50px;
 }
+.Product__top {
+  background: #eff3f4;
+}
+.Product__middle {
+  padding: 50px 0;
+}
+.Product__bottom {
+  background: #eff3f4;
+  padding: 50px 0;
+}
+.Product__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.Product__content {
+  font-size: 12pt;
+}
+.Product__price_wrap {
+  background: #eff3f4;
+  padding: 20px;
+}
+.Product__optionsBlock {
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 0 15px -10px #333333;
+  padding: 30px;
+}
 .ToUp {
   transition: all 0.2s linear;
   background: #3d73dd;
@@ -547,7 +580,7 @@ sup {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  margin: 25px 0;
+  padding: 20px 0;
 }
 .Crumbs__item {
   font-size: 10pt;
@@ -732,7 +765,7 @@ sup {
 }
 .SalesBlock .SitePhone {
   color: #3d73dd;
-  font-size: 24px;
+  font-size: 24pt;
   font-family: 'Montserrat-Bold', sans-serif;
   line-height: 1.4em;
 }
@@ -904,7 +937,7 @@ sup {
 }
 .Footer__phone {
   color: #ffb743;
-  font-size: 24px;
+  font-size: 24pt;
   font-family: 'Montserrat-Bold', sans-serif;
   margin: 0 0 10px;
 }

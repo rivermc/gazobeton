@@ -12,5 +12,25 @@
         'limit' => 0
       ])}
     </div>
+    <div class="tabs__menu">
+      <div class="container">
+        <ul>
+          <li class="js_tabs_menu js_active" data-id="1">Характеристики</li>
+          [[*content:notempty=`
+          <li class="js_tabs_menu" data-id="2">Описание</li>
+          `]]
+        </ul>
+      </div>
+    </div>
+    <div class="tabs__items">
+      <div class="container">
+        [[*content:notempty=`
+        <div class="tabs__items_item js_tabs_item" data-id="2">
+          <h2>Описание [[*pagetitle]]</h2>
+          [[*content]]
+        </div>
+        `]]
+      </div>
+    </div>
   </div>
 {/block}

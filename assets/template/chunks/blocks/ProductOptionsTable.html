@@ -1,0 +1,13 @@
+<table>
+  <tbody>
+    {foreach $options as $name => $values}
+      {if $values.value[0] != ''}
+        <tr class="option_{$values.key}">
+          <td><p class="{$text_class}">{$values.caption}:</p></td>
+          <td><p class="{$text_class}">{$values.value[0]}</p></td>
+        </tr>
+      {/if}
+    {/foreach}
+  </tbody>
+</table>
+
