@@ -1,0 +1,39 @@
+{$_modx->runSnippet('mFilter2@PropertySet', [
+  'parents' => $_modx->resource.id,
+  'element' => 'msProducts',
+  'limit' => 10,
+  'idx' => 1,
+  'includeTVs' => 'HitsPage',
+  'toPlaceholders' => 'filter_',
+  'sortby' => 'msCategory.menuindex ASC, msProduct.menuindex',
+  'tpls' => 'CatalogItem',
+  'tplPageWrapper' => '@INLINE <div class="pagination"><ul>{$prev}{$pages}{$next}</ul></div>',
+  'tplPageFirst' => '@INLINE <li class="control prev first"><a class="js_no_preload" href="{$href}">Первая</a></li>',
+  'tplPageLast' => '@INLINE <li class="control next last"><a  class="js_no_preload" href="{$href}">Последняя</a></li>',
+  'tplPage' => '@INLINE <li><a  class="js_no_preload" href="{$href}">{$pageNo}</a></li>',
+  'tplPageActive' => '@INLINE <li class="active"><a  class="js_no_preload" href="{$href}">{$pageNo}</a>',
+  'tplPagePrev' => '@INLINE <li class="control prev"><a class="js_no_preload" href="{$href}">Prev Page</a></li>',
+  'tplPageNext' => '@INLINE <li class="control next"><a  class="js_no_preload" href="{$href}">Next Page</a></li>',
+  'tplPageNextEmpty' => '@INLINE ',
+  'tplPagePrevEmpty' => '@INLINE ',
+  'tplPageFirstEmpty' => '@INLINE ',
+  'leftJoin' => [
+    'msCategory' => [
+      'class' => 'msCategory',
+      'alias' => 'msCategory',
+      'on' => 'msProduct.parent = msCategory.id',
+    ],
+  ],
+  'filters' => '
+    ms|price:number,
+    resource|parent:parents
+  ',
+  'aliases' => '
+    ms|price==price,
+    resource|parent==parent,
+  ',
+  'tplFilter.outer.price' => 'FilterSlider',
+  'tplFilter.row.price' => 'FilterNumber',
+  'tplFilter.outer.parent' => 'FilterCheckboxOut',
+  'tplFilter.row.parent' => 'FilterCheckbox'
+])}

@@ -529,6 +529,13 @@ sup {
 .Form__ShipPrice .Form__field_text {
   margin: 0 0 50px;
 }
+.Catalog__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
 .Product__top {
   background: #eff3f4;
 }

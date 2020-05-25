@@ -1,16 +1,21 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-  <div class="Container">
+  {$_modx->getChunk('Filter')}
+
+  <div class="Container"  id="mse2_mfilter">
     {$_modx->getChunk('Crumbs')}
+    <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="filter__form">
+      {$modx->placeholders.filter_filters}
+      <button type="reset" class="button button_orange js_filter_reset">Сбросить</button>
+    </form>
     <h1 class="H H_c1 H_w1 H_s1 H_m1 H_v2">{$_modx->resource.pagetitle}</h1>
     {$_modx->resource.content}
-    <div class="Catalog__list">
-      {$_modx->runSnippet('msProducts@PropertySet', [
-        'parents' => $_modx->resource.id,
-        'tpl' => 'CatalogItem',
-        'limit' => 0
-      ])}
+    <div class="Catalog__list" id="mse2_results" >
+      {$modx->placeholders.filter_results}
+    </div>
+    <div class="mse2_pagination">
+      {!$modx->placeholders.page.nav}
     </div>
     <div class="tabs__menu">
       <div class="container">
