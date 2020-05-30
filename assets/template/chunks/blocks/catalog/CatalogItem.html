@@ -1,16 +1,25 @@
 <div class="CatalogItem">
   <div class="CatalogItem__image">
-    <img src="{$image}" alt="">
+    <img src="{$image}" alt="{$pagetitle}">
   </div>
   <div class="CatalogItem__title">
-    {$pagetitle}
+    <p class="P_s1 P_v2">{$pagetitle}</p>
   </div>
-  <div class="CatalogItem__options"></div>
+  <div class="CatalogItem__options">
+    {$_modx->runSnippet('msProductOptionsCustom', [
+      'product' => $id,
+      'onlyOptions' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
+      'tpl' => 'ProductOptionsTable',
+      'text_class' => 'P_s1'
+    ])}
+  </div>
   <div class="CatalogItem__price">
-    {$price}
+    <p class="P_c1 P_v2 P_s2">{$price} руб./м<sup>3</sup></p>
   </div>
   <div class="CatalogItem__link">
-    <a href="{$uri}">Узнать подробнее</a>
+    <a href="{$uri}" class="A A_c4 A_v4 A_s1">Узнать подробнее</a>
   </div>
-  <div class="CatalogItem__callback"></div>
+  <div class="CatalogItem__callback">
+    <button class="Button Button_v1 Button_mw3 Button_w1">Заказать</button>
+  </div>
 </div>

@@ -3,7 +3,33 @@
 //-------------------------------------------------------------------------//
 
 .Catalog {
-  &__list {
-    .flex();
+
+  &__top {
+    background: @c_gray_l;
+  }
+
+  &__middle {
+    padding: 50px 0;
+  }
+
+  &__bottom {
+    background: @c_gray_l;
+    padding: 50px;
+  }
+
+  &__content {
+
+    p, a, span, li {
+      font-size: @s_text_2;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__items {
+    .flex(@j:flex-start);
+    background: @c_gray_l;
   }
 }

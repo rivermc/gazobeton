@@ -312,6 +312,12 @@ sup {
 .Button_mw2 {
   min-width: 220px;
 }
+.Button_mw3 {
+  max-width: 100%;
+}
+.Button_w1 {
+  width: 100%;
+}
 .Button_clear {
   border: 0;
   background: transparent;
@@ -359,10 +365,10 @@ sup {
   font-size: 10pt;
 }
 .A_s2 {
-  font-size: 10pt;
+  font-size: 12pt;
 }
 .A_s3 {
-  font-size: 12pt;
+  font-size: 18pt;
 }
 .A_s4 {
   font-size: 14pt;
@@ -553,12 +559,32 @@ sup {
 .Form__ShipPrice .Form__field_text {
   margin: 0 0 50px;
 }
-.Catalog__list {
+.Catalog__top {
+  background: #eff3f4;
+}
+.Catalog__middle {
+  padding: 50px 0;
+}
+.Catalog__bottom {
+  background: #eff3f4;
+  padding: 50px;
+}
+.Catalog__content p,
+.Catalog__content a,
+.Catalog__content span,
+.Catalog__content li {
+  font-size: 12pt;
+}
+.Catalog__content p {
+  margin-bottom: 15px;
+}
+.Catalog__items {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
+  background: #eff3f4;
 }
 .Product__top {
   background: #eff3f4;
@@ -1120,6 +1146,25 @@ sup {
 }
 .Filter .ui-selectmenu-open {
   animation: fadeIn 0.4s ease 1 forwards;
+}
+.CatalogItem {
+  width: 22.5%;
+  margin-right: 1.25%;
+  margin-left: 1.25%;
+  background: #ffffff;
+  box-shadow: 0 0 15px -10px #333333;
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.CatalogItem__title {
+  margin: 0 0 10px 0;
+}
+.CatalogItem__price {
+  margin: 10px 0;
+}
+.CatalogItem__link {
+  margin: 10px 0;
 }
 /* Slider */
 .slick-slider {
