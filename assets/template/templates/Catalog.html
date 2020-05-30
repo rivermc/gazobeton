@@ -2,40 +2,47 @@
 
 {block 'Content'}
   {$_modx->getChunk('Filter')}
-
-  <div class="Container"  id="mse2_mfilter">
-    {$_modx->getChunk('Crumbs')}
-    <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="filter__form">
-      {$modx->placeholders.filter_filters}
-      <button type="reset" class="button button_orange js_filter_reset">Сбросить</button>
-    </form>
-    <h1 class="H H_c1 H_w1 H_s1 H_m1 H_v2">{$_modx->resource.pagetitle}</h1>
-    {$_modx->resource.content}
-    <div class="Catalog__list" id="mse2_results" >
-      {$modx->placeholders.filter_results}
-    </div>
-    <div class="mse2_pagination">
-      {!$modx->placeholders.page.nav}
-    </div>
-    <div class="tabs__menu">
-      <div class="container">
-        <ul>
-          <li class="js_tabs_menu js_active" data-id="1">Характеристики</li>
-          [[*content:notempty=`
-          <li class="js_tabs_menu" data-id="2">Описание</li>
-          `]]
-        </ul>
+  <div class="Filter" id="mse2_mfilter">
+    <div class="Filter__top">
+      <div class="Container">
+        {$_modx->getChunk('Crumbs')}
+        <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Filter__form">
+          <div class="Filter__filters">
+            {$modx->placeholders.filter_filters}
+          </div>
+        </form>
       </div>
     </div>
-    <div class="tabs__items">
-      <div class="container">
-        [[*content:notempty=`
-        <div class="tabs__items_item js_tabs_item" data-id="2">
-          <h2>Описание [[*pagetitle]]</h2>
-          [[*content]]
+    <div class="Container">
+      <h1 class="H H_c1 H_w1 H_s1 H_m1 H_v2">{$_modx->resource.pagetitle}</h1>
+      {$_modx->resource.content}
+      <div class="Catalog__list" id="mse2_results" >
+        {$modx->placeholders.filter_results}
+      </div>
+      <div class="mse2_pagination">
+        {!$modx->placeholders.page.nav}
+      </div>
+      <div class="tabs__menu">
+        <div class="container">
+          <ul>
+            <li class="js_tabs_menu js_active" data-id="1">Характеристики</li>
+            [[*content:notempty=`
+            <li class="js_tabs_menu" data-id="2">Описание</li>
+            `]]
+          </ul>
         </div>
-        `]]
+      </div>
+      <div class="tabs__items">
+        <div class="container">
+          [[*content:notempty=`
+          <div class="tabs__items_item js_tabs_item" data-id="2">
+            <h2>Описание [[*pagetitle]]</h2>
+            [[*content]]
+          </div>
+          `]]
+        </div>
       </div>
     </div>
+
   </div>
 {/block}

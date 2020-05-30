@@ -2,6 +2,7 @@ import Map from './Map.js';
 import ToUp from './ToUp.js';
 import Modal from './Modal.js';
 import Slider from './Slider.js';
+import SelectMenu from './SelectMenu.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -36,6 +37,7 @@ $(document).ready(function() {
 
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
+  new SelectMenu('.js_SelectMenu');
   new Slider('.WhyBlock .js_Slider');
   new Slider('.AboutSlider.js_Slider', {
     slidesToShow: 1,
@@ -47,6 +49,12 @@ $(document).ready(function() {
     $(this).toggleClass('js_active');
     $('.Header__catalogWrap').slideToggle();
   });
+
+
+  $(document).on('mse2_load', (/*e, data*/) => {
+    new SelectMenu('.js_SelectMenu');
+  });
+
 
 });
 

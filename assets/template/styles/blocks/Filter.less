@@ -1,0 +1,72 @@
+//-------------------------------------------------------------------------//
+// Filter //
+//-------------------------------------------------------------------------//
+.Filter {
+
+  &__top {
+    background: @c_gray_l;
+  }
+
+  &__form {
+    .flex();
+  }
+
+  &__filters {
+    .flex(@j:flex-start);
+    flex: 1;
+  }
+
+  &__buttons {
+    .flex_cols(8);
+  }
+
+  &__fieldset {
+    .flex_cols(3);
+    margin: 10px 0;
+
+    &_price {
+      .flex_cols(8);
+    }
+  }
+
+  &__select {
+    .transition();
+    background: @c_white;
+    font-size: @s_text_1;
+    border-radius: @radius_3;
+    border: 1px solid @c_gray;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 5px 10px;
+
+    &_open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .ui-state-active {
+    background: @c_blue;
+    color: @c_white;
+    border: 0;
+  }
+  .ui-menu {
+
+    &-item-wrapper {
+      font-size: @s_text_1;
+      font-family: @f_Monserat;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+  }
+  .ui-selectmenu  {
+    &-menu {
+      opacity: 0;
+    }
+    &-open {
+      .animation(@key:fadeIn, @count:1, @dir:forwards);
+    }
+  }
+}

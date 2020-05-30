@@ -1,0 +1,8 @@
+{$_modx->lexicon->load('minishop2:product')}
+<fieldset id="mse2_{$table}{$delimeter}{$filter}" class="Filter__fieldset">
+  <select class="js_SelectMenu" name="{$filter}">
+    <option selected disabled value="none">{$_modx->lexicon('ms2_product_' ~ $filter)}</option>
+    {$rows}
+  </select>
+  <div class="js_SelectMenu_target"></div>
+</fieldset>

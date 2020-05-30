@@ -106,6 +106,20 @@ input[hidden],
 html {
   font-size: 12pt;
 }
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+@keyframes fadeIn {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
 .g_flex {
   display: flex;
   flex-wrap: wrap;
@@ -295,6 +309,9 @@ sup {
 .Button_mw1 {
   min-width: 250px;
 }
+.Button_mw2 {
+  min-width: 220px;
+}
 .Button_clear {
   border: 0;
   background: transparent;
@@ -324,6 +341,13 @@ sup {
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+.Button_v5 {
+  color: #ffffff;
+  background: #ffb743;
+}
+.Button_v5:hover {
+  background: #3d73dd;
 }
 .A {
   display: inline-block;
@@ -1035,6 +1059,67 @@ sup {
 }
 .ShipPriceBlock__img {
   max-height: 85px;
+}
+.Filter__top {
+  background: #eff3f4;
+}
+.Filter__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.Filter__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex: 1;
+}
+.Filter__buttons {
+  width: 50%;
+}
+.Filter__fieldset {
+  width: 18.75%;
+  margin: 10px 0;
+}
+.Filter__fieldset_price {
+  width: 50%;
+}
+.Filter__select {
+  transition: all 0.2s linear;
+  background: #ffffff;
+  font-size: 10pt;
+  border-radius: 20px;
+  border: 1px solid #999999;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+.Filter__select_open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.Filter .ui-state-active {
+  background: #3d73dd;
+  color: #ffffff;
+  border: 0;
+}
+.Filter .ui-menu-item-wrapper {
+  font-size: 10pt;
+  font-family: 'Montserrat-Regular', sans-serif;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+.Filter .ui-selectmenu-menu {
+  opacity: 0;
+}
+.Filter .ui-selectmenu-open {
+  animation: fadeIn 0.4s ease 1 forwards;
 }
 /* Slider */
 .slick-slider {

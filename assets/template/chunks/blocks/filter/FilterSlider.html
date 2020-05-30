@@ -1,4 +1,4 @@
-<fieldset id="mse2_{$table}{$delimeter}{$filter}" class="{$filter_key}">
+<fieldset id="mse2_{$table}{$delimeter}{$filter}" class="Filter__fieldset Filter__fieldset_{$filter_key}">
   <div class="title">
     <p>{$_modx->lexicon('ms2_product_' ~ $filter)}:</p>
   </div>
@@ -6,3 +6,7 @@
     {$rows}
   </div>
 </fieldset>
+
+<div class="Filter__buttons">
+  <button type="reset" class="Button Button_v5 Button_mw2">Сбросить</button>
+</div>
