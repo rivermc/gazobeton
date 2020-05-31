@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
-  new SelectMenu('.js_SelectMenu');
+  const SelectFilter = new SelectMenu('.js_SelectMenu');
   new Slider('.WhyBlock .js_Slider');
   new Slider('.AboutSlider.js_Slider', {
     slidesToShow: 1,
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 
   $(document).on('mse2_load', (/*e, data*/) => {
-    new SelectMenu('.js_SelectMenu');
+    SelectFilter.refresh();
   });
 
 

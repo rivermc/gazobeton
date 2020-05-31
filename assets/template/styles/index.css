@@ -561,6 +561,7 @@ sup {
 }
 .Catalog__top {
   background: #eff3f4;
+  padding: 0 0 30px;
 }
 .Catalog__middle {
   padding: 50px 0;
@@ -1086,9 +1087,6 @@ sup {
 .ShipPriceBlock__img {
   max-height: 85px;
 }
-.Filter__top {
-  background: #eff3f4;
-}
 .Filter__form {
   display: flex;
   flex-wrap: wrap;
@@ -1105,19 +1103,54 @@ sup {
   flex: 1;
 }
 .Filter__buttons {
-  width: 50%;
+  width: 37.5%;
+  padding: 0 0 0 15px;
 }
 .Filter__fieldset {
-  width: 18.75%;
-  margin: 10px 0;
+  margin: 5px 5px 5px 0;
 }
 .Filter__fieldset_price {
-  width: 50%;
+  width: 62.5%;
+  margin: 5px 0;
+}
+.Filter__fieldset_price .price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.Filter__fieldset_price .price > input {
+  background: #ffffff;
+  font-size: 8pt;
+  border-radius: 20px;
+  border: 1px solid #999999;
+  display: block;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+.Filter__fieldset_price .price .title {
+  margin: 0 20px 0 0;
+}
+.Filter__fieldset_price .price .mse2_number_slider {
+  flex: 1 1 20%;
+}
+.Filter__fieldset_price .price .mse2_number_slider.ui-widget-content {
+  border: 1px solid #154893;
+  margin-bottom: 0 !important;
+}
+.Filter__fieldset_price .price .mse2_number_slider .ui-state-default {
+  border: 2px solid #3d73dd;
+  background: #3d73dd;
+  border-radius: 10px;
+  top: -4px;
 }
 .Filter__select {
   transition: all 0.2s linear;
   background: #ffffff;
-  font-size: 10pt;
+  font-size: 8pt;
   border-radius: 20px;
   border: 1px solid #999999;
   width: 100%;

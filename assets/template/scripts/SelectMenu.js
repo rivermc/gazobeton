@@ -1,8 +1,9 @@
 export default class SelectMenu {
   constructor(el) {
     this.$el = $(el);
+    this.InstanceList = [];
     this.$el.each((index, item) => {
-      $(item).selectmenu({
+      const select = $(item).selectmenu({
         appendTo: $(item).siblings('.js_SelectMenu_target'),
         icons: { div: 'hidden' },
         classes: {
@@ -13,6 +14,14 @@ export default class SelectMenu {
           mSearch2.submit();
         }
       });
+      this.InstanceList.push(select);
     });
+  }
+
+  refresh() {
+    this.InstanceList.forEach((item) => {
+      console.log(item);
+      $(item).selectmenu('refresh');
+    })
   }
 }

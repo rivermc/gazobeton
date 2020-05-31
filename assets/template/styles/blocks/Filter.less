@@ -3,10 +3,6 @@
 //-------------------------------------------------------------------------//
 .Filter {
 
-  &__top {
-    background: @c_gray_l;
-  }
-
   &__form {
     .flex();
   }
@@ -17,22 +13,60 @@
   }
 
   &__buttons {
-    .flex_cols(8);
+    .flex_cols(6);
+    padding: 0 0 0 15px;
   }
 
   &__fieldset {
-    .flex_cols(3);
-    margin: 10px 0;
+    margin: 5px 5px 5px 0;
 
     &_price {
-      .flex_cols(8);
+      .flex_cols(10);
+      margin: 5px 0;
+
+      .price {
+        .flex(@j:center);
+
+        & > input {
+          background: @c_white;
+          font-size: @s_text_0;
+          border-radius: @radius_3;
+          border: 1px solid @c_gray;
+          display: block;
+          cursor: pointer;
+          white-space: nowrap;
+          padding: 5px 10px;
+          margin: 0 10px;
+        }
+
+        .title {
+          margin: 0 20px 0 0;
+        }
+
+        .mse2_number_slider {
+          flex: 1 1 20%;
+
+
+          &.ui-widget-content {
+            border: 1px solid @c_blue_d;
+            margin-bottom: 0 !important;
+          }
+
+          .ui-state-default {
+            border: 2px solid @c_blue;
+            background: @c_blue;
+            border-radius: 10px;
+            top: -4px;
+          }
+        }
+      }
     }
   }
 
   &__select {
     .transition();
     background: @c_white;
-    font-size: @s_text_1;
+    font-size: @s_text_0;
     border-radius: @radius_3;
     border: 1px solid @c_gray;
     width: 100%;
