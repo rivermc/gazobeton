@@ -1,17 +1,19 @@
-{set $_opts = [
-  'type' => 'default',
-  'class_wrap' => 'Callback__wrap',
-  'title' => ''
-]}
-{set $_opts = array_replace_recursive($_opts, $opts) | php}
+{import 'Form'}
 
-<div class="Callback Callback_{$default_opts.type}">
-  {if $_opts.title != ''}
+{macro callback($opts)}
+  {set $_opts = [
+    'type' => 'default',
+    'class_wrap' => 'Callback__wrap',
+    'title' => ''
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <div class="Callback Callback_{$default_opts.type}">
+    {if $_opts.title}
     <p class="H">{$_opts.title}</p>
-  {/if}
-  <div class="Callback__wrap">
-    {$_modx->getChunk('Form', [
-      'opts' => $opts
-    ])}
+    {/if}
+    <div class="Callback__wrap">
+      {macro.callback_form opts=$opts}
+    </div>
   </div>
-</div>
+{/macro}

@@ -50,10 +50,13 @@
     }
 
     &_checkbox {
-      &:checked + .Icon {
+      &:checked + .Form__label .Icon {
         .check {
           opacity: 1;
         }
+      }
+      &:disabled + .Form__label {
+        display: none;
       }
     }
 

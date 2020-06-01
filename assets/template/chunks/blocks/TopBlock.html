@@ -1,3 +1,5 @@
+{import 'Callback'}
+
 <div class="TopBlock">
   <div class="Container">
     <div class="TopBlock__wrap">
@@ -6,15 +8,12 @@
         <p class="H_s2 H_c3 H_v3">и Ленинградской <br> области</p>
         <p class="H H_s2 H_c1">от 3570 руб./м<sup>3</sup></p>
         <p class="P_s2 P_m1">Газобетон заводского качества по отличной цене! Быстрая доставка со склада производителя и оплата на месте разгрузки</p>
-        {$_modx->getChunk('Callback', [
-          'opts' => [
-            'type' => 'TopBlock',
-            'fields' => [
-              'policy' => 1,
-              'text_mod' => 'w1',
-            ]
+        {macro.callback opts=[
+          'type' => 'TopBlock',
+          'fields' => [
+            'policy' => 1,
           ]
-        ])}
+        ]}
       </div>
     </div>
   </div>

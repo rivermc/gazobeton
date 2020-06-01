@@ -1,71 +1,118 @@
-{set $_opts = [
-  'type' => 'default',
-  'button_class' => 'Button Button_v1 Button_m1 Button_mw1',
-  'text_button' => 'Заказать'
-  'fields' => [
-    'text_mod' => '',
-    'name' => 0,
-    'phone' => 1,
-    'email' => 0,
-    'count' => 0,
-    'address' => 0,
-    'policy' => 0,
-  ]
-]}
-{set $_opts = array_replace_recursive($_opts, $opts) | php}
+{macro checkbox($opts)}
+  {set $_opts = [
+    'wrapper_class' => 'Form__fieldWrap Form__fieldWrap_checkbox',
+    'label_class' => 'Form__label Form__label_checkbox',
+    'label_text' => '',
+    'input_class' => 'Form__field Form__field_checkbox'
+    'name' => '',
+    'placeholder' => '',
+    'icon' => 'icons/checkbox.svg',
+    'checked' => 'checked',
+    'disabled' => '',
+    'id' => 'field_' ~ $opts.name
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
 
-<form method="POST" class="Form Form__{$_opts.type}" id="Form__{$_opts.type}">
-  {if $_opts.fields.name == 1}
-    <label class="Form__fieldWrap {$_opts.wrap_class}">
-      {if $_opts.fields.name_label}
-        <span class="Form__label_text">{$_opts.fields.name_label}</span>
+  <div class="{$_opts.wrapper_class}">
+    <input name="{$_opts.name}" type="checkbox" class="{$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" {$_opts.checked} {$_opts.disabled} hidden>
+    <label for="{$_opts.id}" class="{$_opts.label_class}">
+      {if $_opts.icon}
+        <span class="Icon Icon_checkbox">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>
       {/if}
-      <input type="text" name="name" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваше имя"><span class="Icon Icon_text">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/name.svg',])}</span>
+      <span>{$_opts.label_text}</span>
     </label>
-  {/if}
-  {if $_opts.fields.address == 1}
-    <label class="Form__fieldWrap">
-      {if $_opts.fields.address_label}
-        <span class="Form__label_text">{$_opts.fields.address_label}</span>
-      {/if}
-      <input type="text" name="address" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="">
-    </label>
-  {/if}
-  {if $_opts.fields.count == 1}
-    <label class="Form__fieldWrap">
-      {if $_opts.fields.count_label}
-        <span class="Form__label_text">{$_opts.fields.count_label}</span>
-      {/if}
-      <input type="text" name="count" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="палетт / м3">
-    </label>
-  {/if}
-  {if $_opts.fields.phone == 1}
-    <label class="Form__fieldWrap">
-      {if $_opts.fields.phone_label}
-      <span class="Form__label_text">{$_opts.fields.phone_label}</span>
-      {/if}
-      <input type="text" name="phone" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваш телефон">
-    </label>
-  {else}
-    <input type="text" name="phone" hidden value="00000000000">
-  {/if}
-  {if $_opts.fields.email == 1}
-    <label class="Form__fieldWrap">
-      {if $_opts.fields.email_label}
-        <span class="Form__label_text">{$_opts.fields.email_label}</span>
-      {/if}
-      <input type="text" name="email" class="Form__field Form__field_text {if $_opts.fields.text_mod} Form__field_{$_opts.fields.text_mod} {/if}" placeholder="Ваша почта">
-    </label>
-  {else}
-    <input type="text" name="email" hidden value="empty@gazobeton.ru">
-  {/if}
-    <button type="submit" class="{$_opts.button_class}">{$_opts.text_button}</button>
-  {if $_opts.fields.policy == 1}
-    <label class="Form__fieldWrap Form__fieldWrap_checkbox">
-      <input type="checkbox" id="field_policy" name="policy" checked hidden class="Form__field Form__field_checkbox">
-      <span class="Icon Icon_checkbox">{$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/checkbox.svg',])}</span>
-      <span class="Form__label_checkbox">Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность</span>
-    </label>
-  {/if}
-</form>
-<div class="Form__error"></div>
+  </div>
+{/macro}
+
+
+{macro field($opts)}
+  {set $_opts = [
+    'wrapper_class' => 'Form__fieldWrap',
+    'label_class' => 'Form__label Form__label_text',
+    'label_text' => '',
+    'input_class' => 'Form__field Form__field_text'
+    'name' => '',
+    'placeholder' => '',
+    'icon' => '',
+    'id' => 'field_' ~ $opts.name
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <div class="{$_opts.wrapper_class}">
+    {if $_opts.label_text}
+      <label for="{$_opts.id}" class="{$_opts.label_class}">{$_opts.label_text}</label>
+    {/if}
+    <input type="text" name="{$_opts.name}" class="{$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
+    {if $_opts.icon}
+      <span class="Icon Icon_text">{$_opts.icon}</span>
+    {/if}
+  </div>
+{/macro}
+
+
+{macro callback_form($opts)}
+  {set $_opts = [
+    'type' => 'default',
+    'button_class' => 'Button Button_v1 Button_m1 Button_mw1',
+    'text_button' => 'Заказать'
+    'fields' => [
+      'name' => 1,
+      'phone' => 1,
+      'email' => 0,
+      'count' => 0,
+      'address' => 0,
+      'policy' => 0,
+    ]
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <form method="POST" class="Form Form__{$_opts.type}" id="Form__{$_opts.type}">
+    {if $_opts.fields.name == 1}
+      {macro.field opts=[
+        'label_text' => $_opts.fields.name_label,
+        'name' => 'name',
+        'placeholder' => 'Ваше имя',
+      ]}
+    {/if}
+    {if $_opts.fields.address == 1}
+      {macro.field opts=[
+        'label_text' => $_opts.fields.address_label,
+        'name' => 'address',
+        'placeholder' => 'Адрес',
+      ]}
+    {/if}
+    {if $_opts.fields.count == 1}
+      {macro.field opts=[
+        'label_text' => $_opts.fields.count_label,
+        'name' => 'count',
+        'placeholder' => 'палетт / м3',
+      ]}
+    {/if}
+    {if $_opts.fields.phone == 1}
+      {macro.field opts=[
+        'label_text' => $_opts.fields.phone_label,
+        'name' => 'phone',
+        'placeholder' => 'Ваш телефон',
+      ]}
+    {else}
+      <input type="text" name="phone" hidden value="00000000000">
+    {/if}
+    {if $_opts.fields.email == 1}
+      {macro.field opts=[
+        'label_text' => $_opts.fields.email_label,
+        'name' => 'email',
+        'placeholder' => 'Ваша почта',
+      ]}
+    {else}
+      <input type="text" name="email" hidden value="empty@gazobeton.ru">
+    {/if}
+      <button type="submit" class="{$_opts.button_class}">{$_opts.text_button}</button>
+    {if $_opts.fields.policy == 1}
+      {macro.checkbox opts=[
+        'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность',
+        'name' => 'policy',
+      ]}
+    {/if}
+  </form>
+  <div class="Form__error"></div>
+{/macro}

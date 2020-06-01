@@ -536,8 +536,11 @@ sup {
   width: 100%;
   padding: 10px 25px;
 }
-.Form__field_checkbox:checked + .Icon .check {
+.Form__field_checkbox:checked + .Form__label .Icon .check {
   opacity: 1;
+}
+.Form__field_checkbox:disabled + .Form__label {
+  display: none;
 }
 .Form__field_w1 {
   max-width: 250px;
