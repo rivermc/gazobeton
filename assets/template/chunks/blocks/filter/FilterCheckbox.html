@@ -1,12 +1,13 @@
-{import 'Form'}
+{import 'Form' as Form}
 
 {set $opts = [
   'value' => $value,
   'label_text' => $value,
-  'id' => "mse2_{$table}{$delimeter}{$filter}_{$idx}",
+  'label_class' => 'Form__label_checkbox Form__label_s1',
+  'id' => "mse2_{$table}{$filter}_{$idx}",
   'checked' => $checked,
   'disabled' => $disabled,
   'name' => $filter_key,
 ]}
 
-{macro.checkbox opts=$opts}
+{Form.checkbox opts=$opts}

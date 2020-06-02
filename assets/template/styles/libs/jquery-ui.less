@@ -589,3 +589,26 @@ body .ui-tooltip {
     -webkit-box-shadow: 0 0 5px #666666;
     box-shadow: 0 0 5px #666666;
 }
+
+.ui-state-active {
+    background: @c_blue;
+    color: @c_white;
+    border: 0;
+}
+.ui-menu {
+
+&-item-wrapper {
+     font-size: @s_text_1;
+     font-family: @f_Monserat;
+     padding: 5px 10px;
+     white-space: nowrap;
+ }
+}
+.ui-selectmenu  {
+&-menu {
+     opacity: 0;
+ }
+&-open {
+ .animation(@key:fadeIn, @count:1, @dir:forwards);
+ }
+}

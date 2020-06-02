@@ -7,11 +7,14 @@
       <div class="Filter">
         <div class="Container">
           {$_modx->getChunk('Crumbs')}
-          <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Filter__form">
+          <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form">
             <div class="Filter__filters">
               {$modx->placeholders.filter_filters}
             </div>
           </form>
+          <div class="js_filter_enabled">
+            <p class="H H_s4 H_c3 H_m2">Используемые фильтры</p>
+          </div>
         </div>
       </div>
     </div>

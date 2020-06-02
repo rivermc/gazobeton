@@ -3,6 +3,7 @@ import ToUp from './ToUp.js';
 import Modal from './Modal.js';
 import Slider from './Slider.js';
 import SelectMenu from './SelectMenu.js';
+import Filter from './Filter.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -38,7 +39,10 @@ $(document).ready(function() {
   new ToUp('.js_ToUp');
   new Modal('.js_Modal');
   const SelectFilter = new SelectMenu('.js_SelectMenu');
+  const CatalogFilter = new Filter('.Filter__form');
+
   new Slider('.WhyBlock .js_Slider');
+
   new Slider('.AboutSlider.js_Slider', {
     slidesToShow: 1,
     slidesToScroll: 1,
