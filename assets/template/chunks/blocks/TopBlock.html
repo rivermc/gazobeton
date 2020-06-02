@@ -1,4 +1,4 @@
-{import 'Callback'}
+{import 'Callback' as Callback}
 
 <div class="TopBlock">
   <div class="Container">
@@ -8,10 +8,16 @@
         <p class="H_s2 H_c3 H_v3">и Ленинградской <br> области</p>
         <p class="H H_s2 H_c1">от 3570 руб./м<sup>3</sup></p>
         <p class="P_s2 P_m1">Газобетон заводского качества по отличной цене! Быстрая доставка со склада производителя и оплата на месте разгрузки</p>
-        {macro.callback opts=[
+        {Callback.block opts=[
           'type' => 'TopBlock',
           'fields' => [
-            'policy' => 1,
+            'policy' => [
+              'visible' => 1
+            ],
+            'phone' => [
+              'visible' => 1,
+              'input_class' => 'Form__field_text Form__field_w1'
+            ],
           ]
         ]}
       </div>

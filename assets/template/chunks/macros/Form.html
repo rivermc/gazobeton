@@ -1,9 +1,9 @@
 {macro checkbox($opts)}
   {set $_opts = [
     'wrapper_class' => 'Form__fieldWrap Form__fieldWrap_checkbox',
-    'label_class' => 'Form__label Form__label_checkbox',
+    'label_class' => 'Form__label_checkbox',
     'label_text' => '',
-    'input_class' => 'Form__field Form__field_checkbox'
+    'input_class' => 'Form__field_checkbox'
     'name' => '',
     'placeholder' => '',
     'icon' => 'icons/checkbox.svg',
@@ -14,8 +14,8 @@
   {set $_opts = $_opts | merge_array:$opts}
 
   <div class="{$_opts.wrapper_class}">
-    <input name="{$_opts.name}" type="checkbox" class="{$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" {$_opts.checked} {$_opts.disabled} hidden>
-    <label for="{$_opts.id}" class="{$_opts.label_class}">
+    <input name="{$_opts.name}" type="checkbox" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" {$_opts.checked} {$_opts.disabled} hidden>
+    <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">
       {if $_opts.icon}
         <span class="Icon Icon_checkbox">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>
       {/if}
@@ -28,9 +28,9 @@
 {macro field($opts)}
   {set $_opts = [
     'wrapper_class' => 'Form__fieldWrap',
-    'label_class' => 'Form__label Form__label_text',
+    'label_class' => 'Form__label_text',
     'label_text' => '',
-    'input_class' => 'Form__field Form__field_text'
+    'input_class' => 'Form__field_text'
     'name' => '',
     'placeholder' => '',
     'icon' => '',
@@ -40,9 +40,9 @@
 
   <div class="{$_opts.wrapper_class}">
     {if $_opts.label_text}
-      <label for="{$_opts.id}" class="{$_opts.label_class}">{$_opts.label_text}</label>
+      <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
     {/if}
-    <input type="text" name="{$_opts.name}" class="{$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
+    <input type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
     {if $_opts.icon}
       <span class="Icon Icon_text">{$_opts.icon}</span>
     {/if}
@@ -50,68 +50,80 @@
 {/macro}
 
 
-{macro callback_form($opts)}
+{macro callback($opts)}
   {set $_opts = [
     'type' => 'default',
     'button_class' => 'Button Button_v1 Button_m1 Button_mw1',
     'text_button' => 'Заказать'
     'fields' => [
-      'name' => 1,
-      'phone' => 1,
-      'email' => 0,
-      'count' => 0,
-      'address' => 0,
-      'policy' => 0,
+      'name' => [
+        'visible' => 0,
+      ],
+      'phone' => [
+        'visible' => 0,
+      ],
+      'email' => [
+        'visible' => 0,
+      ],
+      'count' => [
+        'visible' => 0,
+      ],
+      'address' => [
+        'visible' => 0,
+      ],
+      'policy' => [
+        'visible' => 0,
+      ],
     ]
   ]}
   {set $_opts = $_opts | merge_array:$opts}
 
   <form method="POST" class="Form Form__{$_opts.type}" id="Form__{$_opts.type}">
-    {if $_opts.fields.name == 1}
+    {if $_opts.fields.name.visible == 1}
       {macro.field opts=[
-        'label_text' => $_opts.fields.name_label,
+        'label_text' => $_opts.fields.name.label,
         'name' => 'name',
         'placeholder' => 'Ваше имя',
-      ]}
+      ] | merge_array:$_opts.fields.name}
     {/if}
-    {if $_opts.fields.address == 1}
+    {if $_opts.fields.address.visible == 1}
       {macro.field opts=[
-        'label_text' => $_opts.fields.address_label,
+        'label_text' => $_opts.fields.address.label,
         'name' => 'address',
         'placeholder' => 'Адрес',
-      ]}
+      ] | merge_array:$_opts.fields.address}
     {/if}
-    {if $_opts.fields.count == 1}
+    {if $_opts.fields.count.visible == 1}
       {macro.field opts=[
-        'label_text' => $_opts.fields.count_label,
+        'label_text' => $_opts.fields.count.label,
         'name' => 'count',
         'placeholder' => 'палетт / м3',
-      ]}
+      ] | merge_array:$_opts.fields.count}
     {/if}
-    {if $_opts.fields.phone == 1}
+    {if $_opts.fields.phone.visible == 1}
       {macro.field opts=[
-        'label_text' => $_opts.fields.phone_label,
+        'label_text' => $_opts.fields.phone.label,
         'name' => 'phone',
         'placeholder' => 'Ваш телефон',
-      ]}
+      ] | merge_array:$_opts.fields.phone}
     {else}
       <input type="text" name="phone" hidden value="00000000000">
     {/if}
-    {if $_opts.fields.email == 1}
+    {if $_opts.fields.email.visible == 1}
       {macro.field opts=[
-        'label_text' => $_opts.fields.email_label,
+        'label_text' => $_opts.fields.email.label,
         'name' => 'email',
         'placeholder' => 'Ваша почта',
-      ]}
+      ] | merge_array:$_opts.fields.email}
     {else}
       <input type="text" name="email" hidden value="empty@gazobeton.ru">
     {/if}
       <button type="submit" class="{$_opts.button_class}">{$_opts.text_button}</button>
-    {if $_opts.fields.policy == 1}
+    {if $_opts.fields.policy.visible == 1}
       {macro.checkbox opts=[
         'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность',
         'name' => 'policy',
-      ]}
+      ] | merge_array:$_opts.fields.policy}
     {/if}
   </form>
   <div class="Form__error"></div>

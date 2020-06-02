@@ -1,6 +1,6 @@
-{import 'Form'}
+{import 'Form' as Form}
 
-{macro callback($opts)}
+{macro block($opts)}
   {set $_opts = [
     'type' => 'default',
     'class_wrap' => 'Callback__wrap',
@@ -13,7 +13,7 @@
     <p class="H">{$_opts.title}</p>
     {/if}
     <div class="Callback__wrap">
-      {macro.callback_form opts=$opts}
+      {Form.callback opts=$_opts}
     </div>
   </div>
 {/macro}
