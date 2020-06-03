@@ -977,6 +977,9 @@ body .ui-tooltip {
 .Button_m3 {
   margin: 0 0 20px;
 }
+.Button_m4 {
+  margin: 5px 5px 0 0;
+}
 .Button_c1 {
   color: #3d73dd;
 }
@@ -994,6 +997,9 @@ body .ui-tooltip {
 }
 .Button_w1 {
   width: 100%;
+}
+.Button_p1 {
+  padding: 5px 10px;
 }
 .Button_clear {
   border: 0;
@@ -1785,40 +1791,35 @@ body .ui-tooltip {
   flex-direction: row;
   flex: 1;
 }
-.Filter__buttons {
-  width: 37.5%;
-  padding: 0 0 0 15px;
-}
 .Filter__fieldset {
   margin: 5px 5px 5px 0;
 }
-.Filter__fieldset_price {
-  width: 62.5%;
-  margin: 5px 0;
-}
 .Filter__fieldset_price .price {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
 }
 .Filter__fieldset_price .price > input {
+  width: 25%;
   background: #ffffff;
-  font-size: 8pt;
+  font-size: 10pt;
   border-radius: 20px;
   border: 1px solid #999999;
   display: block;
   cursor: pointer;
   white-space: nowrap;
-  padding: 5px 10px;
-  margin: 0 10px;
+  padding: 4px 10px;
+  max-width: 100px;
 }
 .Filter__fieldset_price .price .title {
-  margin: 0 20px 0 0;
+  font-size: 10pt;
+  margin: 0 10px 0 0;
 }
 .Filter__fieldset_price .price .mse2_number_slider {
-  flex: 1 1 20%;
+  min-width: 100px;
+  margin: 0 15px 0 10px;
 }
 .Filter__fieldset_price .price .mse2_number_slider.ui-widget-content {
   border: 1px solid #154893;
@@ -1841,6 +1842,10 @@ body .ui-tooltip {
   cursor: pointer;
   white-space: nowrap;
   padding: 5px 10px;
+  line-height: 1em;
+}
+.Filter__enabled {
+  margin: 10px 0;
 }
 .Dropdown {
   box-shadow: 0 0 15px -10px #333333;

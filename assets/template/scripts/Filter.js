@@ -3,6 +3,7 @@ import Dropdown from './Dropdown.js';
 export default class Filter {
   constructor(el, opts) {
     this.$el = $(el);
+    this.$reset = this.$el.find('[type=reset]');
     this.$buttons = this.$el.find('.js_filter_Dropdown');
     this.input = this.$el.find('input[type="checkbox"]');
     this.$enabledContainer = $('.js_filter_enabled');
@@ -11,12 +12,16 @@ export default class Filter {
     this.input.each((index, item) => {
         this.checkFilter(item);
     });
+
+    this.$reset.on('click', () => {
+      this.$enabledContainer.empty();
+    })
   }
 
   //Events
   eventsButton($button, id) {
     $button.on('click', () => {
-      $('#mse2_filters input#'+ id).trigger('click');
+      $(`#mse2_filters input#${id}`).trigger('click');
     });
   }
 
@@ -49,28 +54,28 @@ export default class Filter {
 
   //Control Filter
   checkFilter(event) {
-    let $item = $(event);
-    let val = $item.val();
-    let id = $item.attr('id');
-    if ($item.is(':checked')) {
-      const name = $item.attr('name');
-      if (name === 'parent') {
-        val = $item.attr('name');
+    let $field = $(event);
+    let val = $field.val();
+    let id = $field.attr('id');
+    let parentName = $field.data('parent_name');
+    if ($field.is(':checked')) {
+      if ($field.attr('name') === 'parent') {
+        val = $field.data('title');
       }
-      this.appendFilter(id, val);
+      this.appendFilter(id, val, parentName);
     }
     else {
       this.removeFilter(id);
     }
   }
 
-  appendFilter(id, val) {
-    const $button = $('<button class="Button Button_v1" id="'+ id +'">' + val + '</button>');
+  appendFilter(id, val, name) {
+    const $button = $(`<button class="Button Button_v1 Button_s1 Button_p1 Button_m4" id="${id}">${name}: ${val}</button>`);
     this.$enabledContainer.append($button);
     this.eventsButton($button, id);
   }
 
   removeFilter(id) {
-    this.$enabledContainer.find('#' + id).remove();
+    this.$enabledContainer.find(`#${id}`).remove();
   }
 }

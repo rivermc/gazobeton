@@ -12,39 +12,35 @@
     flex: 1;
   }
 
-  &__buttons {
-    .flex_cols(6);
-    padding: 0 0 0 15px;
-  }
-
   &__fieldset {
     margin: 5px 5px 5px 0;
 
     &_price {
-      .flex_cols(10);
-      margin: 5px 0;
 
       .price {
-        .flex(@j:center);
+        .flex(@j:flex-start, @wrap:nowrap);
 
         & > input {
+          .flex_cols(4);
           background: @c_white;
-          font-size: @s_text_0;
+          font-size: @s_text_1;
           border-radius: @radius_3;
           border: 1px solid @c_gray;
           display: block;
           cursor: pointer;
           white-space: nowrap;
-          padding: 5px 10px;
-          margin: 0 10px;
+          padding: 4px 10px;
+          max-width: 100px;
         }
 
         .title {
-          margin: 0 20px 0 0;
+          font-size: @s_text_1;
+          margin: 0 10px 0 0;
         }
 
         .mse2_number_slider {
-          flex: 1 1 20%;
+          min-width: 100px;
+          margin: 0 15px 0 10px;
 
 
           &.ui-widget-content {
@@ -74,6 +70,11 @@
     cursor: pointer;
     white-space: nowrap;
     padding: 5px 10px;
+    line-height: 1em;
+  }
+
+  &__enabled {
+    margin: 10px 0;
   }
 
 
