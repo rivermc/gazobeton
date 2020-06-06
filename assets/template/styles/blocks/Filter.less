@@ -12,6 +12,10 @@
     flex: 1;
   }
 
+  &__dropdown {
+    .flex(@j:flex-start);
+  }
+
   &__fieldset {
     margin: 5px 5px 5px 0;
 
@@ -77,5 +81,18 @@
     margin: 10px 0;
   }
 
+  &__pagination {
 
+    &List {
+      .flex(@j:center);
+
+      & > li {
+        margin: 0 10px;
+      }
+    }
+
+    &Link {
+
+    }
+  }
 }

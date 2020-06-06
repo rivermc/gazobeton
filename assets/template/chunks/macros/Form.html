@@ -12,7 +12,6 @@
     'id' => 'field_' ~ $opts.name
   ]}
   {set $_opts = $_opts | merge_array:$opts}
-
   <div class="{$_opts.wrapper_class}">
     <input name="{$_opts.name}"
            type="checkbox"
@@ -22,8 +21,9 @@
            hidden
            {$_opts.checked}
            {$_opts.disabled}
-           {if $_opts.title} data-title="{$_opts.title}"{/if}
-           {if $_opts.parent_name} data-parent_name="{$_opts.parent_name}"{/if}>
+           {if $_opts.title} data-title="{$_opts.title}" {/if}
+           {if $_opts.data_id} data-data_id="{$_opts.data_id}" {/if}
+           {if $_opts.parent_name} data-parent_name="{$_opts.parent_name}" {/if}>
     <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">
       {if $_opts.icon}
         <span class="Icon Icon_checkbox">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>

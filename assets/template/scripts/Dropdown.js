@@ -38,6 +38,10 @@ export default class Dropdown {
     this.$el.dialog('close');
   }
 
+  destroy() {
+    this.$el.dialog('destroy');
+  }
+
   generateId() {
     return 'dropdown_' + Math.random().toString(36).substring(7);
   }

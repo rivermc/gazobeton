@@ -1,5 +1,5 @@
 {$_modx->lexicon->load('minishop2:product')}
-<fieldset id="mse2_{$table}{$filter}" class="Filter__fieldset">
+<fieldset id="mse2_{$table}{$delimeter}{$filter}" class="Filter__fieldset">
   <p class="Filter__title js_filter_Dropdown" data-dropdown="#Dropdown_{$filter}">{$_modx->lexicon('ms2_product_' ~ $filter)}</p>
   <div class="Filter__dropdown" id="Dropdown_{$filter}" style="display: none;">
     {$rows}

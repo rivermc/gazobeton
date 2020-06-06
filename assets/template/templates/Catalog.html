@@ -9,8 +9,8 @@
           {$_modx->getChunk('Crumbs')}
           <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form">
             <div class="Filter__filters">
-              {$modx->placeholders.filter_filters}
-              <button type="reset" class="Button Button_v5 Button_mw2 Button_s1 Button_p1">Сбросить</button>
+              {'filter_filters' | placeholder}
+              <button type="reset" class="Button Button_v5 Button_mw2 Button_s1 Button_p1 hidden">Сбросить</button>
             </div>
           </form>
           <div class="Filter__enabled js_filter_enabled">
@@ -30,10 +30,10 @@
     <div class="Catalog__bottom">
       <div class="Container">
         <div class="Catalog__items" id="mse2_results" >
-          {$modx->placeholders.filter_results}
+          {'filter_results' | placeholder}
         </div>
-        <div class="mse2_pagination">
-          {!$modx->placeholders.page.nav}
+        <div class="Filter__pagination mse2_pagination" id="mse2_pagination">
+          {'page.nav' | placeholder}
         </div>
       </div>
     </div>

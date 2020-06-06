@@ -110,6 +110,9 @@ fieldset {
   margin: 0;
   border: 0;
 }
+[hidden] {
+  display: none !important;
+}
 @keyframes fadeIn {
   50% {
     opacity: 0;
@@ -1089,6 +1092,16 @@ body .ui-tooltip {
 .A_v4 {
   text-decoration: underline;
 }
+.A_v5 {
+  background: #154893;
+  border-radius: 20px;
+  font-family: 'Montserrat-Bold', sans-serif;
+  color: #ffffff;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
 .P {
   display: inline-block;
 }
@@ -1192,10 +1205,16 @@ body .ui-tooltip {
   width: 100%;
   margin: 10px 0;
 }
+.Form__fieldWrap[disabled] {
+  display: none;
+}
 .Form__fieldWrap_checkbox {
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
+  margin: 10px 5px;
+  flex: 1;
+  width: auto;
 }
 .Form__fieldWrap_checkbox .check {
   transition: all 0.2s linear;
@@ -1791,6 +1810,13 @@ body .ui-tooltip {
   flex-direction: row;
   flex: 1;
 }
+.Filter__dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
 .Filter__fieldset {
   margin: 5px 5px 5px 0;
 }
@@ -1846,6 +1872,16 @@ body .ui-tooltip {
 }
 .Filter__enabled {
   margin: 10px 0;
+}
+.Filter__paginationList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.Filter__paginationList > li {
+  margin: 0 10px;
 }
 .Dropdown {
   box-shadow: 0 0 15px -10px #333333;
