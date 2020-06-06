@@ -7,8 +7,8 @@
         </a>
       </div>
       <div class="Header__textWrap">
-        <p class="P_s1 P_m3">Качественный газобетон в СПБ</p>
-        <p class="P_s2 P_c1">
+        <p class="T_s1 T_m1">Качественный газобетон в СПБ</p>
+        <p class="T_s2 T_c1">
           {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/geo.svg',])}
           {1 | resource: 'SiteAddress'}
         </p>
@@ -38,7 +38,7 @@
           'outerClass' => 'Menu Menu_gor Menu_topBlock',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]><a class="A A_c2 A_s2 A_v2" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]><a class="T__A T_c2 T_s2 T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
     </div>
@@ -56,7 +56,7 @@
           'outerClass' => 'Menu Menu_gor',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="A_c3 A_s2 A_v1 A_v2" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="T_c3 T_s2 T_upper T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
     </div>

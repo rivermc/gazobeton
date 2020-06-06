@@ -5,8 +5,8 @@
         <a href="/"><img src="/assets/template/images/logo_white.png" alt=""></a>
       </div>
       <div class="Footer__copyright">
-        <p class="P_s0 P_c4 P_v3 P_v5">© 2019 все права защищены. Данные, <br> опубликованные на этом сайте не являются <br> публичной офертой.</p>
-        <a class="A A_s0 A_c4 A_v4" href="{1 | resource: 'uri'}">Пользовательское соглашение</a>
+        <p class="T_s0 T_c4 T_lh3 T_inline">© 2019 все права защищены. Данные, <br> опубликованные на этом сайте не являются <br> публичной офертой.</p>
+        <a class="T__A T_s0 T_c4 T_underline" href="{1 | resource: 'uri'}">Пользовательское соглашение</a>
       </div>
       <div class="Footer__contacts">
         <div class="Footer__phone">
@@ -14,12 +14,12 @@
           {1 | resource: 'SitePhone'}
         </div>
         <div class="Footer__address">
-          <p class="P_s1 P_c2">{1 | resource: 'SiteAddress'}</p>
+          <p class="T_s1 T_c2">{1 | resource: 'SiteAddress'}</p>
         </div>
       </div>
     </div>
     <div class="Footer__bottomWrap">
-      <p class="P_s2 P_c4 P_m4 P_w1">Продукция</p>
+      <p class="T_s2 T_c4 T_m3 T_w1">Продукция</p>
       <div class="Footer__menu">
         {$_modx->runSnippet('pdoMenu@PropertySet', [
           'parents' => 2,
@@ -30,7 +30,7 @@
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]><a class="A_c2 A_s1 A_m2 A_v3" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]><a class="T_c2 T_s1 A_m2 T_block" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
       <div class="Footer__menu">
@@ -44,7 +44,7 @@
           'outerClass' => 'Menu',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]><a class="A_c2 A_s1 A_m2 A_v3" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li [[+classes]]><a class="T_c2 T_s1 A_m2 T_block" href="[[+link]]"> [[+menutitle]]</a></li>',
         ])}
       </div>
     </div>
