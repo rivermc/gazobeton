@@ -3,7 +3,7 @@
 //-------------------------------------------------------------------------//
 .AboutBlock {
   background: @c_gray_l;
-  padding: 50px 0 100px;
+  padding: 50px 0 0;
   position: relative;
 
   &__item {
@@ -17,6 +17,10 @@
     }
   }
 
+  &__wrap {
+    padding-bottom: 50px;
+  }
+
   &__image {
     .flex_cols(8);
   }
@@ -28,13 +32,11 @@
   &__link {
     .flex(@j:center);
     position: absolute;
-    bottom: -162px;
+    bottom: 0;
+    transform: translateY(100%);
     right: 10px;
-    background: @c_gray_l url('/assets/template/images/icons/block2.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+    background: @c_gray_l url('/assets/template/images/icons/block2.svg') no-repeat center center;
     background-size: cover;
-    text-align: center;
     height: 62px;
     width: 400px;
   }

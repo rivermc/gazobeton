@@ -1,0 +1,6 @@
+{foreach $options as $name => $values}
+  {if $values.value[0] != ''}
+    <p class="{$text_class} option_{$values.key}">{$values.caption}: {$values.value[0]}</p>
+  {/if}
+{/foreach}
+

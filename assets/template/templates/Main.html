@@ -1,12 +1,12 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-  {$_modx->getChunk('TopBlock')}
-  {$_modx->getChunk('SalesBlock')}
-  {$_modx->getChunk('PriceBlock')}
-  {$_modx->getChunk('CatalogBlock')}
-  {$_modx->getChunk('AboutBlock')}
-  {$_modx->getChunk('WhyBlock')}
-  {$_modx->getChunk('ShipPriceBlock')}
-  {$_modx->getChunk('ContactsBlock')}
+  {'TopBlock' | chunk}
+  {'SalesBlock' | chunk}
+  {'PriceBlock' | chunk}
+  {'CatalogBlock' | chunk}
+  {'AboutBlock' | chunk}
+  {'WhyBlock' | chunk}
+  {'ShipPriceBlock' | chunk}
+  {'ContactsBlock' | chunk}
 {/block}

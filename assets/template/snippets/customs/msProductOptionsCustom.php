@@ -3,8 +3,7 @@
 /** @var array $scriptProperties */
 
 $tpl = $modx->getOption('tpl', $scriptProperties, 'tpl.msOptions');
-$text_class = $modx->getOption('text_class', $scriptProperties, '');
-$sort_key = $modx->getOption('sort_key', $scriptProperties, '');
+$limit = $modx->getOption('limit', $scriptProperties, '');
 if (!empty($input) && empty($product)) {
     $product = $input;
 }
@@ -18,6 +17,7 @@ if (!($product instanceof msProduct)) {
 
 $ignoreOptions = array_map('trim', explode(',', $modx->getOption('ignoreOptions', $scriptProperties, '')));
 $onlyOptions = array_map('trim', explode(',', $modx->getOption('onlyOptions', $scriptProperties, '')));
+$sort_key = array_map('trim', explode(',', $modx->getOption('sort_key', $scriptProperties, '')));
 $groups = !empty($groups)
     ? array_map('trim', explode(',', $groups))
     : array();
@@ -55,18 +55,22 @@ foreach ($optionKeys as $key) {
     $options[$key] = $option;
 }
 
-// add sorting options
-    $sort = explode(",", $sort_key);
-    $sort = array_flip($sort);
-    uksort($options, function($a, $b) use ($sort) {
-        return $sort[$a] < $sort[$b] ? -1 : 1;
-    });
+    // sorting options
+    if ($sort_key) {
+      $sort = explode(",", $sort_key);
+      $sort = array_flip($sort);
+      uksort($options, function($a, $b) use ($sort) {
+          return $sort[$a] < $sort[$b] ? -1 : 1;
+      });
+    }
+    // limit options
+    if ($limit) {
+      $options = array_slice($options, 0, $limit);
+    }
 
 
 /** @var pdoTools $pdoTools */
 $pdoTools = $modx->getService('pdoTools');
 
-return $pdoTools->getChunk($tpl, array(
-    'options' => $options,
-    'text_class' => $text_class
-));
+$options_arr = array_replace_recursive($scriptProperties, array('options' => $options));
+return $pdoTools->getChunk($tpl, $options_arr);

@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   new Slider('.WhyBlock [data-js=Slider]');
 
-  new Slider('.AboutSlider[data-js=Slider]', {
+  new Slider('.AboutSlider [data-js=Slider]', {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: false,

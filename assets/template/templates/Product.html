@@ -4,7 +4,7 @@
   <div class="Product">
     <div class="Product__top">
       <div class="Container">
-        {$_modx->getChunk('Crumbs')}
+        {'Crumbs' | chunk}
       </div>
     </div>
     <div class="Product__middle">
@@ -14,23 +14,25 @@
         </div>
         <div class="Product__item">
           <div class="Product__gallery">
-            {$_modx->runSnippet('msGallery', [
+            {'msGallery' | snippet : [
               'tpl' => 'Fotorama'
-            ])}
+            ]}
           </div>
           <div class="Product__options">
             <p class="T_s5 T_bold T_m2">Характеристики</p>
-            {$_modx->runSnippet('msProductOptionsCustom', [
-              'onlyOptions' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
-              'tpl' => 'ProductOptionsTable',
-              'text_class' => 'T_s2'
-            ])}
+            {'msProductOptionsCustom' | snippet : [
+              'sort_key' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
+              'limit' => 5,
+              'tpl' => 'ProductOptions',
+              'text_class' => 'T_s2 T_m2'
+            ]}
+            <p class="T_s1 T_c1 T_m5">Минимальный заказа 1 тонна</p>
           </div>
           <div class="Product__price">
             <p class="T_s5 T_bold T_m2">Цена</p>
             <div class="Product__price_wrap">
-              <p class="T_bold T_c1 T_w1 T_s7">{$_modx->resource.price} руб./м<sup>3</sup></p>
-              <a href="#callback" class="Button Button_v1">Заказать</a>
+              <p class="T_bold T_c1 T_w1 T_s7 T_m3">{$_modx->resource.price} руб./м<sup>3</sup></p>
+              <button class="Button Button_mw2 Button_v1" data-js="Modal" data-modal="#callback">Заказать</button>
             </div>
           </div>
         </div>
@@ -38,20 +40,27 @@
     </div>
     <div class="Product__bottom">
       <div class="Container">
-        <p class="T_s5 T_bold T_m2">Описание</p>
         <div class="Product__content">
+          <h2 class="T_s5 T_bold T_m3">Описание</h2>
           {$_modx->resource.content}
         </div>
         <div class="Product__optionsBlock">
-          <p>Характеристики</p>
-            {$_modx->runSnippet('msProductOptionsCustom', [
-              'tpl' => 'ProductOptionsTable',
-              'text_class' => 'T_s1'
-            ])}
+          <div class="Product__optionsBlock_title">
+            <p class="T_s1 T_c1 T_bold">Характеристики</p>
+          </div>
+          {'msProductOptionsCustom' | snippet : [
+            'tpl' => 'ProductOptionsTable',
+            'text_class' => 'T_s1'
+            'td_class_1' => 'Table__td_mw1',
+            'td_class_2' => '',
+          ]}
         </div>
-        <h2 class="T_bold T_c1 T_w1 T_s9 T_m4 T_center T_upper">Фотографии с производства</h2>
-        {$_modx->getChunk('AboutSlider')}
       </div>
     </div>
   </div>
+  {'AboutSlider' | chunk : [
+    'title' => 'Фотографии с производства',
+    'title_class' => 'T_bold T_c1 T_w1 T_s9 T_m4 T_center T_upper'
+  ]}
+  {'ContactsBlock' | chunk}
 {/block}

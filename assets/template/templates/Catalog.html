@@ -1,12 +1,12 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-  {$_modx->getChunk('Filter')}
+  {'Filter' | chunk}
   <div class="Catalog" id="mse2_mfilter">
     <div class="Catalog__top">
       <div class="Filter">
         <div class="Container">
-          {$_modx->getChunk('Crumbs')}
+          {'Crumbs' | chunk}
           <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form" data-js="Filter">
             <div class="Filter__filters">
               {'filter_filters' | placeholder}
@@ -38,7 +38,7 @@
       </div>
     </div>
   </div>
-  {$_modx->getChunk('CatalogBlock')}
-  {$_modx->getChunk('WhyBlock')}
-  {$_modx->getChunk('ContactsBlock')}
+  {'CatalogBlock' | chunk}
+  {'WhyBlock' | chunk}
+  {'ContactsBlock' | chunk}
 {/block}

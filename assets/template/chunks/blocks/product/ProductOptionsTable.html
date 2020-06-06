@@ -1,0 +1,17 @@
+<div class="Table">
+  <div class="Table__tbody">
+    {foreach $options as $name => $values}
+      <div class="Table__tr">
+        {if $values.value[0] != ''}
+          <div class="Table__td {$td_class_1}">
+            <p class="{$text_class} option_{$values.key}">{$values.caption}:</p>
+          </div>
+          <div class="Table__td {$td_class_2}">
+            <p class="{$text_class} option_{$values.key}">{$values.value[0]}</p>
+          </div>
+        {/if}
+      </div>
+    {/foreach}
+  </div>
+</div>
+
