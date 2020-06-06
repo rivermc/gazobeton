@@ -1,14 +1,21 @@
 .ShipPriceBlock {
-  margin: 100px 0;
+  margin: 50px 0;
+  padding: 50px 0;
+
+  &_bg1 {
+    background: @c_gray_l;
+  }
 
   &__wrap {
     .flex(@a:stretch);
     box-shadow: @shadow;
     border-radius: @radius;
+    overflow: hidden;
   }
 
   &__cols {
     .flex_cols(8);
+    background: @c_white;
     padding: 40px;
 
     &:nth-child(2) {

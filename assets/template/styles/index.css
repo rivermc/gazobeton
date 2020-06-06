@@ -981,6 +981,12 @@ body .ui-tooltip {
 .T_m7 {
   margin: 50px 0;
 }
+.T_m8 {
+  margin: 20px 0 10px;
+}
+.T_m9 {
+  margin: 50px 0 10px;
+}
 .T_lh1 {
   line-height: 1.2em;
 }
@@ -1296,6 +1302,18 @@ body .ui-tooltip {
   background-size: cover;
   height: 40px;
   width: 250px;
+}
+.Shipping__content p,
+.Shipping__content a,
+.Shipping__content span,
+.Shipping__content li {
+  font-size: 11.8pt;
+}
+.Shipping__priceText p,
+.Shipping__priceText a,
+.Shipping__priceText span,
+.Shipping__priceText li {
+  font-size: 11.8pt;
 }
 .ToUp {
   transition: all 0.2s linear;
@@ -1615,7 +1633,7 @@ body .ui-tooltip {
   transform: none;
 }
 .ContactsBlock {
-  margin: 100px 0;
+  margin: 80px 0 100px;
 }
 .ContactsBlock__wrap {
   display: flex;
@@ -1729,7 +1747,11 @@ body .ui-tooltip {
   width: 400px;
 }
 .ShipPriceBlock {
-  margin: 100px 0;
+  margin: 50px 0;
+  padding: 50px 0;
+}
+.ShipPriceBlock_bg1 {
+  background: #eff3f4;
 }
 .ShipPriceBlock__wrap {
   display: flex;
@@ -1739,9 +1761,11 @@ body .ui-tooltip {
   flex-direction: row;
   box-shadow: 0 0 15px -10px #154893;
   border-radius: 30px;
+  overflow: hidden;
 }
 .ShipPriceBlock__cols {
   width: 50%;
+  background: #ffffff;
   padding: 40px;
 }
 .ShipPriceBlock__cols:nth-child(2) {
