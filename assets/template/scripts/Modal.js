@@ -7,6 +7,7 @@ export default class Modal {
 
   open(e) {
     e.preventDefault();
+    console.log('open');
     this.$dialog.dialog({
       modal: true,
       maxWidth: 800

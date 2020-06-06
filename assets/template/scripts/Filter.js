@@ -15,6 +15,12 @@ export default class Filter {
     this.$reset.on('click', () => {
       this.$enabledContainer.empty();
     });
+
+
+
+    $(document).on('mse2_load', (/*e, data*/) => {
+      this.checkShowFilter();
+    });
   }
 
   //Events

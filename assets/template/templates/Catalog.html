@@ -7,7 +7,7 @@
       <div class="Filter">
         <div class="Container">
           {$_modx->getChunk('Crumbs')}
-          <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form">
+          <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form" data-js="Filter">
             <div class="Filter__filters">
               {'filter_filters' | placeholder}
               <button type="reset" class="Button Button_v5 Button_mw2 Button_s1 Button_p1 hidden">Сбросить</button>

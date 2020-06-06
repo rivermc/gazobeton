@@ -1,6 +1,8 @@
 <div class="CatalogItem">
   <div class="CatalogItem__image">
-    <img src="{$image}" alt="{$pagetitle}">
+    <a href="{$uri}" class="A A_c4 A_v4 A_s1">
+      <img src="{$image}" alt="{$pagetitle}">
+    </a>
   </div>
   <div class="CatalogItem__title">
     <p class="P_s1 P_v2">{$pagetitle}</p>
@@ -20,6 +22,6 @@
     <a href="{$uri}" class="A A_c4 A_v4 A_s1">Узнать подробнее</a>
   </div>
   <div class="CatalogItem__callback">
-    <button class="Button Button_v1 Button_mw3 Button_w1">Заказать</button>
+    <button class="Button Button_v1 Button_mw3 Button_w1" data-js="Modal" data-modal="#callback">Заказать</button>
   </div>
 </div>

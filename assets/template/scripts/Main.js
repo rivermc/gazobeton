@@ -29,19 +29,19 @@ $(document).ready(function() {
 
   if (typeof ymaps != 'undefined') {
     ymaps.ready(function() {
-      new Map('.js_Map');
+      new Map('[data-js=Map]');
     });
   }
 
   $('input[name=phone]').usPhoneFormat({format: 'x-xxx-xxx-xxxx'});
 
-  new ToUp('.js_ToUp');
-  new Modal('.js_Modal');
-  const CatalogFilter = new Filter('.Filter__form');
+  new ToUp('[data-js=ToUp]');
+  new Modal('[data-js=Modal]');
+  const CatalogFilter = new Filter('[data-js=Filter]');
 
-  new Slider('.WhyBlock .js_Slider');
+  new Slider('.WhyBlock [data-js=Slider]');
 
-  new Slider('.AboutSlider.js_Slider', {
+  new Slider('.AboutSlider[data-js=Slider]', {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: false,
@@ -50,11 +50,6 @@ $(document).ready(function() {
   $('.js_openMenu').click(function() {
     $(this).toggleClass('js_active');
     $('.Header__catalogWrap').slideToggle();
-  });
-
-
-  $(document).on('mse2_load', (/*e, data*/) => {
-    CatalogFilter.checkShowFilter();
   });
 
 });
