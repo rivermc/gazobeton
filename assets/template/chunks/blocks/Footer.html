@@ -10,7 +10,7 @@
       </div>
       <div class="Footer__contacts">
         <div class="Footer__phone">
-          {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}
+          {'IncSvg' | snippet : ['file' => 'icons/phone.svg']}
           {1 | resource: 'SitePhone'}
         </div>
         <div class="Footer__address">

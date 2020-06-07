@@ -9,12 +9,12 @@
       <div class="Header__textWrap">
         <p class="T_s1 T_m1">Качественный газобетон в СПБ</p>
         <p class="T_s2 T_c1">
-          {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/geo.svg',])}
+          {'IncSvg' | snippet : ['file' => 'icons/geo.svg']}
           {1 | resource: 'SiteAddress'}
         </p>
       </div>
       <div class="Header__phone">
-        {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/phone.svg',])}
+        {'IncSvg' | snippet : ['file' => 'icons/phone.svg']}
         {1 | resource: 'SitePhone'}
       </div>
     </div>
@@ -24,7 +24,7 @@
       <div class="Header__catalogButton">
         <button class="Button_v4 Button_c1 Button_v3 Button_m2 js_openMenu">
           Продукция
-          {$_modx->runSnippet('IncSvg@PropertySet', ['file' => 'icons/arrow.svg',])}
+          {'IncSvg' | snippet : ['file' => 'icons/arrow.svg']}
         </button>
       </div>
       <div class="Header__menu">
