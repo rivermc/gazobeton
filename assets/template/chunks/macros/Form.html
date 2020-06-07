@@ -59,6 +59,32 @@
 {/macro}
 
 
+
+{macro textarea($opts)}
+  {set $_opts = [
+    'wrapper_class' => 'Form__fieldWrap',
+    'label_class' => 'Form__label_text',
+    'label_text' => '',
+    'input_class' => 'Form__field_text'
+    'name' => '',
+    'placeholder' => '',
+    'icon' => '',
+    'id' => 'field_' ~ $opts.name
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+<div class="{$_opts.wrapper_class}">
+  {if $_opts.label_text}
+  <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
+  {/if}
+  <textarea type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}"></textarea>
+  {if $_opts.icon}
+    <span class="Icon Icon_text">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
+  {/if}
+</div>
+{/macro}
+
+
 {macro callback($opts)}
   {set $_opts = [
     'type' => 'default',

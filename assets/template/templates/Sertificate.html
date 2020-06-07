@@ -1,0 +1,57 @@
+{extends 'template:Base'}
+{import 'Form' as Form}
+
+{block 'Content'}
+  <div class="Sertificate">
+    <div class="Container">
+      {'Crumbs' | chunk}
+    </div>
+    <div class="Sertificate__content">
+      <div class="Container">
+        <h1 class="T_bold T_c1 T_w1 T_s9 T_m2 T_upper">{$_modx->resource.pagetitle}</h1>
+        {$_modx->resource.content}
+      </div>
+    </div>
+    <div class="Sertificate__items">
+      {set $sertificates = json_decode($_modx->resource.Sertificates, true)}
+      {foreach $sertificates as $item}
+        <div class="Sertificate__item">
+          <img src="{$item.image}" alt="">
+          <p>{$item.title}</p>
+        </div>
+      {/foreach}
+    </div>
+    <div class="Sertificate__faq">
+      {set $faq = json_decode($_modx->resource.FAQ, true)}
+      {foreach $faq as $item}
+        <div class="Accordion">
+          <div class="Accordion__title">
+            <p>{$item.title}</p>
+          </div>
+          <div class="Accordion__content">
+            <p>{$item.text}</p>
+          </div>
+        </div>
+      {/foreach}
+    </div>
+    <div class="Sertificate__callback">
+      <h2 class="T_bold T_c1 T_w1 T_s9 T_m2 T_upper">ЗАДАЙТЕ НАМ СВОЙ ВОПРОС</h2>
+      <form method="POST" class="Form Form__{$_opts.type} {$_opts.form_class}" id="Form__{$_opts.type}">
+        {Form.textarea opts=[
+          'name' => 'text',
+        ]}
+        {Form.field opts=[
+          'name' => 'email',
+          'placeholder' => 'Ваша почта',
+          'icon' => 'icons/email.svg'
+        ]}
+        <button type="submit" class="{$_opts.button_class}">Заказать</button>
+        {Form.checkbox opts=[
+          'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность',
+          'name' => 'policy',
+        ]}
+      </form>
+    </div>
+  </div>
+  {'CatalogBlock' | chunk: ['title' => 'НАЖМИТЕ НА ИНТЕРЕСУЮЩУЮ ВАС КАТЕГОРИЮ']}
+{/block}

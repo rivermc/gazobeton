@@ -6,7 +6,7 @@
     <div class="ShipPriceBlock__wrap">
       <div class="ShipPriceBlock__cols">
         <p class="T_s1 T_c1 T_m4">Доставка осуществляется следующими машинами</p>
-        {set $shippirce_items = json_decode(11 | resource : 'tv.ShipPriceBlock', true)}
+        {set $shippirce_items = json_decode(11 | resource: 'tv.ShipPriceBlock', true)}
         {foreach $shippirce_items as $item}
           <div class="ShipPriceBlock__item">
             <div class="ShipPriceBlock__text">
