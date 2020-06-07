@@ -1,8 +1,8 @@
-{$_modx->runSnippet('pdoCrumbs@PropertySet', [
+{'pdoCrumbs' | snippet: [
   'showAtHome' => 0,
   'showHome' => 1,
   'outputSeparator' => '',
   'tpl' => '@INLINE <li class="Crumbs__item"><a class="Crumbs__link" href="[[+link]]">[[+menutitle]]</a><span class="Crumbs__delimiter">\</span></li>',
   'tplCurrent' => '@INLINE <li class="Crumbs__item Crumbs__item_current">[[+menutitle]]</li>',
   'tplWrapper' => '@INLINE <ul class="Crumbs">[[+output]]</ul>',
-])}
+]}

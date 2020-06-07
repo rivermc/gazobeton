@@ -14,13 +14,13 @@
         </div>
         <div class="Product__item">
           <div class="Product__gallery">
-            {'msGallery' | snippet : [
+            {'msGallery' | snippet: [
               'tpl' => 'Fotorama'
             ]}
           </div>
           <div class="Product__options">
             <p class="T_s5 T_bold T_m2">Характеристики</p>
-            {'msProductOptionsCustom' | snippet : [
+            {'msProductOptionsCustom' | snippet: [
               'sort_key' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
               'limit' => 5,
               'tpl' => 'ProductOptions',
@@ -48,7 +48,7 @@
           <div class="Product__optionsBlock_title">
             <p class="T_s1 T_c1 T_bold">Характеристики</p>
           </div>
-          {'msProductOptionsCustom' | snippet : [
+          {'msProductOptionsCustom' | snippet: [
             'tpl' => 'ProductOptionsTable',
             'text_class' => 'T_s1'
             'td_class_1' => 'Table__td_mw1',

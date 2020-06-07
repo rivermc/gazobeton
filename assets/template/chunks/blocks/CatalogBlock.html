@@ -1,7 +1,7 @@
 <div class="CatalogBlock">
   <div class="Container">
     <h2 class="T_bold T_c1 T_w1 T_s9 T_center T_m4 T_upper">Продукция завода ЕАБ:</h2>
-    {$_modx->runSnippet('pdoMenu@PropertySet', [
+    {'pdoMenu' | snippet: [
       'parents' => 2,
       'resources' => -7,
       'where' => [
@@ -17,6 +17,6 @@
             <span class="CatalogBlock__link_text T_c3 T_s2 T_upper T_bold">[[+menutitle]]</span>
           </a>
         </li>',
-    ])}
+    ]}
   </div>
 </div>

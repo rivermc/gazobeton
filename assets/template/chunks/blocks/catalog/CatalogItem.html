@@ -8,12 +8,12 @@
     <p class="T_s1 T_bold">{$pagetitle}</p>
   </div>
   <div class="CatalogItem__options">
-    {$_modx->runSnippet('msProductOptionsCustom', [
+    {'msProductOptionsCustom' | snippet: [
       'product' => $id,
       'onlyOptions' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
       'tpl' => 'ProductOptions',
       'text_class' => 'T_s1'
-    ])}
+    ]}
   </div>
   <div class="CatalogItem__price">
     <p class="T_c1 T_bold T_s2">{$price} руб./м<sup>3</sup></p>

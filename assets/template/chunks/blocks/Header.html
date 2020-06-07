@@ -9,12 +9,12 @@
       <div class="Header__textWrap">
         <p class="T_s1 T_m1">Качественный газобетон в СПБ</p>
         <p class="T_s2 T_c1">
-          {'IncSvg' | snippet : ['file' => 'icons/geo.svg']}
+          {'IncSvg' | snippet: ['file' => 'icons/geo.svg']}
           {1 | resource: 'SiteAddress'}
         </p>
       </div>
       <div class="Header__phone">
-        {'IncSvg' | snippet : ['file' => 'icons/phone.svg']}
+        {'IncSvg' | snippet: ['file' => 'icons/phone.svg']}
         {1 | resource: 'SitePhone'}
       </div>
     </div>
@@ -24,11 +24,11 @@
       <div class="Header__catalogButton">
         <button class="Button_v4 Button_c1 Button_v3 Button_m2 js_openMenu">
           Продукция
-          {'IncSvg' | snippet : ['file' => 'icons/arrow.svg']}
+          {'IncSvg' | snippet: ['file' => 'icons/arrow.svg']}
         </button>
       </div>
       <div class="Header__menu">
-        {$_modx->runSnippet('pdoMenu@PropertySet', [
+        {'pdoMenu' | snippet: [
           'parents' => 0,
           'resources' => -2,
           'level' => 1,
@@ -39,14 +39,14 @@
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
           'tpl' => '@INLINE <li [[+classes]]><a class="T__A T_c2 T_s2 T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
-        ])}
+        ]}
       </div>
     </div>
   </div>
   <div class="Header__catalogWrap">
     <div class="Container">
       <div class="Header__catalog">
-        {$_modx->runSnippet('pdoMenu@PropertySet', [
+        {'pdoMenu' | snippet: [
           'parents' => 2,
           'resources' => '-7',
           'level' => 1,
@@ -57,7 +57,7 @@
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
           'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="T_c3 T_s2 T_upper T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
-        ])}
+        ]}
       </div>
     </div>
   </div>

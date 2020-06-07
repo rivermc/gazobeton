@@ -10,7 +10,7 @@
       </div>
       <div class="Footer__contacts">
         <div class="Footer__phone">
-          {'IncSvg' | snippet : ['file' => 'icons/phone.svg']}
+          {'IncSvg' | snippet: ['file' => 'icons/phone.svg']}
           {1 | resource: 'SitePhone'}
         </div>
         <div class="Footer__address">
@@ -21,7 +21,7 @@
     <div class="Footer__bottomWrap">
       <p class="T_s2 T_c4 T_m3 T_w1">Продукция</p>
       <div class="Footer__menu">
-        {$_modx->runSnippet('pdoMenu@PropertySet', [
+        {'pdoMenu' | snippet: [
           'parents' => 2,
           'level' => 1,
           'where' => [
@@ -31,10 +31,10 @@
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
           'tpl' => '@INLINE <li [[+classes]]><a class="T_c2 T_s1 T_m2 T_block" href="[[+link]]"> [[+menutitle]]</a></li>',
-        ])}
+        ]}
       </div>
       <div class="Footer__menu">
-        {$_modx->runSnippet('pdoMenu@PropertySet', [
+        {'pdoMenu' | snippet: [
           'parents' => 0,
           'resources' => -2
           'level' => 1,
@@ -45,7 +45,7 @@
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
           'tpl' => '@INLINE <li [[+classes]]><a class="T_c2 T_s1 T_m2 T_block" href="[[+link]]"> [[+menutitle]]</a></li>',
-        ])}
+        ]}
       </div>
     </div>
   </div>

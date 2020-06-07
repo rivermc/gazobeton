@@ -26,7 +26,7 @@
            {if $_opts.parent_name} data-parent_name="{$_opts.parent_name}" {/if}>
     <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">
       {if $_opts.icon}
-        <span class="Icon Icon_checkbox">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>
+        <span class="Icon Icon_checkbox">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
       {/if}
       <span>{$_opts.label_text}</span>
     </label>
@@ -53,7 +53,7 @@
     {/if}
     <input type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
     {if $_opts.icon}
-      <span class="Icon Icon_text">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>
+      <span class="Icon Icon_text">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
     {/if}
   </div>
 {/macro}
