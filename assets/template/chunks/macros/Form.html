@@ -53,7 +53,7 @@
     {/if}
     <input type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
     {if $_opts.icon}
-      <span class="Icon Icon_text">{$_opts.icon}</span>
+      <span class="Icon Icon_text">{'IncSvg' | snippet : ['file' => $_opts.icon]}</span>
     {/if}
   </div>
 {/macro}
@@ -87,7 +87,7 @@
   ]}
   {set $_opts = $_opts | merge_array:$opts}
 
-  <form method="POST" class="Form Form__{$_opts.type}" id="Form__{$_opts.type}">
+  <form method="POST" class="Form Form__{$_opts.type} {$_opts.form_class}" id="Form__{$_opts.type}">
     {if $_opts.fields.name.visible == 1}
       {macro.field opts=[
         'label_text' => $_opts.fields.name.label,

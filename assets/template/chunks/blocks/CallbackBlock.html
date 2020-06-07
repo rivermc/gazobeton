@@ -1,0 +1,27 @@
+{import 'Callback' as Callback}
+
+<div class="CallbackBlock__wrap">
+  <div class="Container">
+    <div class="CallbackBlock">
+      <div class="CallbackBlock__text">
+        <p class="T_bold T_s2 T_c3 T_m3">Закажите обратный звонок, наш менеджер предоставит подробную информацию по оплате заказа</p>
+      </div>
+        {Callback.block opts=[
+          'type' => 'CallbackBlock',
+          'text_button' => 'Отправить',
+          'form_class' => 'Form_flex',
+          'fields' => [
+            'policy' => [
+              'visible' => 1,
+              'wrapper_class' => 'Form__fieldWrap Form__fieldWrap_checkbox Form__fieldWrap_w1'
+            ],
+            'phone' => [
+              'visible' => 1,
+              'input_class' => 'Form__field_text',
+              'wrapper_class' => 'Form__fieldWrap Form__fieldWrap_mw1'
+            ],
+          ]
+        ]}
+    </div>
+  </div>
+</div>

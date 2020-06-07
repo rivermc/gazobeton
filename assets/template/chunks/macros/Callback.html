@@ -8,12 +8,10 @@
   ]}
   {set $_opts = $_opts | merge_array:$opts}
 
-  <div class="Callback Callback_{$default_opts.type}">
+  <div class="Callback">
     {if $_opts.title}
     <p class="H">{$_opts.title}</p>
     {/if}
-    <div class="Callback__wrap">
-      {Form.callback opts=$_opts}
-    </div>
+    {Form.callback opts=$_opts}
   </div>
 {/macro}

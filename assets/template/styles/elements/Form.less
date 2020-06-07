@@ -3,6 +3,14 @@
 //-------------------------------------------------------------------------//
 .Form {
 
+  &_flex {
+    .flex();
+  }
+
+  &_w1 {
+    max-width: 350px;
+  }
+
   label {
     cursor: pointer;
   }
@@ -12,6 +20,15 @@
     position: relative;
     width: 100%;
     margin: 10px 0;
+
+    &_mw1 {
+      max-width: 250px;
+    }
+
+    &_w1 {
+      flex: none;
+      width: 100%;
+    }
 
     &[disabled] {
       display: none;

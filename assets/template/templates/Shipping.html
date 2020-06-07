@@ -11,8 +11,8 @@
         {$_modx->resource.content}
       </div>
     </div>
-    {'ShipPriceBlock' | chunk  : ['class' => 'ShipPriceBlock_bg1']}
-    <div class="Shipping__priceText">
+    {'ShipPriceBlock' | chunk: ['class' => 'ShipPriceBlock_bg1']}
+    <div class="Shipping__content">
       <div class="Container">
         <h2 class="T_bold T_c1 T_w1 T_s9 T_m9 T_upper">Оплата</h2>
         {set $price_text = json_decode($_modx->resource.PriceText, true)}
@@ -23,7 +23,17 @@
         {$price_text[0].text_ur}
       </div>
     </div>
+    <div class="Shipping__message_wrap">
+      <div class="Container">
+        <div class="Shipping__message">
+          {'IncSvg' | snippet: ['file' => 'icons/email.svg']}
+          <p class="T_s1 T_c1">По вопросам оплаты или для выставления счета вы можете
+            написать на E-mail: {1 | resource: 'SiteEmail'}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  {'SalesBlock' | chunk}
+  {'CallbackBlock' | chunk}
+  {'SalesBlock' | chunk: ['class' => 'SalesBlock_bg1']}
   {'ContactsBlock' | chunk}
 {/block}

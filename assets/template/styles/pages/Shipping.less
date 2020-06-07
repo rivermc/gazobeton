@@ -10,9 +10,13 @@
     }
   }
 
-  &__priceText {
-    p, a, span, li {
-      font-size: @s_text_2;
+  &__message {
+    .flex(@a:flex-start, @wrap:nowrap);
+    .flex_cols(8);
+    margin: 50px 0;
+
+    & > svg {
+      margin-right: 25px;
     }
   }
 }
