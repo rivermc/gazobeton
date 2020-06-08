@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------------//
+// Accordion //
+//-------------------------------------------------------------------------//
+
+.Accordion {
+  &__title {
+    background: @c_gray_l;
+    border-radius: @radius;
+    padding: 5px 40px;
+    margin: 10px 0;
+    cursor: pointer;
+    position: relative;
+
+    &_active {
+      .Accordion__icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__icon {
+    .transition();
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__item {
+    padding: 20px 40px;
+  }
+}

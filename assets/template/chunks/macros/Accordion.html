@@ -1,0 +1,30 @@
+{macro title($opts)}
+  {set $_opts = [
+    "titleWrap_class" => "Accordion__title",
+    "title" => "",
+    "title_class" => "T_s1 T_bold",
+    "icon" => "icons/arrow.svg",
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <div class="{$_opts.titleWrap_class}">
+    <p class="{$_opts.title_class}">{$_opts.title}</p>
+    {if $_opts.icon}
+      <span class="Icon Accordion__icon">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
+    {/if}
+  </div>
+{/macro}
+
+
+{macro item($opts)}
+  {set $_opts = [
+    "content_class" => "Accordion__item",
+    "text" => "",
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  {macro.title opts=$_opts}
+  <div class="{$_opts.content_class}">
+    {$_opts.text}
+  </div>
+{/macro}

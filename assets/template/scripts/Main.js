@@ -3,6 +3,7 @@ import ToUp from './ToUp.js';
 import Modal from './Modal.js';
 import Slider from './Slider.js';
 import Filter from './Filter.js';
+import Accordion from './Accordion.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -38,6 +39,7 @@ $(document).ready(function() {
   new ToUp('[data-js=ToUp]');
   new Modal('[data-js=Modal]');
   const CatalogFilter = new Filter('[data-js=Filter]');
+  new Accordion('[data-js=Accordion]');
 
   new Slider('.WhyBlock [data-js=Slider]');
 

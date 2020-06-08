@@ -378,19 +378,6 @@ sup {
   width: 100%;
   height: 100%;
 }
-.ui-accordion .ui-accordion-header {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  margin: 2px 0 0 0;
-  padding: 0.5em 0.5em 0.5em 0.7em;
-  font-size: 100%;
-}
-.ui-accordion .ui-accordion-content {
-  padding: 1em 2.2em;
-  border-top: 0;
-  overflow: auto;
-}
 .ui-autocomplete {
   position: absolute;
   top: 0;
@@ -423,10 +410,6 @@ sup {
   font-size: 0;
   line-height: 0;
   border-width: 1px 0 0 0;
-}
-.ui-menu .ui-state-focus,
-.ui-menu .ui-state-active {
-  margin: -1px;
 }
 /* icon support */
 .ui-menu-icons {
@@ -483,12 +466,6 @@ sup {
 }
 .ui-controlgroup-vertical .ui-controlgroup-label + .ui-controlgroup-item {
   border-top: none;
-}
-.ui-controlgroup-horizontal .ui-controlgroup-label.ui-widget-content {
-  border-right: none;
-}
-.ui-controlgroup-vertical .ui-controlgroup-label.ui-widget-content {
-  border-bottom: none;
 }
 /* Spinner specific style fixes */
 .ui-controlgroup-vertical .ui-spinner-input {
@@ -773,17 +750,6 @@ body .ui-tooltip {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
-.ui-widget.ui-widget-content {
-  border: 1px solid #c5c5c5;
-}
-.ui-widget-content {
-  border: 1px solid #dddddd;
-  background: #ffffff;
-  color: #333333;
-}
-.ui-widget-content a {
-  color: #333333;
-}
 .ui-widget-header {
   border: 1px solid #dddddd;
   background: #e9e9e9;
@@ -793,64 +759,9 @@ body .ui-tooltip {
 .ui-widget-header a {
   color: #333333;
 }
-/* Interaction states
-----------------------------------*/
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default,
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight,
-.ui-widget-header .ui-state-highlight {
-  border: 1px solid #dad55e;
-  background: #fffa90;
-  color: #777620;
-}
 .ui-state-checked {
   border: 1px solid #dad55e;
   background: #fffa90;
-}
-.ui-state-highlight a,
-.ui-widget-content .ui-state-highlight a,
-.ui-widget-header .ui-state-highlight a {
-  color: #777620;
-}
-.ui-state-error,
-.ui-widget-content .ui-state-error,
-.ui-widget-header .ui-state-error {
-  border: 1px solid #f1a899;
-  background: #fddfdf;
-  color: #5f3f3f;
-}
-.ui-state-error a,
-.ui-widget-content .ui-state-error a,
-.ui-widget-header .ui-state-error a {
-  color: #5f3f3f;
-}
-.ui-state-error-text,
-.ui-widget-content .ui-state-error-text,
-.ui-widget-header .ui-state-error-text {
-  color: #5f3f3f;
-}
-.ui-priority-primary,
-.ui-widget-content .ui-priority-primary,
-.ui-widget-header .ui-priority-primary {
-  font-weight: bold;
-}
-.ui-priority-secondary,
-.ui-widget-content .ui-priority-secondary,
-.ui-widget-header .ui-priority-secondary {
-  opacity: 0.7;
-  filter: alpha(opacity=70);
-  /* support: IE8 */
-  font-weight: normal;
-}
-.ui-state-disabled,
-.ui-widget-content .ui-state-disabled,
-.ui-widget-header .ui-state-disabled {
-  opacity: 0.35;
-  filter: alpha(opacity=35);
-  /* support: IE8 */
-  background-image: none;
 }
 .ui-state-disabled .ui-icon {
   filter: alpha(opacity=35);
@@ -866,11 +777,6 @@ body .ui-tooltip {
 .ui-widget-shadow {
   -webkit-box-shadow: 0 0 5px #666666;
   box-shadow: 0 0 5px #666666;
-}
-.ui-state-active {
-  background: #3d73dd;
-  color: #ffffff;
-  border: 0;
 }
 .ui-menu-item-wrapper {
   font-size: 10.5pt;
@@ -1346,6 +1252,15 @@ body .ui-tooltip {
 .Sertificate__content span,
 .Sertificate__content li {
   font-size: 11.8pt;
+}
+.Sertificate__faq {
+  margin: 50px 0;
+}
+.Sertificate__faq .Accordion__item p,
+.Sertificate__faq .Accordion__item a,
+.Sertificate__faq .Accordion__item span,
+.Sertificate__faq .Accordion__item li {
+  font-size: 13.5pt;
 }
 .Sertificate__items {
   display: flex;
@@ -2020,4 +1935,25 @@ body .ui-tooltip {
 .CallbackBlock__wrap {
   background: #eff3f4;
   padding: 50px 0;
+}
+.Accordion__title {
+  background: #eff3f4;
+  border-radius: 30px;
+  padding: 5px 40px;
+  margin: 10px 0;
+  cursor: pointer;
+  position: relative;
+}
+.Accordion__title_active .Accordion__icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+.Accordion__icon {
+  transition: all 0.2s linear;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.Accordion__item {
+  padding: 20px 40px;
 }
