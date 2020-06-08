@@ -110,6 +110,12 @@ fieldset {
   margin: 0;
   border: 0;
 }
+textarea {
+  resize: none;
+}
+svg {
+  max-width: 100%;
+}
 [hidden] {
   display: none !important;
 }
@@ -1053,6 +1059,9 @@ body .ui-tooltip {
   flex: none;
   width: 100%;
 }
+.Form__fieldWrap_h1 {
+  height: 100%;
+}
 .Form__fieldWrap[disabled] {
   display: none;
 }
@@ -1077,8 +1086,17 @@ body .ui-tooltip {
 }
 .Form .Icon_text {
   left: 15px;
+  max-width: 15px;
 }
 .Form__field_text {
+  border: 1px solid #999999;
+  border-radius: 30px;
+  color: #999999;
+  font-size: 10.5pt;
+  width: 100%;
+  padding: 10px 25px;
+}
+.Form__field_textarea {
   border: 1px solid #999999;
   border-radius: 30px;
   color: #999999;
@@ -1092,9 +1110,15 @@ body .ui-tooltip {
 .Form__field_checkbox:disabled + .Form__label {
   display: none;
 }
-.Form__field_w1 {
+.Form__field_mw1 {
   max-width: 250px;
   width: 100%;
+}
+.Form__field_p1 {
+  padding: 10px 25px 10px 35px;
+}
+.Form__field_h1 {
+  height: 100%;
 }
 .Form__label_checkbox {
   font-size: 8pt;
@@ -1126,7 +1150,7 @@ body .ui-tooltip {
   padding: 5px 10px;
 }
 .Table__td_mw1 {
-  max-width: 70%;
+  max-width: 65%;
   width: 100%;
 }
 .Catalog__top {
@@ -1260,7 +1284,7 @@ body .ui-tooltip {
 .Sertificate__faq .Accordion__item a,
 .Sertificate__faq .Accordion__item span,
 .Sertificate__faq .Accordion__item li {
-  font-size: 13.5pt;
+  font-size: 11.8pt;
 }
 .Sertificate__items {
   display: flex;
@@ -1278,6 +1302,19 @@ body .ui-tooltip {
   border-radius: 50px;
   max-height: 320px;
   margin: 0 0 40px;
+}
+.Sertificate__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.Sertificate__form_left {
+  width: 68.75%;
+}
+.Sertificate__form_right {
+  width: 28.125%;
 }
 .ToUp {
   transition: all 0.2s linear;

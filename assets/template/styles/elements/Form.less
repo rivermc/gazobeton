@@ -30,6 +30,10 @@
       width: 100%;
     }
 
+    &_h1 {
+      height: 100%;
+    }
+
     &[disabled] {
       display: none;
     }
@@ -60,12 +64,22 @@
 
     &_text {
       left: 15px;
+      max-width: 15px;
     }
   }
 
   &__field {
 
     &_text {
+      border: 1px solid @c_gray;
+      border-radius: @radius;
+      color: @c_gray;
+      font-size: @s_text_1;
+      width: 100%;
+      padding: 10px 25px;
+    }
+
+    &_textarea {
       border: 1px solid @c_gray;
       border-radius: @radius;
       color: @c_gray;
@@ -85,9 +99,17 @@
       }
     }
 
-    &_w1 {
+    &_mw1 {
       max-width: 250px;
       width: 100%;
+    }
+
+    &_p1 {
+      padding: 10px 25px 10px 35px;
+    }
+
+    &_h1 {
+      height: 100%;
     }
   }
 

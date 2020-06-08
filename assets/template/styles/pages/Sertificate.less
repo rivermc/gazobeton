@@ -18,7 +18,7 @@
     .Accordion__item {
 
       p, a, span, li {
-        font-size: @s_text_5;
+        font-size: @s_text_2;
       }
     }
   }
@@ -37,5 +37,18 @@
     border-radius: @radius_2;
     max-height: 320px;
     margin: 0 0 40px;
+  }
+
+  &__form {
+    .flex(@a:stretch);
+
+
+    &_left {
+      .flex_cols(11);
+    }
+
+    &_right {
+      .flex_cols(4.5);
+    }
   }
 }

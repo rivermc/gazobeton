@@ -12,6 +12,7 @@
     'id' => 'field_' ~ $opts.name
   ]}
   {set $_opts = $_opts | merge_array:$opts}
+
   <div class="{$_opts.wrapper_class}">
     <input name="{$_opts.name}"
            type="checkbox"
@@ -51,7 +52,12 @@
     {if $_opts.label_text}
       <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
     {/if}
-    <input type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}">
+    <input type="text"
+           name="{$_opts.name}"
+           class="Form__field {$_opts.input_class} {if $_opts.icon} Form__field_p1 {/if}"
+           value="{$_opts.value}"
+           id="{$_opts.id}"
+           placeholder="{$_opts.placeholder}">
     {if $_opts.icon}
       <span class="Icon Icon_text">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
     {/if}
@@ -65,23 +71,25 @@
     'wrapper_class' => 'Form__fieldWrap',
     'label_class' => 'Form__label_text',
     'label_text' => '',
-    'input_class' => 'Form__field_text'
+    'textarea_class' => 'Form__field_textarea',
     'name' => '',
     'placeholder' => '',
-    'icon' => '',
     'id' => 'field_' ~ $opts.name
   ]}
   {set $_opts = $_opts | merge_array:$opts}
 
-<div class="{$_opts.wrapper_class}">
-  {if $_opts.label_text}
-  <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
-  {/if}
-  <textarea type="text" name="{$_opts.name}" class="Form__field {$_opts.input_class}" value="{$_opts.value}" id="{$_opts.id}" placeholder="{$_opts.placeholder}"></textarea>
-  {if $_opts.icon}
-    <span class="Icon Icon_text">{'IncSvg' | snippet: ['file' => $_opts.icon]}</span>
-  {/if}
-</div>
+  <div class="{$_opts.wrapper_class}">
+    {if $_opts.label_text}
+      <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
+    {/if}
+    <textarea type="text"
+              name="{$_opts.name}"
+              class="Form__field {$_opts.textarea_class}"
+              value="{$_opts.value}"
+              id="{$_opts.id}"
+              placeholder="{$_opts.placeholder}">
+    </textarea>
+  </div>
 {/macro}
 
 
