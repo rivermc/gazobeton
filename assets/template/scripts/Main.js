@@ -44,6 +44,7 @@ $(document).ready(function() {
   new Slider('.AboutSlider [data-js=Slider]', {
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     centerMode: false,
   });
 

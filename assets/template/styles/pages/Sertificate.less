@@ -1,0 +1,30 @@
+//-------------------------------------------------------------------------//
+// Sertificate //
+//-------------------------------------------------------------------------//
+
+.Sertificate {
+
+  &__content {
+    margin: 0 0 50px;
+
+    p, a, span, li {
+      font-size: @s_text_2;
+    }
+  }
+
+  &__items {
+    .flex(@a:flex-start);
+  }
+
+  &__item {
+    .flex_cols(3.8);
+    margin: 0 0 50px;
+  }
+
+  &__image {
+    box-shadow: 15px 15px 0 0 @c_blue, @shadow;
+    border-radius: @radius_2;
+    max-height: 320px;
+    margin: 0 0 40px;
+  }
+}

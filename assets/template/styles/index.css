@@ -1338,6 +1338,32 @@ body .ui-tooltip {
 .Shipping__message > svg {
   margin-right: 25px;
 }
+.Sertificate__content {
+  margin: 0 0 50px;
+}
+.Sertificate__content p,
+.Sertificate__content a,
+.Sertificate__content span,
+.Sertificate__content li {
+  font-size: 11.8pt;
+}
+.Sertificate__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.Sertificate__item {
+  width: 23.75%;
+  margin: 0 0 50px;
+}
+.Sertificate__image {
+  box-shadow: 15px 15px 0 0 #3d73dd, 0 0 15px -10px #154893;
+  border-radius: 50px;
+  max-height: 320px;
+  margin: 0 0 40px;
+}
 .ToUp {
   transition: all 0.2s linear;
   background: #3d73dd;
