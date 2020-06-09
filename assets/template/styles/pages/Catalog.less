@@ -16,6 +16,10 @@
   &__bottom {
     background: @c_gray_l;
     padding: 50px;
+
+    &_m1 {
+      margin-top: 60px;
+    }
   }
 
   &__content {
@@ -32,5 +36,35 @@
   &__items {
     .flex(@j:flex-start);
     background: @c_gray_l;
+  }
+
+  &__filter {
+    .flex();
+    position: absolute;
+    top: -110px;
+    left: 15px;
+    width: ~'calc(100% - 30px)';
+
+    .Form__fieldWrap {
+      flex: 1;
+      height: 60px;
+      margin: 0;
+    }
+
+    .Form__label {
+      .flex(@j:center);
+      .size(100%, 100%);
+      background: url(/assets/template/images/icons/block3.svg) center center no-repeat;
+      background-size: contain;
+      padding: 10px 70px 0;
+      text-align: center;
+      line-height: 1.2em;
+      cursor: pointer;
+    }
+
+    .Form__field:checked + .Form__label {
+      background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
+      background-size: contain;
+    }
   }
 }

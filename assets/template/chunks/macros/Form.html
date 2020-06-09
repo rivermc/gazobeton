@@ -5,7 +5,6 @@
     'label_text' => '',
     'input_class' => 'Form__field_checkbox'
     'name' => '',
-    'placeholder' => '',
     'icon' => 'icons/checkbox.svg',
     'checked' => 'checked',
     'disabled' => '',
@@ -90,6 +89,56 @@
               placeholder="{$_opts.placeholder}">
     </textarea>
   </div>
+{/macro}
+
+
+{macro filter($opts)}
+  {set $_opts = [
+    'wrapper_class' => 'Form__fieldWrap',
+    'label_class' => '',
+    'label_text' => '',
+    'input_class' => ''
+    'name' => '',
+    'id' => 'field_' ~ $opts.name
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <div class="{$_opts.wrapper_class}">
+    <input name="{$_opts.name}"
+           type="checkbox"
+           class="Form__field {$_opts.input_class}"
+           value="{$_opts.value}"
+           id="{$_opts.id}"
+           hidden
+           {$_opts.checked}>
+    <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">
+      {$_opts.label_text}
+    </label>
+  </div>
+{/macro}
+
+
+
+
+{macro hidden($opts)}
+  {set $_opts = [
+    'name' => '',
+    'id' => 'field_' ~ $opts.name,
+    'checked' => '',
+    'disabled' => '',
+  ]}
+  {set $_opts = $_opts | merge_array:$opts}
+
+  <input name="{$_opts.name}"
+         type="checkbox"
+         value="{$_opts.value}"
+         id="{$_opts.id}"
+         hidden
+         {$_opts.checked}
+         {$_opts.disabled}
+         {if $_opts.title} data-title="{$_opts.title}" {/if}
+         {if $_opts.data_id} data-data_id="{$_opts.data_id}" {/if}
+         {if $_opts.parent_name} data-parent_name="{$_opts.parent_name}" {/if}>
 {/macro}
 
 

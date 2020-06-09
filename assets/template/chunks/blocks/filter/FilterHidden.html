@@ -1,16 +1,8 @@
 {$_modx->lexicon->load('minishop2:product')}
 {import 'Form' as Form}
 
-{if $filter == 'parent'}
-  {set $label_text = $title}
-{else}
-  {set $label_text = $value}
-{/if}
-
 {set $opts = [
   'value' => $value,
-  'label_text' => $label_text,
-  'label_class' => 'Form__label_checkbox Form__label_s1',
   'id' => "mse2_{$table}{$delimeter}{$filter}_{$idx}",
   'data_id' => "{$filter}_{$idx}",
   'checked' => $checked,
@@ -20,4 +12,4 @@
   'title' => $title
 ]}
 
-{Form.checkbox opts=$opts}
+{Form.hidden opts=$opts}

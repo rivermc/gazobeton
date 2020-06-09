@@ -12,8 +12,12 @@ export default class Filter {
     this.input.each((index, item) => {
         this.checkFilter(item);
     });
+    this.$filter_input = $('.Catalog__filter [name=filter]');
+    this.catalogFilter();
+
     this.$reset.on('click', () => {
       this.$enabledContainer.empty();
+      this.$filter_input.prop('checked', false);
     });
 
 
@@ -33,6 +37,14 @@ export default class Filter {
   eventsInput() {
     this.input.on('change', (event) => {
       this.checkFilter(event.currentTarget);
+    });
+  }
+
+  catalogFilter() {
+    this.$filter_input.on('change', (event) => {
+      const $input = $(event.currentTarget);
+      const id = $input.attr('id');
+      this.$el.find(`[data-data_id=${id}]`).trigger('click');
     });
   }
 
@@ -88,5 +100,6 @@ export default class Filter {
 
   removeFilter(id) {
     this.$enabledContainer.find(`[data-data_id=${id}]`).remove();
+    $(`#${id}`).prop('checked', false);
   }
 }

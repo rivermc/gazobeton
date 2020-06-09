@@ -1164,6 +1164,9 @@ body .ui-tooltip {
   background: #eff3f4;
   padding: 50px;
 }
+.Catalog__bottom_m1 {
+  margin-top: 60px;
+}
 .Catalog__content p,
 .Catalog__content a,
 .Catalog__content span,
@@ -1180,6 +1183,41 @@ body .ui-tooltip {
   justify-content: flex-start;
   flex-direction: row;
   background: #eff3f4;
+}
+.Catalog__filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: absolute;
+  top: -110px;
+  left: 15px;
+  width: calc(100% - 30px);
+}
+.Catalog__filter .Form__fieldWrap {
+  flex: 1;
+  height: 60px;
+  margin: 0;
+}
+.Catalog__filter .Form__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/template/images/icons/block3.svg) center center no-repeat;
+  background-size: contain;
+  padding: 10px 70px 0;
+  text-align: center;
+  line-height: 1.2em;
+  cursor: pointer;
+}
+.Catalog__filter .Form__field:checked + .Form__label {
+  background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
+  background-size: contain;
 }
 .Product__top {
   background: #eff3f4;
@@ -1246,8 +1284,8 @@ body .ui-tooltip {
   left: 30px;
   transform: translateY(-100%);
   background: url('/assets/template/images/icons/block3.svg') no-repeat center center;
-  background-size: cover;
-  height: 40px;
+  background-size: contain;
+  height: 47px;
   width: 250px;
 }
 .Shipping__content p,

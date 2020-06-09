@@ -1,4 +1,5 @@
 {extends 'template:Base'}
+{import 'Form' as Form}
 
 {block 'Content'}
   {'Filter' | chunk}
@@ -27,8 +28,44 @@
       </div>
     </div>
 
-    <div class="Catalog__bottom">
-      <div class="Container">
+    <div class="Catalog__bottom {if $_modx->resource.id == 3} Catalog__bottom_m1 {/if}">
+      <div class="Container Container_relative">
+        {if $_modx->resource.id == 3}
+          <div class="Catalog__filter">
+            {set $opts = [
+              'value' => 'Стеновой паз-гребень с захватом для рук',
+              'label_text' => 'Стеновой паз-гребень с захватом для рук',
+              'label_class' => 'T_s1 T_c1',
+              'id' => 'opt_type_block_0',
+              'checked' => 'false',
+              'name' => 'filter',
+              'icon' => false
+            ]}
+            {Form.filter opts=$opts}
+
+            {set $opts = [
+              'value' => 'Стеновой прямой',
+              'label_text' => 'Стеновой прямой',
+              'label_class' => 'T_s1 T_c1',
+              'id' => 'opt_type_block_1',
+              'checked' => false,
+              'name' => 'filter',
+              'icon' => false
+            ]}
+            {Form.filter opts=$opts}
+
+            {set $opts = [
+              'value' => 'Стеновой прямой с захватом для рук',
+              'label_text' => 'Стеновой прямой с захватом для рук',
+              'label_class' => 'T_s1 T_c1',
+              'id' => 'opt_type_block_2',
+              'checked' => false,
+              'name' => 'filter',
+              'icon' => false
+            ]}
+            {Form.filter opts=$opts}
+          </div>
+        {/if}
         <div class="Catalog__items" id="mse2_results" >
           {'filter_results' | placeholder}
         </div>
