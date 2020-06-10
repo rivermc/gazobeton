@@ -38,7 +38,7 @@
           'outerClass' => 'Menu Menu_gor Menu_topBlock',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]><a class="T__A T_c2 T_s2 T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li {$classes}><a class="T__A T_c2 T_s1 T_bold" href="{$link}">{$menutitle}</a></li>',
         ]}
       </div>
     </div>
@@ -56,7 +56,7 @@
           'outerClass' => 'Menu Menu_gor',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
-          'tpl' => '@INLINE <li [[+classes]]>[[+attributes:notempty=`<img class="Menu__icon" src="[[+attributes]]"/>`]]<a class="T_c3 T_s2 T_upper T_bold" href="[[+link]]"> [[+menutitle]]</a></li>',
+          'tpl' => '@INLINE <li {$classes}>[[+attributes:notempty=`<img class="Menu__icon" src="{$attributes}"/>`]]<a class="T_c3 T_s2 T_upper T_bold" href="{$link}">{$menutitle}</a></li>',
         ]}
       </div>
     </div>
