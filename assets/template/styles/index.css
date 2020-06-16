@@ -971,6 +971,9 @@ body .ui-tooltip {
 .Button_m4 {
   margin: 5px 5px 0 0;
 }
+.Button_m5 {
+  margin: 20px 0 0;
+}
 .Button_c1 {
   color: #3d73dd;
 }
@@ -1148,6 +1151,12 @@ body .ui-tooltip {
 .Form__ShipPrice .Form__field_text {
   margin: 0 0 50px;
 }
+.Table_v1 {
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 0 15px -10px #154893;
+  padding: 20px 50px;
+}
 .Table__tr {
   display: flex;
   flex-wrap: nowrap;
@@ -1155,12 +1164,22 @@ body .ui-tooltip {
   justify-content: flex-start;
   flex-direction: row;
 }
+.Table__tr_v1:nth-child(even) {
+  background: #eff3f4;
+  border-radius: 30px;
+}
+.Table__tr_p1 {
+  padding: 10px 0;
+}
 .Table__td {
   padding: 5px 10px;
 }
 .Table__td_mw1 {
   max-width: 65%;
   width: 100%;
+}
+.Table__td_w1 {
+  flex: 1;
 }
 .Catalog__top {
   background: #eff3f4;
@@ -1390,6 +1409,33 @@ body .ui-tooltip {
 }
 .Sertificate__form_right {
   width: 28.125%;
+}
+.Price__contentWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 50px 0;
+}
+.Price__title {
+  width: 100%;
+}
+.Price__image {
+  width: 43.75%;
+}
+.Price__content {
+  width: 53.125%;
+  align-self: center;
+}
+.Price__content p,
+.Price__content li,
+.Price__content a {
+  font-size: 11.8pt;
+}
+.Price__items {
+  background: #eff3f4;
+  padding: 50px 0;
 }
 .ToUp {
   transition: all 0.2s linear;

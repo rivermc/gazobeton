@@ -57,8 +57,7 @@ foreach ($optionKeys as $key) {
 
     // sorting options
     if ($sort_key) {
-      $sort = explode(",", $sort_key);
-      $sort = array_flip($sort);
+      $sort = array_flip($sort_key);
       uksort($options, function($a, $b) use ($sort) {
           return $sort[$a] < $sort[$b] ? -1 : 1;
       });

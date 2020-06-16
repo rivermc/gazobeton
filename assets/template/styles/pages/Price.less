@@ -1,0 +1,33 @@
+//-------------------------------------------------------------------------//
+// Price //
+//-------------------------------------------------------------------------//
+
+.Price {
+
+  &__contentWrap {
+    .flex(@a:flex-end);
+    padding: 50px 0;
+  }
+
+  &__title {
+    .flex_cols(16);
+  }
+
+  &__image {
+    .flex_cols(7);
+  }
+
+  &__content {
+    .flex_cols(8.5);
+    align-self: center;
+
+    p, li, a {
+      font-size: @s_text_2;
+    }
+  }
+
+  &__items {
+    background: @c_gray_l;
+    padding: 50px 0;
+  }
+}

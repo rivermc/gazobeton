@@ -3,8 +3,26 @@
 //-------------------------------------------------------------------------//
 .Table {
 
+  &_v1 {
+    background: @c_white;
+    border-radius: @radius;
+    box-shadow: @shadow;
+    padding: 20px 50px;
+  }
+
   &__tr {
     .flex(@wrap:nowrap, @j:flex-start);
+
+    &_v1 {
+      &:nth-child(even) {
+        background: @c_gray_l;
+        border-radius: @radius;
+      }
+    }
+
+    &_p1 {
+      padding: 10px 0;
+    }
   }
 
   &__td {
@@ -13,6 +31,10 @@
     &_mw1 {
       max-width: 65%;
       width: 100%;
+    }
+
+    &_w1 {
+      flex:1;
     }
   }
 }
