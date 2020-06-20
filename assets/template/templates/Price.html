@@ -60,7 +60,7 @@
               </div>
             </div>
             <div class="Table__tbody">
-              {set $catalog_prices = json_decode($category_id | resource: 'tv.CatalogPrice', true)}
+              {set $catalog_prices = json_decode($category_id | resource: 'CatalogPrice', true)}
               {foreach $catalog_prices as $item}
                 <div class="Table__tr Table__tr_v1">
                   <div class="Table__td Table__td_w1">

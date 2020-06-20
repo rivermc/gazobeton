@@ -2,7 +2,7 @@
   <div class="Container Container_relative">
     <h2 class="T_bold T_c1 T_w1 T_s9 T_center T_m4 T_upper">О производстве</h2>
     <div class="AboutBlock__wrap">
-      {set $about_items = json_decode(13 | resource: 'tv.AboutBlock', true)}
+      {set $about_items = json_decode(13 | resource: 'AboutBlock', true)}
       {foreach $about_items as $item}
         <div class="AboutBlock__item">
           <div class="AboutBlock__image">

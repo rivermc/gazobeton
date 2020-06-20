@@ -9,7 +9,7 @@ export default class Slider {
       slidesToScroll: 3,
       centerMode: true,
       speed: 400,
-      autoplay: true,
+      autoplay: false,
       prevArrow: '.Slider__button_prev',
       nextArrow: '.Slider__button_next'
     };

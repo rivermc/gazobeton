@@ -1,5 +1,71 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-About
+  {set $about_items = json_decode($_modx->resource.AboutPageBlocks, true)}
+  {set $description = json_decode($_modx->resource.AboutDescription, true)}
+
+  <div class="About">
+    <div class="Container">
+      {'Crumbs' | chunk}
+    </div>
+    <div class="Container">
+      <div class="About__content">
+        <div class="About__content__text">
+          <h1 class="T_bold T_c1 T_w1 T_s9 T_m3 T_upper">{$_modx->resource.pagetitle}</h1>
+          {$_modx->resource.content}
+        </div>
+        <div class="About__content__image">
+          <img src="{$_modx->resource.AboutMainImage}" alt="{$_modx->resource.pagetitle}">
+        </div>
+        <div class="About__content__intro">
+          <p class="T_c1 T_s5">{$_modx->resource.introtext}</p>
+        </div>
+      </div>
+    </div>
+    <div class="About__blocks About__blocks_top">
+      <div class="Container">
+        {foreach $about_items as $key => $item}
+          {if $key == 2}
+            {break}
+          {/if}
+          <div class="About__block">
+            <div class="About__block__image">
+              <img src="{$item.image}" alt="">
+            </div>
+            <div class="About__block__text">
+              {$item.text}
+            </div>
+          </div>
+        {/foreach}
+      </div>
+    </div>
+
+    {'AboutSlider' | chunk : [
+      'title_class' => 'T_bold T_c1 T_w1 T_s9 T_m4 T_center T_upper'
+    ]}
+
+    <div class="About__description">
+      <div class="Container">
+        <h2 class="T_s6 T_bold T_m3">{$description[0].title}</h2>
+        {$description[0].text}
+      </div>
+    </div>
+    <div class="About__blocks">
+      <div class="Container">
+        {foreach $about_items as $key => $item}
+          {if $key < 2}
+            {continue}
+          {/if}
+        <div class="About__block">
+          <div class="About__block__image">
+            <img src="{$item.image}" alt="">
+          </div>
+          <div class="About__block__text">
+            {$item.text}
+          </div>
+        </div>
+        {/foreach}
+      </div>
+    </div>
+  </div>
 {/block}
