@@ -11,10 +11,10 @@
       'rowClass' => 'CatalogBlock__item',
       'hereClass' => 'CatalogBlock__item_active',
       'tpl' => '@INLINE
-        <li [[+classes]]>
-          <a class="CatalogBlock__link" href="[[+link]]">
-            [[+attributes:notempty=`<img class="CatalogBlock__link_img" src="[[+attributes]]"/>`]]
-            <span class="CatalogBlock__link_text T_c3 T_s2 T_upper T_bold">[[+menutitle]]</span>
+        <li {$classes}>
+          <a class="CatalogBlock__link" href="{$link}">
+            {if $attributes}<img class="CatalogBlock__link_img" src="{$attributes}"/>{/if}
+            <span class="CatalogBlock__link_text T_c3 T_s2 T_upper T_bold">{$menutitle}</span>
           </a>
         </li>',
     ]}
