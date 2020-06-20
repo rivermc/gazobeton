@@ -38,7 +38,7 @@ $(document).ready(function() {
 
   new ToUp('[data-js=ToUp]');
   new Modal('[data-js=Modal]');
-  const CatalogFilter = new Filter('[data-js=Filter]');
+  new Filter('[data-js=Filter]');
   new Accordion('[data-js=Accordion]');
 
   new Slider('.WhyBlock [data-js=Slider]');
@@ -53,6 +53,11 @@ $(document).ready(function() {
   $('.js_openMenu').click(function() {
     $(this).toggleClass('js_active');
     $('.Header__catalogWrap').slideToggle();
+  });
+
+
+  $(document).on('mse2_load', (/*e, data*/) => {
+    new Modal('[data-js=Modal]');
   });
 
 });

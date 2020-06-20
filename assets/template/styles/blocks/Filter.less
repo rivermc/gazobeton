@@ -12,12 +12,20 @@
     flex: 1;
   }
 
+  &__block {
+    .flex(@j:flex-start);
+  }
+
   &__dropdown {
     .flex(@j:flex-start);
   }
 
   &__fieldset {
     margin: 5px 5px 5px 0;
+
+    &_m1 {
+      margin: 5px 15px 5px 0;
+    }
 
     &_price {
 
@@ -65,16 +73,24 @@
 
   &__title {
     .transition();
-    background: @c_white;
     font-size: @s_text_1;
-    border-radius: @radius_3;
-    border: 1px solid @c_gray;
-    width: 100%;
-    display: block;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: 5px 10px;
-    line-height: 1em;
+
+    &_dropdown {
+      background: @c_white;
+      border-radius: @radius_3;
+      border: 1px solid @c_gray;
+      cursor: pointer;
+      width: 100%;
+      display: block;
+      white-space: nowrap;
+      padding: 5px 10px;
+      line-height: 1em;
+    }
+
+    &_checkbox {
+      font-size: @s_text_0;
+      color: @c_blue;
+    }
   }
 
   &__enabled {

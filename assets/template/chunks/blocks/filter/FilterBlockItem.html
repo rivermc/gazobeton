@@ -1,0 +1,31 @@
+<div class="FilterBlock__item">
+  <div class="FilterBlock__image">
+    <a href="{$uri}" class="T__A T_c4 T_underline T_s1">
+      <img src="{$image}" alt="{$pagetitle}">
+    </a>
+  </div>
+  <div class="FilterBlock__content">
+    <div class="FilterBlock__title">
+      <p class="T_s1 T_bold">{$pagetitle}</p>
+    </div>
+    <div class="FilterBlock__options">
+      {'msProductOptionsCustom' | snippet: [
+        'product' => $id,
+        'onlyOptions' => 'opt_count_pallet, opt_count_m3, opt_strength_class, opt_weight_one, opt_weight_pallet',
+        'tpl' => 'ProductOptions',
+        'text_class' => 'T_s1'
+      ]}
+    </div>
+    <div class="FilterBlock__price">
+      <p class="T_c1 T_bold T_s2">{$price} руб./м<sup>3</sup></p>
+    </div>
+  </div>
+  <div class="FilterBlock__buttons">
+    <div class="FilterBlock__callback">
+      <button class="Button Button_v1 Button_mw3 Button_w1" data-js="Modal" data-modal="#callback">Заказать</button>
+    </div>
+    <div class="FilterBlock__link">
+      <a href="{$uri}" class="T__A  T_underline T_s1">Узнать подробнее</a>
+    </div>
+  </div>
+</div>

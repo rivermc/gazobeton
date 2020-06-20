@@ -1,0 +1,97 @@
+{'mFilter2' | snippet: [
+  'parents' => 2,
+  'element' => 'msProducts',
+  'limit' => 0,
+  'idx' => 1,
+  'tpls' => 'FilterBlockItem',
+  'toPlaceholders' => 'filter_',
+  'tplPageWrapper' => '@INLINE <ul class="Filter__paginationList">{$pages}</ul>',
+  'tplPageFirst' => '@INLINE <li class="control prev first"><a class="Filter__paginationLink T_s2 T_bold" href="{$href}">Первая</a></li>',
+  'tplPageLast' => '@INLINE <li class="control next last"><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">Последняя</a></li>',
+  'tplPage' => '@INLINE <li><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">{$pageNo}</a></li>',
+  'tplPageActive' => '@INLINE <li class="active"><a  class="Filter__paginationLink T_s2 T__A_v5" href="{$href}">{$pageNo}</a>',
+  'tplPagePrev' => '@INLINE <li class="control prev"><a class="Filter__paginationLink T_s2 T_bold" href="{$href}">Prev Page</a></li>',
+  'tplPageNext' => '@INLINE <li class="control next"><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">Next Page</a></li>',
+  'tplPageNextEmpty' => '@INLINE ',
+  'tplPagePrevEmpty' => '@INLINE ',
+  'tplPageFirstEmpty' => '@INLINE ',
+
+  'filters' => '
+    msoption|opt_vendor,
+    msoption|opt_zavod,
+    msoption|opt_material,
+    msoption|opt_type,
+    msoption|opt_color,
+    msoption|opt_type_block,
+    resource|parent:categories
+  ',
+
+  'aliases' => '
+    msoption|opt_vendor==vendor,
+    msoption|opt_zavod==zavod,
+    msoption|opt_material==material,
+    msoption|opt_type==type,
+    msoption|opt_color==color,
+    msoption|opt_type_block==type_block,
+    resource|parent==parent,
+  ',
+
+  'tplFilter.outer.type_block' => 'FilterCheckboxBlock',
+  'tplFilter.outer.vendor' => 'FilterCheckboxBlock',
+  'tplFilter.outer.zavod' => 'FilterCheckboxBlock',
+  'tplFilter.outer.material' => 'FilterCheckboxBlock',
+  'tplFilter.outer.type' => 'FilterCheckboxBlock',
+  'tplFilter.outer.color' => 'FilterCheckboxBlock',
+  'tplFilter.outer.parent' => '@INLINE ',
+
+  'tplFilter.row.type_block' => 'FilterCheckbox',
+  'tplFilter.row.vendor' => 'FilterCheckbox',
+  'tplFilter.row.zavod' => 'FilterCheckbox',
+  'tplFilter.row.material' => 'FilterCheckbox',
+  'tplFilter.row.type' => 'FilterCheckbox',
+  'tplFilter.row.color' => 'FilterCheckbox',
+  'tplFilter.row.parent' => '@INLINE &nbsp;',
+]}
+
+{import 'Form' as Form}
+<div class="FilterBlock" id="mse2_mfilter">
+  <div class="Container">
+    <div class="FilterBlock__title">
+      <h2 class="T_bold T_c1 T_w1 T_s9 T_m4 T_center T_upper">Подбор газобетона по параметрам</h2>
+    </div>
+    <div class="FilterBlock__wrap">
+      <div class="FilterBlock__filter">
+        <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form FilterBlock__form" >
+          <div class="FilterBlock__filters">
+            {'filter_filters' | placeholder}
+            <fieldset id="mse2_resource|parent" class="Filter__fieldset Filter__fieldset_m1">
+              <p class="Filter__title Filter__title_checkbox">Сопутствующие товары</p>
+              <div class="Filter__block">
+                {set $opts = [
+                  'value' => '7',
+                  'label_text' => 'Клей для газобетона',
+                  'label_class' => 'Form__label Form__label_checkbox Form__label_s1',
+                  'id' => 'mse2_resource|parent_8',
+                  'checked' => 'false',
+                  'name' => 'parent'
+                ]}
+                {Form.checkbox opts=$opts}
+              </div>
+            </fieldset>
+          </div>
+        </form>
+        <div class="FilterBlock__button">
+          <a href="{2 | resource: 'uri'}" class="Button Button_v1">Перейти к каталогу цен</a>
+        </div>
+      </div>
+      <div class="FilterBlock__results">
+        <div class="FilterBlock__items" id="mse2_results">
+          {'filter_results' | placeholder}
+        </div>
+        <div class="FilterBlock__button">
+          <a href="#" class="Button Button_v6" data-js="Modal" data-modal="#callback">Расчитать нужный объем</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

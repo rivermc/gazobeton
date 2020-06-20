@@ -25,10 +25,38 @@ h1, h2, h3, h4 {
   color: @c_black;
   font-family: @f_Monserat;
 }
-input, select, textarea,
-p, a, span, li {
-  font-size: @s_text_2;
+h1, h2, h3, h4 {
+  line-height: 1.2em;
 }
+input, select, textarea, label,
+p, a, li {
+  font-size: @s_text_2;
+  line-height: 1.8em;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: @c_gray_l;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: @c_blue;
+  border-radius: 5px;
+  min-height: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: @c_blue_d;
+}
+
+
 //-------------------------------------------------------------------------//
 // Fonts //
 //-------------------------------------------------------------------------//

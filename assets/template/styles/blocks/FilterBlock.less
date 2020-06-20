@@ -1,0 +1,89 @@
+//-------------------------------------------------------------------------//
+// Filter Block //
+//-------------------------------------------------------------------------//
+
+.FilterBlock {
+  background: @c_gray_l;
+  padding: 40px 0;
+
+  &__wrap {
+    .flex(@a:stretch);
+    box-shadow: @shadow;
+    background: @c_white;
+    border-radius: @radius_3;
+  }
+
+  &__button {
+    .flex_cols(16);
+    border-top: 1px solid @c_gray;
+    padding: 30px 0 0;
+    margin: 10px 0 0;
+    text-align: center;
+  }
+
+  &__filters {
+    .flex(@j:flex-start, @a:stretch);
+
+    .Form__fieldWrap {
+      width: 100%;
+      flex: none;
+      margin: 4px 0;
+
+      &[disabled] {
+        display: block;
+      }
+      .Form__field_checkbox:disabled+.Form__label {
+        display: block;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__filter {
+    .flex(@dir:column);
+    .flex_cols(8);
+    background: @c_gray_l;
+    padding: 30px;
+  }
+
+  &__form {
+  }
+
+  &__results {
+    .flex_cols(8);
+    padding: 30px;
+  }
+
+
+  &__items {
+    height: 500px;
+    overflow: auto;
+    padding: 20px;
+  }
+
+  &__item {
+    .flex();
+    margin-bottom: 20px;
+  }
+
+  &__buttons {
+    .flex();
+    .flex_cols(16);
+  }
+
+  &__callback {
+    .flex_cols(6);
+  }
+
+  &__link {
+    .flex_cols(9);
+  }
+
+  &__image {
+    .flex_cols(6);
+  }
+
+  &__content {
+    .flex_cols(9);
+  }
+}
