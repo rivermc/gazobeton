@@ -51,7 +51,7 @@ $(document).ready(function() {
 
   setTimeout(()=> {
     new Scroll('.ToUp[data-js=Scroll]');
-    $('.Header [data-js=Scroll]').each((index, item) => {
+    $('.Header [data-js=Scroll], .Footer [data-js=Scroll]').each((index, item) => {
       new Scroll(item, {
         fixHeader: true
       });
