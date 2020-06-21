@@ -1,9 +1,9 @@
 import Map from './Map.js';
-import ToUp from './ToUp.js';
 import Modal from './Modal.js';
 import Slider from './Slider.js';
 import Filter from './Filter.js';
 import Accordion from './Accordion.js';
+import Scroll from './Scroll.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -36,7 +36,6 @@ $(document).ready(function() {
 
   $('input[name=phone]').usPhoneFormat({format: 'x-xxx-xxx-xxxx'});
 
-  new ToUp('[data-js=ToUp]');
   new Modal('[data-js=Modal]');
   new Filter('[data-js=Filter]');
   new Accordion('[data-js=Accordion]');
@@ -49,6 +48,15 @@ $(document).ready(function() {
     adaptiveHeight: true,
     centerMode: false,
   });
+
+  setTimeout(()=> {
+    new Scroll('.ToUp[data-js=Scroll]');
+    $('.Header [data-js=Scroll]').each((index, item) => {
+      new Scroll(item, {
+        fixHeader: true
+      });
+    });
+  }, 500)
 
   $('.js_openMenu').click(function() {
     $(this).toggleClass('js_active');

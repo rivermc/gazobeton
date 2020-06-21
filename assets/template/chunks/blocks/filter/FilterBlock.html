@@ -1,3 +1,5 @@
+{import 'Form' as Form}
+
 {'mFilter2' | snippet: [
   'parents' => 2,
   'element' => 'msProducts',
@@ -5,13 +7,13 @@
   'idx' => 1,
   'tpls' => 'FilterBlockItem',
   'toPlaceholders' => 'filter_',
-  'tplPageWrapper' => '@INLINE <ul class="Filter__paginationList">{$pages}</ul>',
-  'tplPageFirst' => '@INLINE <li class="control prev first"><a class="Filter__paginationLink T_s2 T_bold" href="{$href}">Первая</a></li>',
-  'tplPageLast' => '@INLINE <li class="control next last"><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">Последняя</a></li>',
-  'tplPage' => '@INLINE <li><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">{$pageNo}</a></li>',
-  'tplPageActive' => '@INLINE <li class="active"><a  class="Filter__paginationLink T_s2 T__A_v5" href="{$href}">{$pageNo}</a>',
-  'tplPagePrev' => '@INLINE <li class="control prev"><a class="Filter__paginationLink T_s2 T_bold" href="{$href}">Prev Page</a></li>',
-  'tplPageNext' => '@INLINE <li class="control next"><a  class="Filter__paginationLink T_s2 T_bold" href="{$href}">Next Page</a></li>',
+  'tplPageWrapper' => '@INLINE ',
+  'tplPageFirst' => '@INLINE ',
+  'tplPageLast' => '@INLINE ',
+  'tplPage' => '@INLINE ',
+  'tplPageActive' => '@INLINE ',
+  'tplPagePrev' => '@INLINE ',
+  'tplPageNext' => '@INLINE ',
   'tplPageNextEmpty' => '@INLINE ',
   'tplPagePrevEmpty' => '@INLINE ',
   'tplPageFirstEmpty' => '@INLINE ',
@@ -53,7 +55,6 @@
   'tplFilter.row.parent' => '@INLINE &nbsp;',
 ]}
 
-{import 'Form' as Form}
 <div class="FilterBlock" id="mse2_mfilter">
   <div class="Container">
     <div class="FilterBlock__title">
@@ -71,7 +72,7 @@
                   'value' => '7',
                   'label_text' => 'Клей для газобетона',
                   'label_class' => 'Form__label Form__label_checkbox Form__label_s1',
-                  'id' => 'mse2_resource|parent_8',
+                  'id' => 'mse2_resource|parent_0',
                   'checked' => 'false',
                   'name' => 'parent'
                 ]}
