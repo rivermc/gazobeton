@@ -54,6 +54,22 @@
             'td_class_1' => 'Table__td_mw1',
             'td_class_2' => '',
           ]}
+          <div class="Product__perks">
+            {set $perks = [
+              ['title' => "Легкий", 'icon' => "/assets/template/images/icons/perks/1.svg"],
+              ['title' => "Прочный", 'icon' => "/assets/template/images/icons/perks/2.svg"],
+              ['title' => "Экологичный", 'icon' => "/assets/template/images/icons/perks/3.svg"],
+              ['title' => "Теплый", 'icon' => "/assets/template/images/icons/perks/4.svg"],
+              ['title' => "Огнестойкий", 'icon' => "/assets/template/images/icons/perks/5.svg"],
+              ['title' => "Технологичный", 'icon' => "/assets/template/images/icons/perks/6.svg"],
+            ]}
+            {foreach $perks as $perk}
+              <div class="Product__perk">
+                <img class="Product__perk_img" src="{$perk.icon}" alt="{$perk.title}">
+                <p class="T_s1">{$perk.title}</p>
+              </div>
+            {/foreach}
+          </div>
         </div>
       </div>
     </div>
