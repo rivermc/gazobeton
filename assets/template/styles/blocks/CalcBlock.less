@@ -1,0 +1,28 @@
+//-------------------------------------------------------------------------//
+// Filter Block //
+//-------------------------------------------------------------------------//
+
+.CalcBlock {
+  background: @c_gray_l;
+  padding: 40px 0;
+
+  &__wrap {
+    .flex(@a:stretch);
+    box-shadow: @shadow;
+    background: @c_white;
+    border-radius: @radius_3;
+  }
+
+
+
+  &__calc {
+    .flex_cols(8);
+    background: @c_gray_l;
+    padding: 30px;
+  }
+
+  &__results {
+    .flex_cols(8);
+    padding: 30px;
+  }
+}

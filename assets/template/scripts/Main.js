@@ -4,6 +4,7 @@ import Slider from './Slider.js';
 import Filter from './Filter.js';
 import Accordion from './Accordion.js';
 import Scroll from './Scroll.js';
+import CalcBlock from './CalcBlock.js';
 
 /* ----------------------------------------------------------------------- */
 /* Get Module Function */
@@ -37,6 +38,7 @@ $(document).ready(function() {
   $('input[name=phone]').usPhoneFormat({format: 'x-xxx-xxx-xxxx'});
 
   new Modal('[data-js=Modal]');
+  new CalcBlock('[data-js=CalcBlock]');
   new Filter('[data-js=Filter]');
   new Accordion('[data-js=Accordion]');
 

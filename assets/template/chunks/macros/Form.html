@@ -49,7 +49,12 @@
 
   <div class="{$_opts.wrapper_class}">
     {if $_opts.label_text}
-      <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">{$_opts.label_text}</label>
+      <label for="{$_opts.id}" class="Form__label {$_opts.label_class}">
+        <span>{$_opts.label_text}</span>
+        {if $_opts.sublabel_text}
+          <span class="Form__sublabel">{$_opts.sublabel_text}</span>
+        {/if}
+      </label>
     {/if}
     <input type="text"
            name="{$_opts.name}"
