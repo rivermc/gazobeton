@@ -8,14 +8,6 @@
       <div class="Filter">
         <div class="Container">
           {'Crumbs' | chunk}
-          <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form" data-js="Filter">
-            <div class="Filter__filters">
-              {'filter_filters' | placeholder}
-              <button type="reset" class="Button Button_v5 Button_mw2 Button_s1 Button_p1 hidden">Сбросить</button>
-            </div>
-          </form>
-          <div class="Filter__enabled js_filter_enabled">
-          </div>
         </div>
       </div>
     </div>
@@ -27,7 +19,19 @@
         </div>
       </div>
     </div>
-
+    <div class="Filter__block">
+      <div class="Container">
+        <h2 class="T_bold T_c1 T_w1 T_s6 T_m5 T_upper">Фильтры</h2>
+        <form action="{$_modx->resource.uri}" method="post" id="mse2_filters" class="Form Filter__form" data-js="Filter">
+          <div class="Filter__filters">
+            {'filter_filters' | placeholder}
+            <button type="reset" class="Button Button_v5 Button_mw2 Button_s2 Button_p1 hidden">Сбросить</button>
+          </div>
+        </form>
+        <div class="Filter__enabled js_filter_enabled">
+        </div>
+      </div>
+    </div>
     <div class="Catalog__bottom {if $_modx->resource.id == 3} Catalog__bottom_m1 {/if}">
       <div class="Container Container_relative">
         {if $_modx->resource.id == 3}

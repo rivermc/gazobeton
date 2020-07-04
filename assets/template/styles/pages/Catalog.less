@@ -4,15 +4,6 @@
 
 .Catalog {
 
-  &__top {
-    background: @c_gray_l;
-    padding: 0 0 30px;
-  }
-
-  &__middle {
-    padding: 50px 0;
-  }
-
   &__bottom {
     background: @c_gray_l;
     padding: 50px;
@@ -61,6 +52,10 @@
     .Form__field:checked + .Form__label {
       background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
       background-size: contain;
+    }
+
+    .Form__field:disabled + .Form__label {
+      display: none;
     }
   }
 

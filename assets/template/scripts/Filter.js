@@ -12,6 +12,7 @@ export default class Filter {
     this.input.each((index, item) => {
         this.checkFilter(item);
     });
+    this.checkShowFilter();
     this.$filter_input = $('.Catalog__filter [name=filter]');
     this.catalogFilter();
 
@@ -30,7 +31,7 @@ export default class Filter {
   //Events
   eventsButton($button, id) {
     $button.on('click', () => {
-      $(`#mse2_filters input[data-data_id=${id}]`).trigger('click');
+      $(`#mse2_filters input[data-id=${id}]`).trigger('click');
     });
   }
 
@@ -44,7 +45,8 @@ export default class Filter {
     this.$filter_input.on('change', (event) => {
       const $input = $(event.currentTarget);
       const id = $input.attr('id');
-      this.$el.find(`[data-data_id=${id}]`).trigger('click');
+      const $input_origin = this.$el.find(`[data-id=${id}]`);
+      $input_origin.trigger('click');
     });
   }
 
@@ -67,7 +69,7 @@ export default class Filter {
   checkFilter(event) {
     let $field = $(event);
     let val = $field.val();
-    let id = $field.data('data_id');
+    let id = $field.data('id');
     let parentName = $field.data('parent_name');
     if ($field.is(':checked')) {
       if ($field.attr('name') === 'parent') {
@@ -85,21 +87,33 @@ export default class Filter {
       const $field = $(item);
       if ($field.is(':disabled')) {
         $field.parents('.Form__fieldWrap').attr('hidden', true);
+        // opts type block specific
+        if ($field.attr('name') === 'type_block') {
+          let input_id = $field.data('id');
+          $(`input#${input_id}`).attr('disabled', 'disabled');
+          $(`label[for=${input_id}]`).attr('disabled', 'disabled');
+        }
       }
       else {
         $field.parents('.Form__fieldWrap').attr('hidden', false);
+        // opts type block specific
+        if ($field.attr('name') === 'type_block') {
+          let input_id = $field.data('id');
+          $(`input#${input_id}`).removeAttr('disabled');
+          $(`label[for=${input_id}]`).removeAttr('disabled');
+        }
       }
     });
   }
 
   appendFilter(id, val, name) {
-    const $button = $(`<button class="Button Button_v1 Button_s1 Button_p1 Button_m4" data-data_id="${id}">${name}: ${val}</button>`);
+    const $button = $(`<button class="Button Button_v1 Button_s2 Button_p1 Button_m4" data-id="${id}">${name}: ${val}</button>`);
     this.$enabledContainer.append($button);
     this.eventsButton($button, id);
   }
 
   removeFilter(id) {
-    this.$enabledContainer.find(`[data-data_id=${id}]`).remove();
+    this.$enabledContainer.find(`[data-id=${id}]`).remove();
     $(`#${id}`).prop('checked', false);
   }
 }

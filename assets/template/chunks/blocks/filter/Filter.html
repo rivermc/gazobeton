@@ -25,7 +25,7 @@
     ],
   ],
 
-  'filters' => 'ms|price:number,
+  'filters' => '
     resource|parent:categories,
     msoption|opt_type,
     msoption|opt_vendor,
@@ -65,10 +65,11 @@
     msoption|opt_thermal_mansory_exploitation,
     msoption|opt_drying_shrinkage,
     msoption|opt_coef_vapor,
-    msoption|opt_effective_radionuclide
+    msoption|opt_effective_radionuclide,
+    ms|price:number
   ',
 
-  'aliases' => 'ms|price==price,
+  'aliases' => '
     resource|parent==parent,
     msoption|opt_type==type,
     msoption|opt_vendor==vendor,
@@ -109,6 +110,7 @@
     msoption|opt_drying_shrinkage==drying_shrinkage,
     msoption|opt_coef_vapor==coef_vapor,
     msoption|opt_effective_radionuclide==effective_radionuclide,
+    ms|price==price
   ',
 
   'tplFilter.outer.price' => 'FilterSlider',
