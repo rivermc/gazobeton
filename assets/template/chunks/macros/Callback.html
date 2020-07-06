@@ -8,10 +8,11 @@
   ]}
   {set $_opts = $_opts | merge_array:$opts}
 
-  <div class="Callback">
+  <div class="Callback" data-js="Callback">
     {if $_opts.title}
-    <p class="H">{$_opts.title}</p>
+      <p class="H">{$_opts.title}</p>
     {/if}
     {Form.callback opts=$_opts}
+    <div class="Callback__message"><p>Спасибо! Ваша заявка отправлена!</p><p>Наш менеджер свяжется с Вами в ближайшее время</p></div>
   </div>
 {/macro}

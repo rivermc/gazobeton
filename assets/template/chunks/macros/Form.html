@@ -16,7 +16,7 @@
     <input name="{$_opts.name}"
            type="checkbox"
            class="Form__field {$_opts.input_class}"
-           value="{$_opts.value}"
+           {if $_opts.value} value="{$_opts.value}" {/if}
            id="{$_opts.id}"
            hidden
            {$_opts.checked}
@@ -212,17 +212,15 @@
         'name' => 'email',
         'placeholder' => 'Ваша почта',
       ] | merge_array:$_opts.fields.email}
-    {else}
-      <input type="text" name="email" hidden value="empty@gazobeton.ru">
     {/if}
       <button type="submit" class="{$_opts.button_class}">{$_opts.text_button}</button>
     {if $_opts.fields.policy.visible == 1}
       {macro.checkbox opts=[
         'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность',
         'name' => 'policy',
-        'label_class' => 'Form__label_checkbox T_s0'
+        'label_class' => 'Form__label_checkbox T_s0',
+        'value' => false
       ] | merge_array:$_opts.fields.policy}
     {/if}
   </form>
-  <div class="Form__error"></div>
 {/macro}

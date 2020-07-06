@@ -2,8 +2,13 @@
 // Callback //
 //-------------------------------------------------------------------------//
 .Callback {
+  position: relative;
 
-  &__wrap {
-
+  &__message {
+    .transition();
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 5;
   }
 }
