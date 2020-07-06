@@ -1,4 +1,5 @@
 import {shake, isEmail, isPhone, isPolicy} from './Tools.js';
+
 export default class Callback {
 
   constructor(el, opts={}) {
@@ -21,19 +22,17 @@ export default class Callback {
   sendForm() {
     const url = "/assets/template/php/sendForm.php";
     const formData = new FormData(this.$form[0]);
-    console.log(formData);
     $.ajax({
       contentType: false,
       processData: false,
       data: formData,
-      type:'POST',
+      type: 'POST',
       url: url,
-      cache:false,
+      cache: false,
       beforeSend: () => {
         this.$form.find('[type=submit]').prop('disabled', true);
       },
-      success: (data) => {
-        console.log(data);
+      success: (/*data*/) => {
         this.successAnimation();
         this.$form.find('[type=submit]').prop('disabled', false);
       }
@@ -71,7 +70,6 @@ export default class Callback {
         default:
           return true;
       }
-      inputsChecked.push(this.regex);
       if (!this.regex) {
         if (inputName === 'policy') {
           shake($(item).siblings('label'));
@@ -80,13 +78,15 @@ export default class Callback {
           shake($(item));
         }
       }
+      inputsChecked.push(this.regex);
     });
+
     inputsChecked.forEach((check) => {
-      if (check === false) {
+      if (!check) {
         this.regex = false;
       }
     });
-    if (this.regex === true) {
+    if (this.regex) {
       this.sendForm();
     }
   }

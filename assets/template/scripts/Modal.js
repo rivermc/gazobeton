@@ -7,10 +7,20 @@ export default class Modal {
 
   open(e) {
     e.preventDefault();
-    console.log('open');
     this.$dialog.dialog({
       modal: true,
-      maxWidth: 800
+      maxWidth: 800,
+      width: 600,
+      resizable: false,
+      classes: {
+        'ui-dialog': 'Modal',
+        'ui-dialog-titlebar': 'hidden',
+      },
+      open: () => {
+        $('.ui-widget-overlay').addClass('Modal__overlay').click(() => {
+          this.$dialog.dialog('close');
+        });
+      }
     });
   }
 }

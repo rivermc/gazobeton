@@ -6,13 +6,9 @@
   position: relative;
   z-index: 10;
 
-  &_flex {
-    .flex();
-  }
-
-  &_w1 {
-    max-width: 350px;
-  }
+  &_flex {.flex();}
+  &_w1 {max-width: 350px;}
+  &_m1 {margin: 0 auto;}
 
   label {
     cursor: pointer;
@@ -24,17 +20,12 @@
     width: 100%;
     margin: 10px 0;
 
-    &_mw1 {
-      max-width: 250px;
-    }
+    &_mw1 {max-width: 250px;}
+    &_h1 {height: 100%;}
 
     &_w1 {
       flex: none;
       width: 100%;
-    }
-
-    &_h1 {
-      height: 100%;
     }
 
     &[disabled] {
@@ -56,9 +47,7 @@
       }
     }
 
-    &_m1 {
-      margin: 5px;
-    }
+    &_m1 {margin: 5px;}
   }
 
   .Icon {
@@ -115,13 +104,9 @@
       width: 100%;
     }
 
-    &_p1 {
-      padding: 10px 25px 10px 35px;
-    }
-
-    &_h1 {
-      height: 100%;
-    }
+    &_w1 {width: 100%;}
+    &_p1 {padding: 10px 25px 10px 35px;}
+    &_h1 {height: 100%;}
   }
 
   &__label {
@@ -139,9 +124,7 @@
       width: 100%;
     }
 
-    &_c1 {
-      color: @c_blue;
-    }
+    &_c1 {color: @c_blue;}
 
     &_v1 {
       font-size: @s_text_0;

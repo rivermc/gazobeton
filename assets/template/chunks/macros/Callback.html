@@ -13,6 +13,9 @@
       <p class="H">{$_opts.title}</p>
     {/if}
     {Form.callback opts=$_opts}
-    <div class="Callback__message"><p>Спасибо! Ваша заявка отправлена!</p><p>Наш менеджер свяжется с Вами в ближайшее время</p></div>
+    <p class="Callback__message {$_opts.message_class}">
+      <span>Спасибо! Ваша заявка отправлена!</span>
+      <span>Наш менеджер свяжется с Вами в ближайшее время</span>
+    </p>
   </div>
 {/macro}

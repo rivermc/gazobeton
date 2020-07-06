@@ -1,3 +1,20 @@
-<div id="callback" class="Modal" style="display: none;">
-  My modal
+{import 'Callback' as Callback}
+<div id="callback" style="display: none;">
+  <h3 class="T_bold T_c1 T_w1 T_s6 T_m2 T_center T_upper">Заявка на звонок</h3>
+  {Callback.block opts=[
+    'type' => 'ModalCallback',
+    'form_class' => 'Form_w1 Form_m1',
+    'button_class' => 'Button Button_v1 Button_w1',
+    'message_class' => 'T_center T_w1',
+    'fields' => [
+      'policy' => [
+        'visible' => 1,
+        'id' => 'field_policy_callback'
+      ],
+      'phone' => [
+        'visible' => 1,
+        'input_class' => 'Form__field_text'
+      ]
+    ]
+  ]}
 </div>
