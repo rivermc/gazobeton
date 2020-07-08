@@ -1,12 +1,14 @@
 <div class="FilterBlock__item">
   <div class="FilterBlock__image">
-    <a href="{$uri}" class="T__A T_c4 T_underline T_s1">
+    <a href="{$uri}">
       <img src="{$image}" alt="{$pagetitle}">
     </a>
   </div>
   <div class="FilterBlock__content">
     <div class="FilterBlock__title">
-      <p class="T_s1 T_bold">{$pagetitle}</p>
+      <a href="{$uri}">
+        <span class="T_s1 T_bold">{$pagetitle}</span>
+      </a>
     </div>
     <div class="FilterBlock__options">
       {'msProductOptionsCustom' | snippet: [
