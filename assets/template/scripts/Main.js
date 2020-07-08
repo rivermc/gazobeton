@@ -47,18 +47,43 @@ $(document).ready(function() {
 
   $('[data-js=Callback]').each((index, item) => {
     new Callback(item);
-  })
-
-  $('[data-js=Modal]').each((index, item) => {
-    new Modal(item);
-    console.log($(item));
   });
 
 
-  $(document).on('mse2_load', (/*e, data*/) => {
+  function ModalInitialization() {
     $('[data-js=Modal]').each((index, item) => {
+      if ($(item).hasClass('Gallery__button')) {
+        new Modal(item, {
+          position: {
+            my: "center",
+            at: "center center+50",
+            of: window
+          },
+          onOpen: () => {
+            new Slider('.Gallery [data-js=Slider]',{
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              adaptiveHeight: true,
+              centerMode: false,
+            });
+          },
+          onBeforeClose: () => {
+            const $gallery = $('.Gallery [data-js=Slider]');
+            if ($gallery) {
+              $gallery.slick('unslick');
+            }
+          }
+        });
+      }
       new Modal(item);
     });
+  }
+
+  ModalInitialization();
+
+
+  $(document).on('mse2_load', (/*e, data*/) => {
+    ModalInitialization();
   });
 
 });
