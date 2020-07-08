@@ -50,7 +50,32 @@
     'type' => 'ModalCallback',
     'form_class' => 'Form_w1 Form_m1',
     'button_class' => 'Button Button_v1 Button_w1',
+    'text_button' => 'Отправить',
     'message_class' => 'T_center T_w1',
+    'theme' => 'Форма заказа',
+    'fields' => [
+      'policy' => [
+        'visible' => 1,
+        'id' => 'field_policy_callback_order'
+      ],
+      'phone' => [
+        'visible' => 1,
+        'input_class' => 'Form__field_text'
+      ]
+    ]
+  ]}
+</div>
+
+<div id="callback_nekond" style="display: none;">
+  <h3 class="T_bold T_c1 T_w1 T_s6 T_m2 T_center T_upper">Узнать наличие</h3>
+  <p class="T_center T_s1">Введите номер вашего телефона и нажмите кнопку "Отправить".</p>
+  <p class="T_center T_s1">Наш менеджер сориентирует вас по наличию некондиционного газобетона, поможет рассчитать необходимое количество, согласует время и стоимости доставки</p>
+  {Callback.block opts=[
+    'type' => 'ModalCallback',
+    'form_class' => 'Form_w1 Form_m1',
+    'button_class' => 'Button Button_v1 Button_w1',
+    'message_class' => 'T_center T_w1',
+    'text_button' => 'Отправить',
     'theme' => 'Форма заказа',
     'fields' => [
       'policy' => [
