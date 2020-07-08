@@ -3,6 +3,7 @@ export default class Modal {
     this.$el = $(el);
     this.$dialog = $(this.$el.data('modal'));
     this.$el.click(this.open.bind(this));
+    console.log(this.$dialog);
   }
 
   open(e) {

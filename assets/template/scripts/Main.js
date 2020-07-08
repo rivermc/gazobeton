@@ -16,7 +16,6 @@ $(document).ready(function() {
     });
   }
 
-  new Modal('[data-js=Modal]');
   new CalcBlock('[data-js=CalcBlock]');
   new Filter('[data-js=Filter]');
   new Accordion('[data-js=Accordion]');
@@ -45,15 +44,22 @@ $(document).ready(function() {
   });
 
 
-  $(document).on('mse2_load', (/*e, data*/) => {
-    new Modal('[data-js=Modal]');
-  });
-
-
 
   $('[data-js=Callback]').each((index, item) => {
     new Callback(item);
   })
+
+  $('[data-js=Modal]').each((index, item) => {
+    new Modal(item);
+    console.log($(item));
+  });
+
+
+  $(document).on('mse2_load', (/*e, data*/) => {
+    $('[data-js=Modal]').each((index, item) => {
+      new Modal(item);
+    });
+  });
 
 });
 

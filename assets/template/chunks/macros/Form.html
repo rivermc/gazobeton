@@ -216,11 +216,13 @@
       <button type="submit" class="{$_opts.button_class}">{$_opts.text_button}</button>
     {if $_opts.fields.policy.visible == 1}
       {macro.checkbox opts=[
-        'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. <br> Мы гарантируем их безопасность',
+        'label_text' => 'Нажимая на кнопку вы даете согласие на обработку своих персональных данных. Мы гарантируем их безопасность',
         'name' => 'policy',
         'label_class' => 'Form__label_checkbox T_s0',
         'value' => false
       ] | merge_array:$_opts.fields.policy}
     {/if}
+    <input type="text" name="theme" value="{$_opts.theme}" hidden>
+    <input type="text" name="page" value="{$_modx->resource.pagetitle}" hidden>
   </form>
 {/macro}

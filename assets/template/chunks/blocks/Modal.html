@@ -1,4 +1,5 @@
 {import 'Callback' as Callback}
+
 <div id="callback" style="display: none;">
   <h3 class="T_bold T_c1 T_w1 T_s6 T_m2 T_center T_upper">Заявка на звонок</h3>
   {Callback.block opts=[
@@ -6,10 +7,55 @@
     'form_class' => 'Form_w1 Form_m1',
     'button_class' => 'Button Button_v1 Button_w1',
     'message_class' => 'T_center T_w1',
+    'theme' => 'Заявка на звонок',
     'fields' => [
       'policy' => [
         'visible' => 1,
         'id' => 'field_policy_callback'
+      ],
+      'phone' => [
+        'visible' => 1,
+        'input_class' => 'Form__field_text'
+      ]
+    ]
+  ]}
+</div>
+
+<div id="callback_price" style="display: none;">
+  <h3 class="T_bold T_c1 T_w1 T_s6 T_m2 T_center T_upper">Расчет нужного объема</h3>
+  {Callback.block opts=[
+    'type' => 'ModalCallback',
+    'form_class' => 'Form_w1 Form_m1',
+    'button_class' => 'Button Button_v1 Button_w1',
+    'message_class' => 'T_center T_w1',
+    'theme' => 'Рассчет объема',
+    'fields' => [
+      'policy' => [
+        'visible' => 1,
+        'id' => 'field_policy_callback_price'
+      ],
+      'phone' => [
+        'visible' => 1,
+        'input_class' => 'Form__field_text'
+      ]
+    ]
+  ]}
+</div>
+
+<div id="callback_order" style="display: none;">
+  <h3 class="T_bold T_c1 T_w1 T_s6 T_m2 T_center T_upper">Форма заказа</h3>
+  <p class="T_center T_s1">Введите номер вашего телефона и нажмите кнопку "Отправить".</p>
+  <p class="T_center T_s1">Наш менеджер поможет рассчитать необходимое количество газобетона, согласует время и стоимости доставки</p>
+  {Callback.block opts=[
+    'type' => 'ModalCallback',
+    'form_class' => 'Form_w1 Form_m1',
+    'button_class' => 'Button Button_v1 Button_w1',
+    'message_class' => 'T_center T_w1',
+    'theme' => 'Форма заказа',
+    'fields' => [
+      'policy' => [
+        'visible' => 1,
+        'id' => 'field_policy_callback_order'
       ],
       'phone' => [
         'visible' => 1,
