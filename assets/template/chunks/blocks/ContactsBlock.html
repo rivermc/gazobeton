@@ -8,14 +8,14 @@
         <p class="T_s2 T_c1 T_bold T_m3">{1 | resource: 'SitePhone'}</p>
         <p class="T_s2 T_c1 T_bold">E-mail: {1 | resource: 'SiteEmail'}</p>
         <p class="T_s2 T_c1 T_bold T_m3">Рабочие часы: ПН-ПТ 9:00-19:00</p>
-        <p class="T_s2 T_bold T_m1">Производство и огрузка</p>
+        <p class="T_s2 T_bold T_m1">Производство и отгрузка</p>
         <p class="T_s1 T_m3">Адрес: {1 | resource: 'SiteAddress2'}</p>
         <p class="T_s2 T_c1 T_bold">Время работы:</p>
         <p class="T_s2 T_c1 T_bold">Пн. - Пт.: c 8:00 до 17:00</p>
         <p class="T_s2 T_c1 T_bold">Сб. - Вс.: выходные дни</p>
       </div>
       <div class="ContactsBlock__map">
-        <div data-js="Map" id="Map_contact" data-address="Россия, Санкт-Петербург, улица Комсомола, 1"></div>
+        <div data-js="Map" id="Map_contact" data-address="{1 | resource: 'SiteAddress'}"></div>
       </div>
     </div>
   </div>

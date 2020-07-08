@@ -2,6 +2,8 @@
 
 $phone=trim($_POST["phone"]);
 $phone=strip_tags($phone);
+$email=trim($_POST["email"]);
+$email=strip_tags($email);
 $IDForm=trim($_POST["IDForm"]);
 $IDForm=strip_tags($IDForm);
 $theme=trim($_POST["theme"]);
@@ -17,9 +19,9 @@ $text=strip_tags($text);
     // Send To Email //
 //-------------------------------------------------------------------------//
 
-if ($phone != '' AND $policy == 'on') {
+if ( ($phone != '' OR email != '') AND $policy == 'on') {
   $emailTo = "web@2f-vsk.ru, info@gazobetonvspb.ru";
-  $emailFrom ="info@tskarteco.ru";
+  $emailFrom ="info@gazobetonvspb.ru";
 
   $emailTitle = $theme;
   $emailTitle = iconv("utf-8","windows-1251",$emailTitle);
@@ -28,7 +30,12 @@ if ($phone != '' AND $policy == 'on') {
   $emailText="<html><head></head><body>";
   $emailText.="<b>Тема заявки:</b> {$theme}<br>";
   $emailText.="<b>Страница заявки:</b> {$page}<br>";
-  $emailText.="<b>Телефон:</b> {$phone}";
+  if (!empty($phone)) {
+    $emailText.="<b>Телефон:</b> {$phone}";
+  }
+  if (!empty($email)) {
+    $emailText.="<b>Почта:</b> {$email}";
+  }
   if (!empty($text)) {
     $emailText.="<b>Текст:</b> {$text}";
   }

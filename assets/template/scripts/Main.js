@@ -16,7 +16,6 @@ $(document).ready(function() {
     });
   }
 
-  new Modal('[data-js=Modal]');
   new CalcBlock('[data-js=CalcBlock]');
   new Filter('[data-js=Filter]');
   new Accordion('[data-js=Accordion]');
@@ -45,15 +44,47 @@ $(document).ready(function() {
   });
 
 
-  $(document).on('mse2_load', (/*e, data*/) => {
-    new Modal('[data-js=Modal]');
-  });
-
-
 
   $('[data-js=Callback]').each((index, item) => {
     new Callback(item);
-  })
+  });
+
+
+  function ModalInitialization() {
+    $('[data-js=Modal]').each((index, item) => {
+      if ($(item).hasClass('Gallery__button')) {
+        new Modal(item, {
+          position: {
+            my: "center",
+            at: "center center+50",
+            of: window
+          },
+          onOpen: () => {
+            new Slider('.Gallery [data-js=Slider]',{
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              adaptiveHeight: true,
+              centerMode: false,
+            });
+          },
+          onBeforeClose: () => {
+            const $gallery = $('.Gallery [data-js=Slider]');
+            if ($gallery) {
+              $gallery.slick('unslick');
+            }
+          }
+        });
+      }
+      new Modal(item);
+    });
+  }
+
+  ModalInitialization();
+
+
+  $(document).on('mse2_load', (/*e, data*/) => {
+    ModalInitialization();
+  });
 
 });
 

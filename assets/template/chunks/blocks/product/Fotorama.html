@@ -1,16 +1,24 @@
 <div id="msGallery">
   {if $files?}
+    <button data-js="Modal" data-modal="#gallery" class="Gallery__button Button_clear"></button>
     <div class="fotorama"
          data-swipe="true"
          data-autoplay="false"
          data-width="350"
          data-maxwidth="100%"
-         data-allowfullscreen="true">
+         data-allowfullscreen="false">
       {foreach $files as $file}
         <a href="{$file['url']}" target="_blank">
            <img src="{$file['small']}" alt="{$pagetitle}" title="{$pagetitle}">
         </a>
       {/foreach}
+    </div>
+    <div id="gallery" class="Gallery" style="display: none;">
+      <div data-js="Slider">
+        {foreach $files as $file}
+          <img class="Gallery__image" src="{$file['url']}" alt="{$pagetitle}" title="{$pagetitle}">
+        {/foreach}
+      </div>
     </div>
   {else}
     <img src="{('assets_url' | option) ~ 'components/minishop2/img/web/ms2_medium.png'}"
