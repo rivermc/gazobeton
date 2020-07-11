@@ -20,7 +20,7 @@ $text=strip_tags($text);
 //-------------------------------------------------------------------------//
 
 if ( ($phone != '' OR email != '') AND $policy == 'on') {
-  $emailTo = "web@2f-vsk.ru, info@gazobetonvspb.ru";
+  $emailTo = "web@2f-vsk.ru, info@gazobetonvspb.ru, strojka365@yandex.ru";
   $emailFrom ="info@gazobetonvspb.ru";
 
   $emailTitle = $theme;

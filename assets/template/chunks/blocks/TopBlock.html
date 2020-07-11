@@ -8,6 +8,7 @@
         <p class="T_s8 T_c3 T_lh1">и Ленинградской <br> области</p>
         <p class="T_bold T_s8 T_c1">от 3600 руб./м<sup>3</sup></p>
         <p class="T_s2 T_m6">Газобетон заводского качества по отличной цене! Быстрая доставка со склада производителя и оплата на месте разгрузки</p>
+
         {Callback.block opts=[
           'type' => 'TopBlock',
           'form_class' => 'Form_w1',
@@ -15,7 +16,8 @@
           'fields' => [
             'policy' => [
               'visible' => 1,
-              'id' => 'field_policy_topblock'
+              'id' => 'field_policy_topblock',
+              'label_text' => 'Нажимая на кнопку вы даете <a class="T_underline Inherit" href="' ~ $_modx->makeUrl(105) ~ '">согласие на обработку своих персональных данных</a>. Мы гарантируем их безопасность'
             ],
             'phone' => [
               'visible' => 1,
