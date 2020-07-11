@@ -1,0 +1,10 @@
+{extends 'template:Base'}
+
+{block 'Content'}
+  <div class="Container">
+    {'Crumbs' | chunk}
+    <h1 class="T_bold T_c1 T_w1 T_m4 T_s9 T_upper">{$_modx->resource.pagetitle}</h1>
+    {$_modx->resource.content}
+  </div>
+  {'ContactsBlock' | chunk}
+{/block}
