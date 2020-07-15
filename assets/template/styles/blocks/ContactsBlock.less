@@ -13,10 +13,18 @@
   &__text {
     .flex_cols(4);
     font-size: @s_text_0;
+
+    @media @lg {
+      .flex_cols(6.5);
+    }
   }
 
   &__map {
     .flex_cols(11);
+
+    @media @lg {
+      .flex_cols(9);
+    }
 
     #Map_contact {
       box-shadow: 15px 15px 0 0 @c_blue;
