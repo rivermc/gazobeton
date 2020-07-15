@@ -17,6 +17,9 @@
     @media @lg {
       .flex_cols(6.5);
     }
+    @media @md_m {
+      .flex_cols(8);
+    }
   }
 
   &__map {
@@ -24,6 +27,9 @@
 
     @media @lg {
       .flex_cols(9);
+    }
+    @media @md_m {
+      .flex_cols(7.5);
     }
 
     #Map_contact {
@@ -34,6 +40,10 @@
       background: url('/assets/template/images/contact_block/map_bg.png');
       background-repeat: no-repeat;
       background-size: cover;
+
+      @media @md_m {
+        height: 300px;
+      }
     }
   }
 }

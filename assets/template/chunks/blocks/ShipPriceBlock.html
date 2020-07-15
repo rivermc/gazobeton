@@ -9,8 +9,10 @@
         {set $shippirce_items = json_decode(11 | resource: 'ShipPriceBlock', true)}
         {foreach $shippirce_items as $item}
           <div class="ShipPriceBlock__item">
-            <div class="ShipPriceBlock__text">
+            <div class="ShipPriceBlock__title">
               <p class="T_s2 T_bold T_m2">{$item.title}</p>
+            </div>
+            <div class="ShipPriceBlock__text">
               <p class="T_s1 T_lh2">Вместимость:</p>
               <p class="T_s1 T_lh2">{$item.text_1}</p>
               <p class="T_s1 T_lh2">{$item.text_2}</p>

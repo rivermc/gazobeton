@@ -16,11 +16,19 @@
     .flex(@j:flex-end);
     padding: 10px 0 0;
 
+    @media @md_m {
+      padding: 0;
+    }
+
     .SitePhone {
       color: @c_gray_d;
       font-size: @s_text_3;
       font-family: @f_Monserat_b;
       margin-left: 10px;
+
+      @media @md_m {
+        font-size: @s_text_2;
+      }
     }
   }
 
@@ -29,8 +37,8 @@
   }
 
   &__menu {
-    .flex_cols(12);
     .flex();
+    flex: 1;
     margin: 10px 0 0;
   }
 
@@ -41,18 +49,13 @@
   }
 
   &__catalogButton {
-    .flex_cols(4);
     .flex(@j:center);
     background: @c_white url('/assets/template/images/icons/block.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 62px;
-    max-width: 280px;
-
-    @media @lg {
-      height: 55px;
-    }
+    width: 280px;
 
     svg {
       .transition();
@@ -70,5 +73,15 @@
 
   &__catalogWrap {
     display: none;
+  }
+
+  &__textWrap {
+
+    p {
+
+      @media @md_m {
+        font-size: @s_text_1;
+      }
+    }
   }
 }

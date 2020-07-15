@@ -19,11 +19,20 @@
   &__copyright {
     .flex_cols(5);
     color: @c_white;
+
+    @media @md_m {
+      .flex_cols(16);
+      order: 1;
+    }
   }
 
   &__contacts {
     .flex_cols(5);
     text-align: right;
+
+    @media @md_m {
+      .flex_cols(10);
+    }
   }
 
   &__logo {
