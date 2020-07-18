@@ -32,6 +32,7 @@
       &[disabled] {
         display: block;
       }
+
       .Form__field_checkbox:disabled+.Form__label {
         display: block;
         opacity: 0.5;
@@ -44,14 +45,19 @@
     .flex_cols(8);
     background: @c_gray_l;
     padding: 30px;
-  }
 
-  &__form {
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 
   &__results {
     .flex_cols(8);
     padding: 30px;
+
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 
 
@@ -73,17 +79,55 @@
 
   &__callback {
     .flex_cols(6);
+
+    @media @md {
+      .flex_cols(7.5);
+    }
   }
 
   &__link {
     .flex_cols(9);
+
+    @media @md {
+      .flex_cols(7.5);
+    }
+
+    .T_s1 {
+      @media @md_m {
+        font-size: @s_text_6;
+      }
+    }
   }
 
   &__image {
     .flex_cols(6);
+
+    @media @md {
+      .flex_cols(16);
+    }
   }
 
   &__content {
     .flex_cols(9);
+
+    @media @md {
+      .flex_cols(16);
+    }
+  }
+
+  &__price {
+
+    @media @md {
+      text-align: right;
+    }
+  }
+
+  &__options {
+
+    .T_s1 {
+      @media @lg_m {
+        font-size: @s_text_6;
+      }
+    }
   }
 }

@@ -8,6 +8,14 @@
   &__item {
     font-size: @s_text_1;
 
+    @media @sm_m {
+      font-size: @s_text_6;
+    }
+
+    a, label, li, p {
+      font-size: inherit;
+    }
+
     &_current {
       font-family: @f_Monserat_b;
       color: @c_blue;

@@ -19,11 +19,20 @@
   &__copyright {
     .flex_cols(5);
     color: @c_white;
+
+    @media @md_m {
+      .flex_cols(16);
+      order: 1;
+    }
   }
 
   &__contacts {
     .flex_cols(5);
     text-align: right;
+
+    @media @md_m {
+      .flex_cols(10);
+    }
   }
 
   &__logo {
@@ -35,6 +44,10 @@
     font-size: @s_text_4;
     font-family: @f_Monserat_b;
     margin: 0 0 10px;
+
+    @media @lg {
+      font-size: @s_title_3;
+    }
 
     path {
       fill: @c_white;

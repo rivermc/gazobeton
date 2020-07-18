@@ -6,6 +6,11 @@
   margin: 40px 0 50px;
   padding: 50px 0;
 
+  @media @sm_m {
+    margin: 15px 0;
+    padding: 15px 0;
+  }
+
   &__wrap {
     .flex();
   }
@@ -13,10 +18,24 @@
   &__text {
     .flex_cols(4);
     font-size: @s_text_0;
+
+    @media @lg {
+      .flex_cols(6.5);
+    }
+    @media @md_m {
+      .flex_cols(8);
+    }
   }
 
   &__map {
     .flex_cols(11);
+
+    @media @lg {
+      .flex_cols(9);
+    }
+    @media @md_m {
+      .flex_cols(7.5);
+    }
 
     #Map_contact {
       box-shadow: 15px 15px 0 0 @c_blue;
@@ -26,6 +45,10 @@
       background: url('/assets/template/images/contact_block/map_bg.png');
       background-repeat: no-repeat;
       background-size: cover;
+
+      @media @md_m {
+        height: 300px;
+      }
     }
   }
 }

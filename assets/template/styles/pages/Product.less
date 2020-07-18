@@ -28,7 +28,7 @@
     margin-bottom: 20px;
 
     p, li, a {
-      font-size: @s_text_5;
+      font-size: inherit;
     }
   }
 
@@ -49,6 +49,10 @@
       border-radius: @radius_3;
       padding: 20px 40px;
       text-align: center;
+
+      @media @lg {
+        padding: 20px;
+      }
     }
   }
 

@@ -6,6 +6,10 @@
   padding: 50px 0 0;
   position: relative;
 
+  @media @sm_m {
+    padding: 15px 0 0;
+  }
+
   &__item {
     .flex();
     margin: 40px 0 0;
@@ -23,10 +27,19 @@
 
   &__image {
     .flex_cols(7.5);
+
+    @media @sm_m {
+      margin: 0 auto 10px;
+    }
   }
 
   &__text {
     .flex_cols(7.5);
+
+    @media @sm_m {
+      .flex_cols(16);
+      order: 2;
+    }
   }
 
   &__link {

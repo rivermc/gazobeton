@@ -1,0 +1,12 @@
+.Tabs {
+
+  &__item {
+    display: none;
+    opacity: 0;
+
+    &[data-status=true] {
+      .animation(@key:fadeIn, @count:1, @dir:forwards);
+      display: block;
+    }
+  }
+}

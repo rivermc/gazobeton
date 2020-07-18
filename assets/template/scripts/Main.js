@@ -6,6 +6,8 @@ import Accordion from './Accordion.js';
 import Scroll from './Scroll.js';
 import CalcBlock from './CalcBlock.js';
 import Callback from './Callback.js';
+import Menu from './Menu.js';
+import Tabs from './Tabs.js';
 
 
 $(document).ready(function() {
@@ -36,17 +38,15 @@ $(document).ready(function() {
         fixHeader: true
       });
     });
-  }, 500)
-
-  $('.js_openMenu').click(function() {
-    $(this).toggleClass('js_active');
-    $('.Header__catalogWrap').slideToggle();
-  });
+  }, 500);
 
 
 
   $('[data-js=Callback]').each((index, item) => {
     new Callback(item);
+  });
+  $('[data-js=Tabs]').each((index, item) => {
+    new Tabs(item);
   });
 
 
@@ -75,12 +75,32 @@ $(document).ready(function() {
           }
         });
       }
-      new Modal(item);
+      else {
+        new Modal(item);
+      }
     });
   }
 
   ModalInitialization();
 
+  $('[data-js=Menu]').each((index, item) => {
+    if ($(item).data('type') === 'catalog_toggle') {
+      new Menu(item, {
+        is_catalog_toggle: true
+      });
+    }
+    else if ($(item).data('type') === 'catalog') {
+      new Menu(item, {
+        is_catalog: true,
+        toggler: '.Menu__toggler_catalog'
+      });
+    }
+    else {
+      new Menu(item, {
+        toggler: '.Menu__toggler_main'
+      });
+    }
+  });
 
   $(document).on('mse2_load', (/*e, data*/) => {
     ModalInitialization();

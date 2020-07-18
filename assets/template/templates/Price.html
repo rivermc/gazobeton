@@ -1,101 +1,149 @@
 {extends 'template:Base'}
 
 {block 'Content'}
-<div class="Price">
-  {'pdoResources' | snippet: [
-    'parents' => 2,
-    'resources' => -7,
-    'depth' => 0,
-    'limit' => 0,
-    'where' => ['class_key:=' => 'msCategory'],
-    'includeContent' => true,
-    'tpl' => '@INLINE {$id}',
-    'outputSeparator' => '&',
-    'includeTVs' => 'CatalogImage',
-    'toPlaceholder' => 'category'
-  ]}
-  <div class="Container">
-    {'Crumbs' | chunk}
-    <h1 class="T_bold T_c1 T_w1 T_s9 T_upper">{$_modx->resource.pagetitle}</h1>
-  </div>
-  <div class="Price__blocks">
-    {set $categories = 'category' | placeholder | split:'&'}
-    {foreach $categories as $category_id}
-      <div class="Container">
-        <div class="Price__block">
-          <div class="Price__contentWrap">
-            <div class="Price__title">
-              <h2 class="T_s7 T_bold">{$category_id | resource: 'pagetitle'}</h2>
-            </div>
-            <div class="Price__image">
-              <img src="{$category_id | resource: 'CatalogImage'}" alt="{$category_id | resource: 'pagetitle'}">
-            </div>
-            <div class="Price__content">
-              {$category_id | resource: 'content'}
-              <button class="Button Button_v1 Button_m5" data-js="Modal" data-modal="#callback_order">
-                {if $category_id == 6}
-                  {set $category_name = "некондицию газобетона"}
-                {else}
-                  {set $category_name = $category_id | resource: 'pagetitle' | lower}
-                {/if}
-                Заказать {$category_name}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Price__items">
+  <div class="Price">
+    {'pdoResources' | snippet: [
+      'parents' => 2,
+      'resources' => -7,
+      'depth' => 0,
+      'limit' => 0,
+      'where' => ['class_key:=' => 'msCategory'],
+      'includeContent' => true,
+      'tpl' => '@INLINE {$id}',
+      'outputSeparator' => '&',
+      'includeTVs' => 'CatalogImage',
+      'toPlaceholder' => 'category'
+    ]}
+    <div class="Container">
+      {'Crumbs' | chunk}
+      <h1 class="T_bold T_c1 T_w1 T_s9 T_upper">{$_modx->resource.pagetitle}</h1>
+    </div>
+    <div class="Price__blocks">
+      {set $categories = 'category' | placeholder | split: '&'}
+      {foreach $categories as $category_id}
         <div class="Container">
-          <div class="Table Table_v1">
-            <div class="Table__thead">
-              <div class="Table__tr Table__tr_p1">
-                <div class="Table__td Table__td_w1">
-                  <p class="T_s1 T_bold">Размеры</p>
-                </div>
-                <div class="Table__td Table__td_w1">
-                  <p class="T_s1 T_bold">В поддоне, шт</p>
-                </div>
-                <div class="Table__td Table__td_w1">
-                  <p class="T_s1 T_bold">м<sup>3</sup> в поддоне</p>
-                </div>
-                <div class="Table__td Table__td_w1">
-                  <p class="T_s1 T_bold">Сорт</p>
-                </div>
-                <div class="Table__td Table__td_w1">
-                  <p class="T_s1 T_bold">Цена с НДС, руб</p>
-                </div>
+          <div class="Price__block">
+            <div class="Price__contentWrap">
+              <div class="Price__title">
+                <h2 class="T_s7 T_m3 T_bold">{$category_id | resource: 'pagetitle'}</h2>
+              </div>
+              <div class="Price__image">
+                <img src="{$category_id | resource: 'CatalogImage'}" alt="{$category_id | resource: 'pagetitle'}">
+              </div>
+              <div class="Price__content">
+                {$category_id | resource: 'content'}
+                <button class="Button Button_v1 Button_m5" data-js="Modal" data-modal="#callback_order">
+                  {if $category_id == 6}
+                    {set $category_name = "некондицию газобетона"}
+                  {else}
+                    {set $category_name = $category_id | resource: 'pagetitle' | lower}
+                  {/if}
+                  Заказать {$category_name}
+                </button>
               </div>
             </div>
-            <div class="Table__tbody">
-              {set $catalog_prices = json_decode($category_id | resource: 'CatalogPrice', true)}
-              {foreach $catalog_prices as $item}
-                <div class="Table__tr Table__tr_v1">
-                  <div class="Table__td Table__td_w1">
-                    <p class="T_s1">{$item.size}</p>
-                  </div>
-                  <div class="Table__td Table__td_w1">
-                    <p class="T_s1">{$item.count_pallet}</p>
-                  </div>
-                  <div class="Table__td Table__td_w1">
-                    <p class="T_s1">{$item.count_m3}</p>
-                  </div>
-                  <div class="Table__td Table__td_w1">
-                    <p class="T_s1">{$item.sort}</p>
-                  </div>
-                  <div class="Table__td Table__td_w1">
-                    <p class="T_s1">{$item.price} руб./м<sup>3</sup></p>
-                    <p class="T_s1 T_c1">{$item.price_2} руб./м<sup>3</sup></p>
-                  </div>
+          </div>
+        </div>
+        <div class="Price__items">
+          <div class="Container">
+            <div class="Tabs" data-js="Tabs">
+              {set $catalog_tables = json_decode($category_id | resource: 'CatalogPriceWrap', true)}
+              {if $catalog_tables | length > 1}
+                <div class="Tabs__menu Price__tabs" data-type="menu">
+                  {foreach $catalog_tables as $key => $catalog_table}
+                    <button class="Price__tab Button_clear" {if $key == 0} data-status="true" {/if}>{$catalog_table.title}</button>
+                  {/foreach}
                 </div>
-              {/foreach}
+              {/if}
+              <div class="Table Table_v1" data-type="items">
+                {foreach $catalog_tables as $key => $catalog_table}
+                  {set $tables = json_decode($catalog_table.table, true)}
+                  <div class="Tabs__item" {if $key == 0} data-status="true" {/if}>
+                    <div class="Table__thead">
+                      <div class="Table__tr Table__tr_p1">
+                        {set $check_size = true}
+                        {set $check_count_pallet = true}
+                        {set $check_count_m3 = true}
+                        {set $check_sort = true}
+                        {set $check_price = true}
+                        {foreach $tables as $item}
+                          {if $item.size AND $check_size}
+                            {set $check_size = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">Размеры</p>
+                            </div>
+                          {/if}
+                          {if $item.count_pallet AND $check_count_pallet}
+                            {set $check_count_pallet = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">В поддоне, шт</p>
+                            </div>
+                          {/if}
+                          {if $item.count_m3 AND $check_count_m3}
+                            {set $check_count_m3 = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">м<sup>3</sup> в поддоне</p>
+                            </div>
+                          {/if}
+                          {if $item.sort AND $check_sort}
+                            {set $check_sort = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">Сорт</p>
+                            </div>
+                          {/if}
+                          {if $item.price AND $check_price}
+                            {set $check_price = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">Цена с НДС, руб</p>
+                            </div>
+                          {/if}
+                        {/foreach}
+                      </div>
+                    </div>
+                    <div class="Table__tbody">
+                      {foreach $tables as $item}
+                        <div class="Table__tr Table__tr_v1">
+                          {if $item.size}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.size}</p>
+                            </div>
+                          {/if}
+                          {if $item.count_pallet}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.count_pallet}</p>
+                            </div>
+                          {/if}
+                          {if $item.count_m3}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.count_m3}</p>
+                            </div>
+                          {/if}
+                          {if $item.sort}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.sort}</p>
+                            </div>
+                          {/if}
+                          {if $item.price}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.price} руб./м<sup>3</sup></p>
+                              {if $item.price_2}
+                                <p class="T_s1 T_c1">{$item.price_2} руб./м<sup>3</sup></p>
+                              {/if}
+                            </div>
+                          {/if}
+                        </div>
+                      {/foreach}
+                    </div>
+                  </div>
+                {/foreach}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {/foreach}
+      {/foreach}
+    </div>
   </div>
-</div>
-{'SalesBlock' | chunk}
-{'FilterBlock' | chunk}
-{'ContactsBlock' | chunk}
+  {'SalesBlock' | chunk}
+  {'FilterBlock' | chunk}
+  {'ContactsBlock' | chunk}
 {/block}

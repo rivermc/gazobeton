@@ -30,6 +30,13 @@ h1, h2, h3, h4 {
 label, p, a, li {
   font-size: @s_text_2;
   line-height: 1.8em;
+
+  @media @md_m {
+    font-size: @s_text_1;
+  }
+  @media @sm_m {
+    font-size: @s_text_6;
+  }
 }
 
 ::-webkit-scrollbar {

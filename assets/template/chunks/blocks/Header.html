@@ -17,12 +17,15 @@
         {'IncSvg' | snippet: ['file' => 'icons/phone.svg']}
         {1 | resource: 'SitePhone'}
       </div>
+      <div class="Menu__toggler Menu__toggler_main">
+        {'IncSvg' | snippet: ['file' => 'icons/burger.svg']}
+      </div>
     </div>
   </div>
   <div class="Header__menuWrap">
     <div class="Container g_flex">
       <div class="Header__catalogButton">
-        <button class="Button_v4 Button_c1 Button_v3 Button_m2 js_openMenu">
+        <button class="Button_v4 Button_c1 Button_v3 Button_m2 Menu__toggler Menu__toggler_catalog" data-js="Menu" data-type="catalog_toggle">
           Продукция
           {'IncSvg' | snippet: ['file' => 'icons/arrow.svg']}
         </button>
@@ -35,9 +38,14 @@
           'where' => [
             'template:NOT IN' => [6],
           ],
-          'outerClass' => 'Menu Menu_gor Menu_topBlock',
+          'outerClass' => 'Menu Menu_mobile Menu_main',
           'rowClass' => 'Menu__item',
           'hereClass' => 'Menu__item_active',
+          'tplOuter' => '@INLINE
+            <div [[+classes]] data-js="Menu" data-type="main">
+              <div class="Menu__closer"></div>
+              <ul class="Menu_gor">{$wrapper}</ul>
+            </div>',
           'tpl' => '@INLINE <li {$classes}><a class="T__A T_c2 T_s1 T_bold" {$link_attributes} href="{$link}">{$menutitle}</a></li>',
         ]}
       </div>
@@ -53,9 +61,14 @@
           'where' => [
             'template:NOT IN' => [6],
           ],
-          'outerClass' => 'Menu Menu_gor',
+          'outerClass' => 'Menu Menu_gor Menu_mobile Menu_catalog',
           'rowClass' => 'Menu__item Menu__item_icon',
           'hereClass' => 'Menu__item_active',
+          'tplOuter' => '@INLINE
+            <div [[+classes]] data-js="Menu" data-type="catalog">
+              <div class="Menu__closer"></div>
+              <ul class="Menu_gor">{$wrapper}</ul>
+            </div>',
           'tpl' => '@INLINE <li {$classes}>{if $attributes} <img class="Menu__icon" src="{$attributes}"/>{/if}<a class="T_c3 T_s2 T_upper T_bold" href="{$link}">{$menutitle}</a></li>',
         ]}
       </div>
