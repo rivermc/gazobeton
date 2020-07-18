@@ -22,9 +22,17 @@
   }
   @media @md_m {
     &_s4 {font-size: @s_text_3;} // 18pt
+    &_s7 {font-size: @s_title_4;} // 16pt
     &_s9 {font-size: @s_title_3;} // 20pt
     &_s8 {font-size: @s_text_3;} // 18pt
     &_s2 {font-size: @s_text_1;} // 10.5pt
+  }
+  @media @sm_m {
+    &_s1 {font-size: @s_text_6;} // 10.5pt
+    &_s7 {font-size: @s_text_5;} // 13.5pt
+    &_s2 {font-size: @s_text_6;} // 9.5pt
+    &_s4 {font-size: @s_text_5;} // 13.5pt
+    &_s9 {font-size: @s_text_3;} // 18pt
   }
 
   // Text color //
@@ -46,6 +54,10 @@
   &_m8 {margin: 20px 0 10px;}
   &_m9 {margin: 50px 0 10px;}
 
+  @media @sm_m {
+    &_m4 {margin: 20px 0;}
+  }
+
   // Line-height //
   &_lh1 {line-height: 1.2em;}
   &_lh2 {line-height: 1.6em;}
@@ -62,6 +74,7 @@
   &_upper {text-transform: uppercase;}
   &_bold {font-family: @f_Monserat_b;}
   &_center {text-align: center;}
+  &_left {text-align: left;}
   &_inline {display: inline;}
   &_block {display: block}
   &_underline {text-decoration: underline;}

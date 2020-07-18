@@ -7,6 +7,14 @@
   &__contentWrap {
     .flex(@a:flex-end);
     padding: 50px 0;
+
+    @media @md {
+      padding: 30px 0;
+    }
+    @media @sm_m {
+      padding: 15px 0;
+      align-items: center;
+    }
   }
 
   &__title {
@@ -25,5 +33,29 @@
   &__items {
     background: @c_gray_l;
     padding: 50px 0;
+  }
+
+  &__tabs {
+    .flex();
+  }
+
+  &__tab {
+    .transition();
+    font-family: @f_Monserat;
+    color: @c_blue;
+    flex: 1;
+    background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
+    background-size: contain;
+    padding: 10px 0 0;
+    text-align: center;
+    line-height: 1.2em;
+    cursor: pointer;
+    height: 50px;
+    margin: 0 50px;
+
+    &[data-status=true] {
+      background: url(/assets/template/images/icons/block3.svg) center center no-repeat;
+      background-size: contain;
+    }
   }
 }

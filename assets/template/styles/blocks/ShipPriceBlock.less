@@ -2,6 +2,11 @@
   margin: 50px 0;
   padding: 50px 0;
 
+  @media @sm_m {
+    margin: 15px 0;
+    padding: 15px 0;
+  }
+
   &_bg1 {
     background: @c_gray_l;
   }
@@ -14,9 +19,12 @@
   }
 
   &__cols {
-    .flex_cols(8);
     background: @c_white;
     padding: 40px;
+
+    @media @md_m {
+      .flex_cols(16);
+    }
 
     &:nth-child(2) {
       background: @c_gray_l;

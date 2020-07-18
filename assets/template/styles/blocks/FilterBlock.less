@@ -45,11 +45,19 @@
     .flex_cols(8);
     background: @c_gray_l;
     padding: 30px;
+
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 
   &__results {
     .flex_cols(8);
     padding: 30px;
+
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 
 
@@ -72,7 +80,7 @@
   &__callback {
     .flex_cols(6);
 
-    @media @md_m {
+    @media @md {
       .flex_cols(7.5);
     }
   }
@@ -80,7 +88,7 @@
   &__link {
     .flex_cols(9);
 
-    @media @md_m {
+    @media @md {
       .flex_cols(7.5);
     }
 
@@ -94,7 +102,7 @@
   &__image {
     .flex_cols(6);
 
-    @media @md_m {
+    @media @md {
       .flex_cols(16);
     }
   }
@@ -102,14 +110,14 @@
   &__content {
     .flex_cols(9);
 
-    @media @md_m {
+    @media @md {
       .flex_cols(16);
     }
   }
 
   &__price {
 
-    @media @md_m {
+    @media @md {
       text-align: right;
     }
   }

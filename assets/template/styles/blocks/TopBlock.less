@@ -7,6 +7,10 @@
   background-position: center;
   padding: 20px 0 50px;
 
+  @media @sm_m {
+    padding: 15px 0;
+  }
+
   &__wrap {
     .flex(@wrap:nowrap);
     background: url("/assets/template/images/top_block/bg_1.png");
@@ -18,9 +22,17 @@
     @media @md_m {
       background-size: 60% auto;
     }
+
+    @media @sm_m {
+      background-position: top right;
+    }
   }
 
   &__text {
     max-width: 420px;
+
+    @media @sm_m {
+      max-width: none;
+    }
   }
 }

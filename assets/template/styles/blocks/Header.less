@@ -10,6 +10,10 @@
   &__topWrap {
     .flex();
     padding: 20px 0;
+
+    @media @sm_m {
+      padding: 10px 0;
+    }
   }
 
   &__phone {
@@ -26,26 +30,46 @@
       font-family: @f_Monserat_b;
       margin-left: 10px;
 
-      @media @md_m {
+      @media @md {
         font-size: @s_text_2;
+      }
+      @media @sm_m {
+        font-size: @s_text_3;
       }
     }
   }
 
   &__logo {
     .flex_cols(4);
+    line-height: 1;
+
+    @media @sm_m {
+      .flex_cols(6);
+    }
+
+    & a {
+      line-height: inherit;
+    }
   }
 
   &__menu {
     .flex();
     flex: 1;
     margin: 10px 0 0;
+
+    @media @sm_m {
+      flex: none;
+    }
   }
 
   &__menuWrap {
     .flex_cols(16);
     background: @c_blue;
     padding: 0 0 15px;
+
+    @media @sm_m {
+      padding: 0 0 5px;
+    }
   }
 
   &__catalogButton {
@@ -57,30 +81,76 @@
     height: 62px;
     width: 280px;
 
+    @media @sm_m {
+      margin: 0 auto;
+      height: 45px;
+      width: 195px;
+    }
+
+    & button {
+
+      @media @sm_m {
+        margin: inherit;
+      }
+    }
+
     svg {
       .transition();
       margin: 0 10px;
       position: relative;
       top: -1px;
+
+      @media @sm_m {
+        transform: rotate(-90deg);
+      }
     }
 
-    .js_active {
+    & [data-status="true"] {
       svg {
         transform: rotate(180deg);
+
+        @media @sm_m {
+          transform: rotate(90deg);
+        }
       }
     }
   }
 
   &__catalogWrap {
+    background: @c_white;
     display: none;
+    opacity: 0;
+
+    @media @md_p {
+      .animation(@key:fadeIn, @count:1, @dir:forwards);
+      position: absolute;
+      width: 100%;
+    }
+
+    @media @sm_m {
+      display: block;
+      opacity: 1;
+    }
+
+    &[data-status="true"] {
+      display: block;
+    }
   }
 
   &__textWrap {
 
-    p {
+    @media @md_m {
+      font-size: @s_text_1;
+    }
+
+    @media @sm_m {
+      display: none;
+    }
+
+    & p {
 
       @media @md_m {
-        font-size: @s_text_1;
+        font-size: inherit;
       }
     }
   }

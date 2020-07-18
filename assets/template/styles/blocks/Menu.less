@@ -4,17 +4,87 @@
 
 .Menu {
 
-  &_topBlock {
-    .flex_cols(16);
-    padding: 0 0 0 20px;
-  }
-
   &_gor {
     .flex();
   }
 
+  &_main {
+    .flex_cols(16);
+    padding: 0 0 0 20px;
+
+    @media @sm_m {
+      background: @c_blue;
+    }
+  }
+
+  &_catalog {
+    background: @c_white;
+
+    @media @md_m {
+      text-align: center;
+    }
+  }
+
+  &_mobile {
+
+    @media @sm_m {
+      .transition();
+      box-shadow: @shadow;
+      position: absolute;
+      width: 100%;
+      left: -150%;
+      top: 0;
+      padding: 20px;
+
+      .Menu_gor {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+
+    &[data-status="true"] {
+      left: 0;
+    }
+  }
+
+  &__toggler {
+    cursor: pointer;
+
+    &_main {
+
+      @media @md_p {
+        display: none;
+      }
+    }
+  }
+
+  &__closer {
+    .size(12px, 12px);
+    background: url(/assets/template/images/icons/close.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 999;
+
+    @media @md_p {
+      display: none;
+    }
+  }
+
   &__item {
     margin-right: 10px;
+
+    a {
+      @media @md_m {
+        font-size: @s_text_6;
+        width: 100%;
+        text-align: inherit;
+      }
+    }
 
     &.last {
       margin: 0;
@@ -23,11 +93,29 @@
     &_icon {
       .flex(@j:flex-start, @wrap:nowrap);
       .flex_cols(3.5);
+
+      @media @md {
+        flex-wrap: wrap;
+      }
+      @media @sm_m {
+        .flex_cols(16);
+      }
+
+      a {
+        @media @sm_m {
+          text-align: left;
+        }
+      }
     }
   }
 
   &__icon {
     max-height: 90px;
+
+    @media @md_m {
+      text-align: center;
+      margin: 0 auto;
+    }
   }
 
   &__link {

@@ -1,7 +1,12 @@
 .SalesBlock {
   background: @c_gray_l url('/assets/template/images/sales_block/bg.svg') center 100px no-repeat;
   padding: 20px 0;
+  margin: 20px 0;
   background-size: auto 90%;
+
+  @media @sm_m {
+    padding: 15px 0;
+  }
 
   &_bg1 {
     background: url("/assets/template/images/top_block/bg.png") center 50px no-repeat
@@ -39,6 +44,11 @@
 
   &__text {
     .flex_cols(7);
+
+    @media @sm_m {
+      .flex_cols(16);
+      margin-top: 10px;
+    }
   }
 
   .SitePhone {
