@@ -23,6 +23,10 @@
 
   &__images {
     margin-bottom: 40px;
+
+    @media @sm_m {
+      margin-bottom: 10px;
+    }
   }
 
   &__img {
@@ -31,6 +35,13 @@
     height: 150px;
     display: block;
     margin: 0 auto;
+
+    @media @sm {
+      height: 120px;
+    }
+    @media @xs {
+      height: 80px;
+    }
   }
 
   &__text {
