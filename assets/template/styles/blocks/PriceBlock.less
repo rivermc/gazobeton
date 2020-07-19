@@ -26,6 +26,10 @@
       .flex_cols(7.75);
       margin-bottom: 30px;
     }
+    @media @xs {
+      .flex_cols(16);
+      padding: 15px;
+    }
 
     &:nth-child(n+4) {
       background: @c_orange;
@@ -33,6 +37,18 @@
     
     &:hover {
       top: -20px;
+    }
+
+    & .T_m5 {
+      @media @xs {
+        margin: 5px 0;
+      }
+    }
+
+    & .T_m3 {
+      @media @xs {
+        margin: 0 0 5px;
+      }
     }
   }
 

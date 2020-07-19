@@ -12,8 +12,13 @@
   padding: 20px;
   margin-bottom: 20px;
 
-  @media @lg {
+  @media @lg_m {
     .flex_cols(4.8);
+    .flex_offset_r(0.25);
+    .flex_offset_l(0.25);
+  }
+  @media @sm_m {
+    .flex_cols(7.5);
   }
 
   &__title {

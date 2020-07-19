@@ -6,7 +6,7 @@
 
   &__bottom {
     background: @c_gray_l;
-    padding: 50px;
+    padding: 50px 0;
 
     &_m1 {
       margin-top: 60px;
@@ -32,10 +32,18 @@
     left: 15px;
     width: ~'calc(100% - 30px)';
 
+    @media @md_m {
+      top: -100px;
+    }
+
     .Form__fieldWrap {
       flex: 1;
       height: 60px;
       margin: 0;
+
+      @media @md_m {
+        height: 54px;
+      }
     }
 
     .Form__label {
@@ -47,6 +55,11 @@
       text-align: center;
       line-height: 1.2em;
       cursor: pointer;
+
+      @media @md_m {
+        padding: 15px 30px 0;
+        font-size: @s_text_6;
+      }
     }
 
     .Form__field:checked + .Form__label {
