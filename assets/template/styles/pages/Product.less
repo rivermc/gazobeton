@@ -24,12 +24,7 @@
   &__content {
     .flex_offset_l(1);
     .flex_offset_r(1);
-    font-size: @s_text_2;
     margin-bottom: 20px;
-
-    p, li, a {
-      font-size: inherit;
-    }
   }
 
   &__gallery {
@@ -83,6 +78,9 @@
       .flex_offset_l(0);
       .flex_offset_r(0);
     }
+    @media @sm_m {
+      padding: 30px 15px;
+    }
 
     &_title {
       .flex(@j:center);
@@ -105,6 +103,11 @@
   &__perk {
     .flex_cols(16/6);
     text-align: center;
+
+    @media @sm_m {
+      .flex_cols(4);
+      margin: 0 0 10px;
+    }
 
     &_img {
       margin-bottom: 10px;
