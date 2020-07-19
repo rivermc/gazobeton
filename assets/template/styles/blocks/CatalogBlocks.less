@@ -5,6 +5,10 @@
 .CatalogBlock {
   margin: 100px 0;
 
+  @media @md {
+    margin: 50px 0;
+  }
+
   @media @sm_m {
     margin: 15px 0;
   }
@@ -19,6 +23,14 @@
     border-radius: @radius;
     margin: 0 2% 2%;
 
+    @media @sm_m {
+      .flex_cols(7.5);
+      margin: 0 1% 1%;
+    }
+    @media @xs {
+      .flex_cols(16);
+    }
+
     &:hover {
       box-shadow: @shadow;
     }
@@ -27,6 +39,10 @@
   &__link {
     .flex(@j:flex-start, @wrap:nowrap);
     padding: 40px 10px;
+
+    @media @sm_m {
+      padding: 15px 10px;
+    }
 
     &_text {
       .flex_cols(10);
