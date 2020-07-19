@@ -4,7 +4,6 @@
   <div class="Price">
     {'pdoResources' | snippet: [
       'parents' => 2,
-      'resources' => -7,
       'depth' => 0,
       'limit' => 0,
       'where' => ['class_key:=' => 'msCategory'],
@@ -61,12 +60,26 @@
                   <div class="Tabs__item" {if $key == 0} data-status="true" {/if}>
                     <div class="Table__thead">
                       <div class="Table__tr Table__tr_p1">
+                        {set $check_title = true}
+                        {set $check_weigth = true}
                         {set $check_size = true}
                         {set $check_count_pallet = true}
                         {set $check_count_m3 = true}
                         {set $check_sort = true}
                         {set $check_price = true}
                         {foreach $tables as $item}
+                          {if $item.title AND $check_title}
+                            {set $check_title = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">Наименование</p>
+                            </div>
+                          {/if}
+                          {if $item.weigth AND $check_weigth}
+                            {set $check_weigth = false}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1 T_bold">Вес</p>
+                            </div>
+                          {/if}
                           {if $item.size AND $check_size}
                             {set $check_size = false}
                             <div class="Table__td Table__td_w1">
@@ -103,6 +116,16 @@
                     <div class="Table__tbody">
                       {foreach $tables as $item}
                         <div class="Table__tr Table__tr_v1">
+                          {if $item.title}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.title}</p>
+                            </div>
+                          {/if}
+                          {if $item.weigth}
+                            <div class="Table__td Table__td_w1">
+                              <p class="T_s1">{$item.weigth}</p>
+                            </div>
+                          {/if}
                           {if $item.size}
                             <div class="Table__td Table__td_w1">
                               <p class="T_s1">{$item.size}</p>

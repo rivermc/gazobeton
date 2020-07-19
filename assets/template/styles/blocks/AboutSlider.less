@@ -6,6 +6,10 @@
 
   &__wrap {
     margin: 50px 0;
+
+    @media @xs {
+      margin: 15px 0;
+    }
   }
 
   &__slider {
@@ -21,16 +25,34 @@
       height: 110%;
       top: -5%;
       left: 5%;
+
+      @media @sm_m {
+        border-radius: @radius_3;
+      }
     }
 
     .slick-list {
       border-radius: @radius_2;
       overflow: hidden;
+
+      @media @sm_m {
+        border-radius: @radius_3;
+      }
     }
 
     .slick-slide {
       max-height: 550px;
       overflow: hidden;
+
+      @media @md {
+        max-height: 400px;
+      }
+      @media @sm {
+        max-height: 250px;
+      }
+      @media @xs {
+        max-height: 200px;
+      }
     }
   }
 
@@ -39,6 +61,13 @@
     top: 50%;
     transform: translateY(100%);
     cursor: pointer;
+
+    @media @sm {
+      transform: translateY(-50%);
+    }
+    @media @xs {
+      transform: translateY(50%);
+    }
 
     &_prev {
       left: 10px;

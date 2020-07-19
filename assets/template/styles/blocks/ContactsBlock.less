@@ -25,6 +25,10 @@
     @media @md_m {
       .flex_cols(8);
     }
+    @media @xs {
+      .flex_cols(16);
+      margin: 0 0 10px;
+    }
   }
 
   &__map {
@@ -35,6 +39,9 @@
     }
     @media @md_m {
       .flex_cols(7.5);
+    }
+    @media @xs {
+      .flex_cols(16);
     }
 
     #Map_contact {
@@ -48,6 +55,11 @@
 
       @media @md_m {
         height: 300px;
+      }
+      @media @sm_m {
+        box-shadow: 10px 8px 0 0 @c_blue;
+        border-radius: @radius_3;
+        height: 200px;
       }
     }
   }

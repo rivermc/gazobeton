@@ -42,9 +42,18 @@
     padding: 50px 0;
     background: @c_gray_l;
 
+    @media @sm_m {
+      padding: 15px 0;
+    }
+
     &_top {
       padding: 50px 0 150px;
       margin-bottom: -100px;
+
+      @media @sm_m {
+        padding: 15px 0 100px;
+        margin-bottom: -100px;
+      }
     }
   }
 
@@ -52,6 +61,10 @@
   &__block {
     .flex();
     margin: 40px 0 0;
+
+    @media @sm_m {
+      margin: 15px 0 0;
+    }
 
     &:nth-child(even) {
       .About__block__image {
@@ -79,10 +92,14 @@
 
   &__description {
     padding: 70px 0;
+    color: @c_blue;
+
+    @media @sm_m {
+      padding: 15px 0;
+    }
 
     p, li {
-      font-size: @s_text_2;
-      color: @c_blue;
+      color: inherit;
     }
 
     ul {
