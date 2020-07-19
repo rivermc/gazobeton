@@ -14,6 +14,10 @@
     background: url('/assets/template/images/footer/bg.png');
     background-repeat: no-repeat;
     background-position: right bottom;
+
+    @media @sm_m {
+      background-size: 150px;
+    }
   }
 
   &__copyright {
@@ -47,6 +51,9 @@
 
     @media @lg {
       font-size: @s_title_3;
+    }
+    @media @sm_m {
+      font-size: @s_text_3;
     }
 
     path {

@@ -10,13 +10,6 @@
 
   &__faq {
     margin: 50px 0;
-
-    .Accordion__item {
-
-      p, a, span, li {
-        font-size: @s_text_2;
-      }
-    }
   }
 
   &__items {
@@ -30,6 +23,11 @@
     @media @lg_m {
       .flex_cols(5.25);
     }
+    @media @sm_m {
+      .flex_cols(5);
+      margin: 0 0 15px;
+      text-align: center;
+    }
   }
 
   &__image {
@@ -41,6 +39,11 @@
     @media @md_m {
       border-radius: 20px;
       max-height: 220px;
+    }
+    @media @sm_m {
+      box-shadow: 10px 8px 0 0 @c_blue, @shadow;
+      max-height: 150px;
+      margin: 0 0 15px;
     }
   }
 
