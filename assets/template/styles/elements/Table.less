@@ -17,6 +17,11 @@
   &__tr {
     .flex(@wrap:nowrap, @j:flex-start);
 
+    @media @sm_m {
+      border-bottom: 1px solid @c_gray_l;
+      flex-wrap: wrap;
+    }
+
     &_v1 {
       &:nth-child(even) {
         background: @c_gray_l;
@@ -32,9 +37,17 @@
   &__td {
     padding: 5px 10px;
 
+    @media @sm_m {
+      width: 100%;
+    }
+
     &_mw1 {
       max-width: 65%;
       width: 100%;
+
+      @media @sm_m {
+        max-width: none;
+      }
     }
 
     &_w1 {

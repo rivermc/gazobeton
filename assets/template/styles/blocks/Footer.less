@@ -18,6 +18,12 @@
     @media @sm_m {
       background-size: 150px;
     }
+
+    & > p {
+      @media @xs {
+        display: none;
+      }
+    }
   }
 
   &__copyright {
@@ -37,13 +43,23 @@
     @media @md_m {
       .flex_cols(10);
     }
+    @media @xs {
+      .flex_cols(16);
+      margin: 10px 0;
+    }
   }
 
   &__logo {
     .flex_cols(5);
+
+    @media @xs {
+      .flex_cols(12);
+      margin: 0 auto;
+    }
   }
 
   &__phone {
+    .flex(@j:flex-end);
     color: @c_orange;
     font-size: @s_text_4;
     font-family: @f_Monserat_b;
@@ -52,12 +68,20 @@
     @media @lg {
       font-size: @s_title_3;
     }
-    @media @sm_m {
+    @media @sm {
       font-size: @s_text_3;
     }
+    @media @xs {
+      font-size: @s_text_2;
+      justify-content: center;
+    }
 
-    path {
-      fill: @c_white;
+    svg {
+      margin-right: 10px;
+
+      path {
+        fill: @c_white;
+      }
     }
   }
 
