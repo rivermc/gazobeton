@@ -12,13 +12,26 @@
   line-height: 1em;
   cursor: pointer;
 
+  @media @lg_m {
+    font-size: @s_text_1;
+  }
+  @media @sm_m {
+    font-size: @s_text_6;
+  }
+
   &_m1 {margin: 0 10px 0 0;}
   &_m2 {margin: 10px 0 0;}
   &_m3 {margin: 0 0 20px;}
   &_m4 {margin: 5px 5px 0 0;}
   &_m5 {margin: 20px 0 0;}
   &_c1 {color: @c_blue;}
-  &_s1 {font-size: @s_text_1;}
+  &_s1 {
+    font-size: @s_text_1;
+
+    @media @sm_m {
+      font-size: @s_text_6;
+    }
+  }
   &_s2 {font-size: @s_text_6;}
   &_mw1 {min-width: 250px;}
   &_mw2 {min-width: 220px;}
@@ -61,6 +74,10 @@
 
     @media @sm_m {
       font-size: @s_text_6;
+    }
+    @media @xs {
+      font-size: @s_text_0;
+      padding-left: 0;
     }
   }
 

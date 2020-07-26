@@ -2,6 +2,7 @@
   <div class="Container">
     <div class="PriceBlock__wrap">
       <h2 class="T_bold T_c1 T_w1 T_s9 T_center T_m4 T_upper">Стоимость газобетона</h2>
+<<<<<<< HEAD
       <div class="PriceBlock__item">
         <p class="T_bold T_s7 T_c2 T_m3">2-й сорт</p>
         <p class="T_s2 T_c2">некондиция</p>
@@ -24,6 +25,21 @@
         <p class="T_s2 T_c2 T_lh3">D600</p>
         <p class="T_s3 T_c1 T_m5 T_bold">3900 руб./м<sup>3</sup></p>
       </div>
+=======
+      {set $price_items = json_decode(8 | resource: 'PriceBlock', true)}
+      {foreach $price_items as $key => $item}
+        <div class="PriceBlock__item">
+          <p class="T_bold T_s7 T_c2 T_m3">{$item.title}</p>
+          {if $item.subtitle}
+            <p class="T_s2 T_c2">{$item.subtitle}</p>
+          {/if}
+          {if $item.subtitle_2}
+            <p class="T_s1 T_c3">{$item.subtitle_2}</p>
+          {/if}
+          <p class="T_s3 T_m5 T_bold {if $key >= 2} T_c1 {else} T_c4 {/if}">{$item.price} руб./м<sup>3</sup></p>
+        </div>
+      {/foreach}
+>>>>>>> 3a70853c1b0c53d47bf3d51d6ed2e085ec8b0660
     </div>
   </div>
 </div>
