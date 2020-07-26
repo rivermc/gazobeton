@@ -6,10 +6,24 @@
 
   &__content {
     margin: 0 0 50px;
+
+    @media @md {
+      margin: 0 0 30px;
+    }
+    @media @sm_m {
+      margin: 0 0 15px;
+    }
   }
 
   &__faq {
     margin: 50px 0;
+
+    @media @md {
+      margin: 30px 0;
+    }
+    @media @sm_m {
+      margin: 15px 0;
+    }
   }
 
   &__items {
@@ -27,6 +41,10 @@
       .flex_cols(5);
       margin: 0 0 15px;
       text-align: center;
+    }
+    @media @xs {
+      .flex_cols(7.5);
+      margin: 0 0 10px;
     }
   }
 
@@ -53,17 +71,34 @@
 
     &_left {
       .flex_cols(11);
+      margin: 0 0 20px;
 
-      @media @md_m {
-        .flex_cols(8);
+      @media @md {
+        .flex_cols(9.5);
+      }
+      @media @sm {
+        .flex_cols(7.5);
+      }
+      @media @xs {
+        .flex_cols(16);
+        max-width: 270px;
+        margin: 0 auto 10px;
       }
     }
 
     &_right {
       .flex_cols(4.5);
+      max-width: 270px;
 
-      @media @md_m {
-        .flex_cols(7.5);
+      @media @md {
+        .flex_cols(6);
+      }
+      @media @sm {
+        .flex_cols(8);
+      }
+      @media @xs {
+        .flex_cols(16);
+        margin: 0 auto 10px;
       }
     }
   }
