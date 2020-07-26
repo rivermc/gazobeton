@@ -3,6 +3,7 @@
 //-------------------------------------------------------------------------//
 
 .CatalogItem {
+  .flex(@dir:column, @a:stretch);
   .flex_cols(3.6);
   .flex_offset_r(0.2);
   .flex_offset_l(0.2);
@@ -16,6 +17,10 @@
     .flex_cols(4.8);
     .flex_offset_r(0.25);
     .flex_offset_l(0.25);
+  }
+  @media @md_m {
+    border-radius: @radius_3;
+    padding: 20px 10px;
   }
   @media @sm_m {
     .flex_cols(7.5);
@@ -31,5 +36,20 @@
 
   &__link {
     margin: 10px 0;
+  }
+
+  &__image {
+
+    @media @sm_m {
+      height: 150px;
+      text-align: center;
+
+      & img {
+        max-height: 100%;
+      }
+    }
+    @media @xs {
+      height: 100px;
+    }
   }
 }

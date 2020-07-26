@@ -9,8 +9,23 @@
   margin: 0 auto;
   padding: 40px 100px;
 
+  @media @sm_m {
+    padding: 20px 10px;
+  }
+  @media @xs {
+    .Form__fieldWrap,
+    .Button {
+      max-width: none;
+      width: 100%;
+    }
+  }
+
   &__wrap {
     background: @c_gray_l;
     padding: 50px 0;
+
+    @media @sm_m {
+      padding: 15px 0;
+    }
   }
 }

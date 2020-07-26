@@ -9,7 +9,11 @@
   }
 
   &_bg1 {
-    background: url("/assets/template/images/top_block/bg.png") center 50px no-repeat
+    background: url("/assets/template/images/top_block/bg.png") center 50px no-repeat;
+
+    @media @xs {
+      background: url("/assets/template/images/top_block/bg.png") no-repeat
+    }
   }
 
   &__wrap {

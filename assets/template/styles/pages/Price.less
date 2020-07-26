@@ -23,11 +23,23 @@
 
   &__image {
     .flex_cols(7);
+
+    @media @xs {
+      .flex_cols(16);
+
+      & img {
+        max-height: 150px;
+      }
+    }
   }
 
   &__content {
     .flex_cols(8.5);
     align-self: center;
+
+    @media @xs {
+      .flex_cols(16);
+    }
   }
 
   &__items {
