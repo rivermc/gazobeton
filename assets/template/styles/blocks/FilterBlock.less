@@ -6,6 +6,13 @@
   background: @c_gray_l;
   padding: 40px 0;
 
+  @media @md_m {
+    padding: 20px 0;
+  }
+  @media @xs {
+    padding: 10px 0;
+  }
+
   &__wrap {
     .flex(@a:stretch);
     box-shadow: @shadow;
@@ -138,6 +145,7 @@
     }
     @media @xs {
       .flex_cols(16);
+      margin-bottom: 10px;
     }
   }
 
