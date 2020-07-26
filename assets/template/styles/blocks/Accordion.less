@@ -11,6 +11,11 @@
     cursor: pointer;
     position: relative;
 
+    @media @sm_m {
+      border-radius: 10px;
+      padding: 5px 30px 5px 10px;
+    }
+
     &_active {
       .Accordion__icon {
         transform: translateY(-50%) rotate(180deg);
@@ -31,10 +36,14 @@
   }
 
   &__item {
-    padding: 20px 40px;
+    margin: 20px 40px;
 
-    &_p1 {
-      padding: 0;
+    @media @sm_m {
+      margin: 10px;
+    }
+
+    &_m1 {
+      margin: 0;
     }
   }
 }
