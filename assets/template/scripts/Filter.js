@@ -90,8 +90,12 @@ export default class Filter {
         // opts type block specific
         if ($field.attr('name') === 'type_block') {
           let input_id = $field.data('id');
-          $(`input#${input_id}`).attr('disabled', 'disabled');
+          let $inputBtn = $(`input#${input_id}`);
+          $inputBtn.attr('disabled', 'disabled');
           $(`label[for=${input_id}]`).attr('disabled', 'disabled');
+          if ($field.is(':checked')) {
+            $inputBtn.removeAttr('checked');
+          }
         }
       }
       else {
@@ -99,8 +103,12 @@ export default class Filter {
         // opts type block specific
         if ($field.attr('name') === 'type_block') {
           let input_id = $field.data('id');
-          $(`input#${input_id}`).removeAttr('disabled');
+          let $inputBtn = $(`input#${input_id}`); // input for visible button
+          $inputBtn.removeAttr('disabled');
           $(`label[for=${input_id}]`).removeAttr('disabled');
+          if ($field.is(':checked')) {
+            $inputBtn.attr('checked','checked');
+          }
         }
       }
     });
