@@ -130,6 +130,14 @@
     position: relative;
     margin: 0 0 100px;
 
+    @media @sm_m {
+      margin: 0 0 10px;
+    }
+    @media @xs {
+      .flex_cols(16);
+      margin-bottom: 10px;
+    }
+
     &_image {
       border-radius: @radius;
       width: 100%;
@@ -144,7 +152,14 @@
       bottom: 0;
       transform: translateY(35%);
       right: 30px;
-      max-width: 260px;
+      max-width: 290px;
+
+      @media @sm_m {
+        position: static;
+        transform: none;
+        padding: 35px 10px 30px;
+        margin-top: 10px;
+      }
     }
   }
 }
