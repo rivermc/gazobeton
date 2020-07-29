@@ -7,6 +7,10 @@ export default class Modal {
     this.$el.click(this.open.bind(this));
     this.$closer = $('<div class="Modal__closer"></div>');
 
+    if (opts.dialog) {
+      this.$dialog = $(opts.dialog);
+    }
+
     const defaultOpts = {
       modal: true,
       maxWidth: 800,
@@ -15,6 +19,11 @@ export default class Modal {
       classes: {
         'ui-dialog': 'Modal',
         'ui-dialog-titlebar': 'hidden',
+      },
+      create: () => {
+        if (this.opts.onCreate) {
+          this.opts.onCreate();
+        }
       },
       open: () => {
         this.$dialog.before(this.$closer);
@@ -45,7 +54,6 @@ export default class Modal {
   }
 
   open(e) {
-    e.preventDefault();
     this.$dialog.dialog(this.opts);
   }
 }

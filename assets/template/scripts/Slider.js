@@ -17,5 +17,9 @@ export default class Slider {
     this.opts = $.extend(true, defaultOpts, opts);
 
     this.$el.slick(this.opts);
+
+    if (this.opts.goToIndex) {
+      this.$el.slick('slickGoTo', opts.goToIndex, true);
+    }
   }
 }
