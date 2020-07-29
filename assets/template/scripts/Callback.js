@@ -35,6 +35,7 @@ export default class Callback {
       success: (/*data*/) => {
         this.successAnimation();
         this.$form.find('[type=submit]').prop('disabled', false);
+        Comagic.addOfflineRequest(Object.fromEntries(formData));
       }
     });
   }
