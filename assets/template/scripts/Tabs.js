@@ -5,7 +5,7 @@ export default class Tabs {
     const defaultOpts = {};
     this.opts = $.extend(true, defaultOpts, opts);
 
-    this.$menu_items = $(this.$el.find('[data-type=menu]')).children();
+    this.$menu_items = $(this.$el.find('[data-type=menu] [data-tab=button]'));
     this.$items = $(this.$el.find('[data-type=items]')).children();
     this.events();
   }

@@ -50,7 +50,9 @@
               {if $catalog_tables | length > 1}
                 <div class="Tabs__menu Price__tabs" data-type="menu">
                   {foreach $catalog_tables as $key => $catalog_table}
-                    <button class="Price__tab Button_clear" {if $key == 0} data-status="true" {/if}>{$catalog_table.title}</button>
+                    <div class="Price__tab">
+                      <button class="Price__tabButton T_s1 T_c1 Button_clear" {if $key == 0} data-status="true" {/if} data-tab="button">{$catalog_table.title}</button>
+                    </div>
                   {/foreach}
                 </div>
               {/if}
@@ -61,7 +63,7 @@
                     <div class="Table__thead">
                       <div class="Table__tr Table__tr_p1">
                         {set $check_title = true}
-                        {set $check_weigth = true}
+                        {set $check_weight = true}
                         {set $check_size = true}
                         {set $check_count_pallet = true}
                         {set $check_count_m3 = true}
@@ -74,8 +76,8 @@
                               <p class="T_s1 T_bold">Наименование</p>
                             </div>
                           {/if}
-                          {if $item.weigth AND $check_weigth}
-                            {set $check_weigth = false}
+                          {if $item.weight AND $check_weight}
+                            {set $check_weight = false}
                             <div class="Table__td Table__td_w1">
                               <p class="T_s1 T_bold">Вес</p>
                             </div>
@@ -121,9 +123,9 @@
                               <p class="T_s1">{$item.title}</p>
                             </div>
                           {/if}
-                          {if $item.weigth}
+                          {if $item.weight}
                             <div class="Table__td Table__td_w1">
-                              <p class="T_s1">{$item.weigth}</p>
+                              <p class="T_s1">{$item.weight}</p>
                             </div>
                           {/if}
                           {if $item.size}
