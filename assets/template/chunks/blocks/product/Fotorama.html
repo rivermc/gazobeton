@@ -1,12 +1,14 @@
 <div id="msGallery">
   {if $files?}
-    <button data-js="Modal" data-modal="#gallery" class="Gallery__button Button_clear"></button>
     <div class="fotorama"
-         data-swipe="true"
          data-autoplay="false"
          data-width="350"
          data-maxwidth="100%"
-         data-allowfullscreen="false">
+         data-arrows="false"
+         data-click="false"
+         data-allowfullscreen="false"
+         data-swipe="false"
+         data-nav="thumbs">
       {foreach $files as $file}
         <a href="{$file['url']}" target="_blank">
            <img src="{$file['small']}" alt="{$pagetitle}" title="{$pagetitle}">

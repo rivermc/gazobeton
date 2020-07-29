@@ -49,39 +49,35 @@ $(document).ready(function() {
     new Tabs(item);
   });
 
+  $(document).on('click', '.fotorama__stage', function() {
+    console.log('click');
+    const galleryModal = new Modal(this, {
+      dialog: '#gallery',
+      onOpen: () => {
+        new Slider('.Gallery [data-js=Slider]',{
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          centerMode: false,
+          goToIndex: $('.fotorama__active').index()
+        });
+      },
+      onBeforeClose: () => {
+        const $gallery = $('.Gallery [data-js=Slider]');
+        if ($gallery) {
+          $gallery.slick('unslick');
+        }
+      }
+    });
+    galleryModal.open();
+  })
+
 
   function ModalInitialization() {
     $('[data-js=Modal]').each((index, item) => {
-      if ($(item).hasClass('Gallery__button')) {
-        new Modal(item, {
-          position: {
-            my: "center",
-            at: "center center+50",
-            of: window
-          },
-          onOpen: () => {
-            new Slider('.Gallery [data-js=Slider]',{
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              adaptiveHeight: true,
-              centerMode: false,
-            });
-          },
-          onBeforeClose: () => {
-            const $gallery = $('.Gallery [data-js=Slider]');
-            if ($gallery) {
-              $gallery.slick('unslick');
-            }
-          }
-        });
-      }
-      else {
-        new Modal(item);
-      }
+      new Modal(item);
     });
   }
-
-  ModalInitialization();
 
   $('[data-js=Menu]').each((index, item) => {
     if ($(item).data('type') === 'catalog_toggle') {
@@ -101,6 +97,9 @@ $(document).ready(function() {
       });
     }
   });
+
+
+  ModalInitialization();
 
   $(document).on('mse2_load', (/*e, data*/) => {
     ModalInitialization();
