@@ -12,6 +12,10 @@
     @media @md_m {
       padding: 20px 10px;
     }
+
+    @media @sm_m {
+      border-radius: @radius_3;
+    }
   }
 
   &__tr {
@@ -26,11 +30,19 @@
       &:nth-child(even) {
         background: @c_gray_l;
         border-radius: @radius;
+
+        @media @xs {
+          border-radius: 0;
+        }
       }
     }
 
     &_p1 {
       padding: 10px 0;
+
+      @media @xs {
+        padding: 0;
+      }
     }
   }
 
@@ -39,6 +51,10 @@
 
     @media @sm_m {
       width: 100%;
+    }
+
+    @media @xs {
+      padding: 2px 5px;
     }
 
     &_mw1 {
@@ -51,7 +67,12 @@
     }
 
     &_w1 {
-      flex:1;
+      flex: 1;
+
+      @media @xs {
+        .flex_cols(8);
+        flex: none;
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ export default class Modal {
     this.$el = $(el);
     this.$dialog = $(this.$el.data('modal'));
     this.$el.click(this.open.bind(this));
+    this.$closer = $('<div class="Modal__closer"></div>');
 
     const defaultOpts = {
       modal: true,
@@ -16,6 +17,10 @@ export default class Modal {
         'ui-dialog-titlebar': 'hidden',
       },
       open: () => {
+        this.$dialog.before(this.$closer);
+        this.$closer.click(() => {
+          this.$dialog.dialog('close');
+        });
         $('.ui-widget-overlay').addClass('Modal__overlay').click(() => {
           this.$dialog.dialog('close');
         });
@@ -29,6 +34,7 @@ export default class Modal {
         }
       },
       beforeClose: () => {
+        this.$closer.remove();
         if (this.opts.onBeforeClose) {
           this.opts.onBeforeClose();
         }

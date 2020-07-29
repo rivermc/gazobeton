@@ -14,4 +14,20 @@
     background: @c_gray_l;
     opacity: 0.5;
   }
+
+  &__closer {
+    .size(12px, 12px);
+    background: url(/assets/template/images/icons/close.svg) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 999;
+
+    &_c1 {
+      background: url(/assets/template/images/icons/close_white.svg) no-repeat;
+      background-size: 100%;
+    }
+  }
 }

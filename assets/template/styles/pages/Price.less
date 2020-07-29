@@ -45,29 +45,95 @@
   &__items {
     background: @c_gray_l;
     padding: 50px 0;
+
+    @media @sm_m {
+      padding: 15px 0;
+    }
   }
 
   &__tabs {
     .flex();
+    position: relative;
+    left: 15px;
+    width: ~'calc(100% - 30px)';
+    z-index: 5;
+    height: 60px;
+
+    @media @md {
+      height: 45px;
+    }
+
+    @media @sm {
+      height: 42px;
+    }
+
+    @media @xs {
+      position: static;
+      margin-bottom: 10px;
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__tab {
-    .transition();
-    font-family: @f_Monserat;
-    color: @c_blue;
+    .flex();
+    position: relative;
+    width: 100%;
     flex: 1;
+    height: 100%;
+    margin: 0;
+
+    @media @sm {
+      flex: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      z-index: 10;
+
+      &:hover {
+        z-index: 20;
+      }
+
+      &:nth-child(2) {
+        left: 27.5%;
+      }
+      &:nth-child(3) {
+        left: 52.7%;
+      }
+    }
+    @media @xs {
+      flex: none;
+      width: 100%;
+      height: 42px;
+    }
+  }
+
+  &__tabButton {
+    .transition();
+    .flex(@j:center);
+    .size(100%, 100%);
+    font-family: @f_Monserat;
     background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
     background-size: contain;
-    padding: 10px 0 0;
+    padding: 10px 70px 0;
     text-align: center;
     line-height: 1.2em;
     cursor: pointer;
-    height: 50px;
-    margin: 0 50px;
 
     &[data-status=true] {
       background: url(/assets/template/images/icons/block3.svg) center center no-repeat;
       background-size: contain;
+    }
+
+    @media @md {
+      padding: 10px 30px 0;
+      font-size: @s_text_6;
+    }
+
+    @media @sm_m {
+      padding: 10px 30px 0;
+      font-size: @s_text_0;
     }
   }
 }
