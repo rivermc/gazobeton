@@ -17,7 +17,7 @@ export default class Tabs {
   openTab(event) {
     event.preventDefault();
     const $item = $(event.currentTarget);
-    const item_id = $item.index();
+    const item_id = $item.parent().index();
     this.$items.attr('data-status', false);
     this.$menu_items.attr('data-status', false);
     $item.attr('data-status', true);
