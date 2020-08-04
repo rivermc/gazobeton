@@ -3,7 +3,9 @@ export default class CalcBlock {
     this.$el = $(el);
     this.$button = $(el).find('.js_calc_button');
     this.$form = $(el).find('.js_calc_form');
-    this.$button.click(this.serializeForm.bind(this));
+    this.$inputs = this.$form.find('input');
+    this.$inputs.change(this.serializeForm.bind(this));
+    this.$button.click(this.setCount.bind(this));
   }
 
   serializeForm(e) {
@@ -46,5 +48,11 @@ export default class CalcBlock {
       this.$el.find(`.js_calc_field_${index}_1`).text((parseFloat(item) / 2).toFixed(2));
       this.$el.find(`.js_calc_field_${index}_2`).text((parseFloat(item) / 5).toFixed(2));
     });
+  }
+
+  setCount() {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const count = this.fields_total.reduce(reducer);
+    $('.ShipPriceBlock [name=count]').val(parseInt(count));
   }
 }

@@ -1,12 +1,12 @@
 export default class Scroll {
   constructor(el, opts={}) {
     this.$el = $(el);
-    this.$toElem = $(this.$el.data('scroll'));
+    this.$toElem = $(this.$el.data('scroll_to'));
     if (this.$toElem.length) {
       this.toTop = this.$toElem.offset().top;
       const defaultOpts = {
         timer: 600,
-        fixHeader: false
+        fixHeader: true
       }
       this.opts = $.extend(true, defaultOpts, opts);
       if (this.opts.fixHeader) {
