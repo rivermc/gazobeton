@@ -21,6 +21,14 @@
           <img class="Gallery__image" src="{$file['url']}" alt="{$pagetitle}" title="{$pagetitle}">
         {/foreach}
       </div>
+      <div class="Gallery__navWrap">
+        <button class="Button_clear Slider__button Slider__button_prev Gallery__nav Gallery__nav_prev">
+          {'IncSvg' | snippet: ['file' => 'icons/prev.svg']}
+        </button>
+        <button class="Button_clear Slider__button Slider__button_next Gallery__nav Gallery__nav_next">
+          {'IncSvg' | snippet: ['file' => 'icons/next.svg']}
+        </button>
+      </div>
     </div>
   {else}
     <img src="{('assets_url' | option) ~ 'components/minishop2/img/web/ms2_medium.png'}"

@@ -1,4 +1,5 @@
 .Gallery {
+  position: relative;
 
   &__image {
     height: 100%;
@@ -17,6 +18,30 @@
 
     .Gallery__image {
       position: relative;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &_prev {
+      left: 10px;
+    }
+
+    &_next {
+      right: 10px;
+    }
+
+    path {
+      .transition();
+      fill: @c_blue;
+
+      &:hover {
+        fill: @c_blue_d;
+      }
     }
   }
 }
