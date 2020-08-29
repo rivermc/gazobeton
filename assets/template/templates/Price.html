@@ -150,9 +150,9 @@
                           {/if}
                           {if $item.price}
                             <div class="Table__td Table__td_w1">
-                              <p class="T_s1 T_block">{$item.price} руб./м<sup>3</sup></p>
+                              <p class="T_s1 T_block">{$item.price} {$item.unit}</p>
                               {if $item.price_2}
-                                <p class="T_s1 T_block T_c1">{$item.price_2} руб./м<sup>3</sup></p>
+                                <p class="T_s1 T_block T_c1">{$item.price_2} {$item.unit}</p>
                               {/if}
                             </div>
                           {/if}
