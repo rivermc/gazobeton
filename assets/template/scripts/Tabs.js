@@ -1,7 +1,6 @@
 export default class Tabs {
   constructor(el, opts) {
     this.$el = $(el);
-
     const defaultOpts = {};
     this.opts = $.extend(true, defaultOpts, opts);
 

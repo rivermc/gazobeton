@@ -2,10 +2,9 @@
 {import 'Accordion' as Accordion}
 
 {set $opts = [
-  'label_class' => 'Form__label Form__label_c1 Form__label_s1 Form__label_field_cols6',
-  'input_class' => 'Form__field_text Form__field_cols10'
+  'label_class' => 'Form__label Form__label_c1 Form__label_s1 Form__label_f1',
+  'input_class' => 'Form__field_text Form__field_cols75'
 ]}
-
 
 <div class="CalcBlock" data-js="CalcBlock">
   <div class="Container">
@@ -14,69 +13,162 @@
     </div>
     <div class="CalcBlock__wrap">
       <div class="CalcBlock__calc">
-        <form action="{$_modx->resource.uri}" method="post"class="Form CalcBlock__form js_calc_form" >
+        <form action="{$_modx->resource.uri}" method="post" class="Form CalcBlock__form js_calc_form" >
+
           <div class="CalcBlock__fields">
             {set $_opts = [
-              'label_text' => 'Высота потолка',
+              'label_text' => 'Высота стен, м',
               'id' => 'height',
               'name' => 'height',
-              'value' => 10
+              'value' => 0
             ]}
             {set $_opts = $_opts | merge_array:$opts}
             {Form.field opts=$_opts}
 
             {set $_opts = [
-              'label_text' => 'Площадь проемов',
+              'label_text' => 'Площадь проемов, м',
               'sublabel_text' => 'дверных и оконных',
               'id' => 'square',
               'name' => 'square',
-              'value' => 10
+              'value' => 0
             ]}
             {set $_opts = $_opts | merge_array:$opts}
             {Form.field opts=$_opts}
           </div>
+
+          {set $body_forms = [
+            [
+              'accord_title' => 'Газобетон для наружных стен',
+              'fields' => [
+                [
+                  'type' => 'input',
+                  'label_text' => 'Суммарная длина стен, м'
+                ],
+                [
+                  'type' => 'select',
+                  'label_text' => 'Толщина наружных стен, мм',
+                  'options' => [
+                    ['value' => '0.25', 'text' => '250'],
+                    ['value' => '0.3', 'text' => '300'],
+                    ['value' => '0.375', 'text' => '375'],
+                    ['value' => '0.4', 'text' => '400']
+                  ]
+                ]
+              ]
+            ],
+            [
+              'accord_title' => 'Газобетон для внутренних несущих стен',
+              'fields' => [
+                [
+                  'type' => 'input',
+                  'label_text' => 'Суммарная длина внутренних несущих стен, м'
+                ],
+                [
+                  'type' => 'select',
+                  'label_text' => 'Толщина внутренних несущих стен, мм',
+                  'options' => [
+                    ['value' => '0.2', 'text' => '200'],
+                    ['value' => '0.25', 'text' => '250'],
+                    ['value' => '0.3', 'text' => '300'],
+                    ['value' => '0.375', 'text' => '375'],
+                    ['value' => '0.4', 'text' => '400']
+                  ]
+                ]
+              ]
+            ],
+            [
+              'accord_title' => 'Газобетон для стен-перегородок',
+              'fields' => [
+                [
+                  'type' => 'input',
+                  'label_text' => 'Суммарная длина стен-перегородок, м'
+                ],
+                [
+                  'type' => 'select',
+                  'label_text' => 'Ширина стен-перегородок, мм',
+                  'options' => [
+                    ['value' => '0.085', 'text' => '85'],
+                    ['value' => '0.1', 'text' => '100'],
+                    ['value' => '0.125', 'text' => '125'],
+                    ['value' => '0.15', 'text' => '150'],
+                    ['value' => '0.2', 'text' => '200']
+                  ]
+                ]
+              ]
+            ],
+          ]}
+
           <div class="Accordion" data-js="Accordion">
-            {set $accordions = [
-              ['title' => 'Газобетон для наружных стен'],
-              ['title' => 'Газобетон для внутренних несущих стен'],
-              ['title' => 'Газобетон для стен-перегородок'],
-            ]}
-            {foreach $accordions as $idx => $accordion}
-              {Accordion.title opts=[
-                'title' => $accordion.title,
-                'titleWrap_class' => 'Accordion__title Accordion__title_p1'
-              ]}
-              <div class="Accordion__item Accordion__item_m1">
-                {set $fields = [
-                  ['label_text' => 'Суммарная длина стен'],
-                  ['label_text' => 'Плотность газобетона'],
-                  ['label_text' => 'Толщина наружных стен']
+            {foreach $body_forms as $key => $body}
+                {Accordion.title opts=[
+                  'title' => $body.accord_title,
+                  'titleWrap_class' => 'Accordion__title Accordion__title_p1 Accordion__title_bg1'
                 ]}
-                {foreach $fields as $_idx => $field}
-                  {set $_opts = [
-                    'label_text' => $field.label_text,
-                    'id' => 'fields_' ~ $idx ~ '_' ~ $_idx,
-                    'name' => 'fields_' ~ $idx ~ '_' ~ $_idx,
-                    'value' => 10
-                  ]}
-                  {set $_opts = $_opts | merge_array:$opts}
-                  {Form.field opts=$_opts}
-                {/foreach}
-              </div>
+                <div class="Accordion__item Accordion__item_m1">
+                  {foreach $body.fields as $_key => $field}
+
+                    {if $field.type == 'input'}
+                      {set $_opts = [
+                        'label_text' => $field.label_text,
+                        'id' => 'fields_' ~ $key ~ '_' ~ $_key,
+                        'name' => 'fields_' ~ $key ~ '_' ~ $_key,
+                        'value' => 0
+                      ]}
+                      {set $_opts = $_opts | merge_array:$opts}
+                      {Form.field opts=$_opts}
+                    {/if}
+
+                    {if $_key == '0'}
+                      <div class="Form__fieldWrap">
+                        <label for="sort" class="Form__label Form__label Form__label_c1 Form__label_s1 Form__label_f1">
+                          <span>Плотность газобетона</span>
+                        </label>
+                        <select name="sort" id="sort">
+                          <option value="D400">D400</option>
+                          <option value="D500">D500</option>
+                          <option value="D600">D600</option>
+                        </select>
+                      </div>
+                    {/if}
+
+                    {if $field.type == 'select'}
+                      <div class="Form__fieldWrap">
+                        <label for="fields_{$key}_{$_key}" class="Form__label Form__label Form__label_c1 Form__label_s1 Form__label_f1">
+                          <span>{$field.label_text}</span>
+                        </label>
+                        <select name="fields_{$key}_{$_key}" id="fields_{$key}_{$_key}">
+                          {foreach $field.options as $option}
+                            <option value="{$option.value}">{$option.text}</option>
+                          {/foreach}
+                        </select>
+                      </div>
+                    {/if}
+                  {/foreach}
+                </div>
             {/foreach}
           </div>
         </form>
       </div>
-      <div class="CalcBlock__results">
-        <p class="T_s2 T_bold">Результаты</p>
-        <p class="T_s1 T_m1">Для наружных стен</p>
-        <p class="T_s1 T_m1">стеновой блок размер <span class="js_calc_field_0_0">0</span> шт <span class="js_calc_field_0_1">0</span> м <span class="js_calc_field_0_2">0</span> палетт</p>
-        <p class="T_s1 T_m1">Для внутренних несущих стен</p>
-        <p class="T_s1 T_m1">стеновой блок размер <span class="js_calc_field_1_0">0</span> шт <span class="js_calc_field_1_1">0</span> м <span class="js_calc_field_1_2">0</span> палетт</p>
-        <p class="T_s1 T_m1">Для внутренних стен-перегородок</p>
-        <p class="T_s1 T_m1">стеновой блок размер <span class="js_calc_field_2_0">0</span> шт <span class="js_calc_field_2_1">0</span> м <span class="js_calc_field_2_2">0</span> палетт</p>
-        <p class="T_s2 T_bold T_m10">Узнайте точную стоимость газобетона с доставкой</p>
 
+      <div class="CalcBlock__results">
+        <p class="T_s2 T_bold T_m4">Результаты</p>
+        {set $results = [
+          '0' => ['title' => 'Для наружных стен'],
+          '1' => ['title' => 'Для внутренних несущих стен'],
+          '2' => ['title' => 'Для внутренних стен-перегородок']
+        ]}
+        {foreach $results as $key => $result}
+          <div class="Box Box_m1 Box_w1">
+            <p class="T_s1 T_m1">{$result.title}</p>
+            <p class="T_s1 T_m1 Box_flex">
+              <span>[стеновой блок размер]</span>
+              <span class="js_calc_field_{$key}_0">0 шт</span>
+              <span class="js_calc_field_{$key}_1">0 м<sup>3</sup></span>
+              <span class="js_calc_field_{$key}_2">0 палетт</span>
+            </p>
+          </div>
+        {/foreach}
+        <p class="T_s2 T_bold T_m10">Узнайте точную стоимость газобетона с доставкой</p>
         <button class="Button Button_v1 js_calc_button" data-js="Scroll" data-scroll_to="#calc_scroll">Рассчитать</button>
       </div>
     </div>
