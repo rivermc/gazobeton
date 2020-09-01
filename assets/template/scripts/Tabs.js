@@ -20,6 +20,6 @@ export default class Tabs {
     this.$items.attr('data-status', false);
     this.$menu_items.attr('data-status', false);
     $item.attr('data-status', true);
-    this.$items.eq(item_id - 0).attr('data-status', true);
+    this.$items.eq(item_id).attr('data-status', true);
   }
 }
