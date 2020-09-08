@@ -1,3 +1,4 @@
+{set $sales_data = json_decode(1 | resource: 'SalesBlock', true)}
 <div class="SalesBlock {$class}">
   <div class="Container">
     <div class="SalesBlock__wrap">
@@ -6,11 +7,11 @@
       </div>
       <div class="SalesBlock__text">
         <div class="SalesBlock__notifies">
-          <p class="T_s1 SalesBlock__notify"><span class="SalesBlock__notify_revert">Акция</span></p>
-          <p class="T_s1">до 31 августа 2020 г.</p>
+          <p class="T_s1 SalesBlock__notify"><span class="SalesBlock__notify_revert">{$sales_data[0].title}</span></p>
+          <p class="T_s1">{$sales_data[0].date}</p>
         </div>
-        <p class="T_s4 T_m7 T_lh1">При заказе газобетонных <br> блоков ЕАБ от 100 м<sup>3</sup> вы <br> получаете клей для <br> газобетона со скидкой 30%!</p>
-        <p class="T_s1">Уточняйте условия акции у менеджеров по телефону</p>
+        <p class="T_s4 T_m7 T_lh1">{$sales_data[0].text}</p>
+        <p class="T_s1">{$sales_data[0].text_2}</p>
         {1 | resource: 'SitePhone'}
       </div>
     </div>
