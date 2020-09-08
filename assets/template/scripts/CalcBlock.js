@@ -1,3 +1,7 @@
+import {getModule} from './Tools.js';
+import Accordion from './Accordion.js';
+import Tabs from './Tabs.js';
+
 export default class CalcBlock {
   constructor(el, opts={}) {
     this.$el = $(el);
@@ -7,6 +11,7 @@ export default class CalcBlock {
 
   init() {
     this.$button = this.$el.find('.js_calc_button');
+    this.$add_button = this.$el.find('[data-button=add]');
     this.$form = this.$el.find('.js_calc_form');
     this.$inputs = this.$form.find('input');
     this.$selects = this.$form.find('select');
@@ -15,9 +20,31 @@ export default class CalcBlock {
   }
 
   events() {
-    this.$el.on('keyup', this.$inputs, this.getDataForm.bind(this));
+    this.$el.on('keyup.Calc', this.$inputs, this.getDataForm.bind(this));
     //this.$el.on('change', this.$selects, this.getDataForm.bind(this));
     this.$button.click(this.setResultCallback.bind(this));
+    this.$add_button.click(this.addStage.bind(this));
+  }
+
+  reInit() {
+    this.destroy();
+    this.init();
+    this.$el.on('keyup.Calc', this.$inputs, this.getDataForm.bind(this));
+  }
+
+  destroy() {
+    this.$el.off('keyup.Calc');
+  }
+
+  addStage() {
+    const self = this;
+    const $calcBlock = this.$el.find('.CalcBlock__calc');
+    const $tabs = this.$el.find('[data-js=Tabs]');
+    getModule('Chunk', 'CalcForm', 'status => false', function (data) {
+      $calcBlock.append(data);
+      new Accordion($calcBlock.last());
+      self.reInit();
+    });
   }
 
   getDataForm() {
@@ -70,13 +97,13 @@ export default class CalcBlock {
     return [field_1_total.toFixed(2), field_2_total.toFixed(2), field_3_total.toFixed(2)];
   }
 
-  calcResult(form_total, calc_square) {
+  calcResult(form_total) {
     const reducer = (accumulator, currentValue) => {
-      let total_result = [];
+      let _result = [];
       currentValue.forEach((item, index) => {
-        total_result.push(parseFloat(accumulator[index]) + parseFloat(currentValue[index]));
+        _result.push(parseFloat(accumulator[index]) + parseFloat(currentValue[index]));
       });
-      return total_result;
+      return _result;
     }
     this.total_result = form_total.reduce(reducer);
     this.setResults();
@@ -92,10 +119,11 @@ export default class CalcBlock {
 
   setResultCallback() {
     let index = 0;
+    console.log(this.total_result);
     const reducer = (accumulator, currentValue) => {
-      const result = accumulator + currentValue - this.calc_square[index];
+      const _result = accumulator + currentValue - this.calc_square[index];
       index++;
-      return result;
+      return _result;
     }
     let count = this.total_result.reduce(reducer);
     if (isNaN(count)) {

@@ -1,6 +1,10 @@
 export default class Accordion {
   constructor(el, opts = {}) {
     this.$el = $(el);
+    this.init();
+  }
+
+  init() {
     this.$el.accordion({
       header: '.Accordion__title',
       heightStyle: 'content',
