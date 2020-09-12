@@ -11,11 +11,67 @@
     box-shadow: @shadow;
     background: @c_white;
     border-radius: @radius_3;
+    position: relative;
+    margin-top: 55px;
+  }
+
+  &__buttonsWrap {
+    .flex(@wrap:nowrap, @j:flex-start);
+    left: 15px;
+    z-index: 5;
+    height: 35px;
+    position: absolute;
+    top: -34px;
+    width: ~'calc(100% - 30px)';
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-height: 5px; /* Firefox 64 */
+
+    &::-webkit-scrollbar { /** WebKit */
+      height: 5px;
+    }
+
+    button {
+      .transition();
+      .flex(@j:center);
+      .size(100%, 100%);
+      font-family: @f_Monserat;
+      background: url(/assets/template/images/icons/block4.svg) center center no-repeat;
+      background-size: contain;
+      padding: 10px 30px 0;
+      text-align: center;
+      line-height: 1.2em;
+      cursor: pointer;
+
+      &[data-status=true] {
+        background: url(/assets/template/images/icons/block3.svg) center center no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  &__addButtonWrap {
+    height: 100%;
+    min-width: 170px;
+  }
+
+  &__stageButtons {
+    .flex(@wrap:nowrap, @j:flex-start);
+    height: 100%;
+
+    div {
+      height: 100%;
+      min-width: 170px;
+    }
   }
 
   &__calc {
     .flex_cols(8);
     padding: 30px;
+
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 
   &__results {
@@ -23,5 +79,9 @@
     .flex(@dir: column, @a:flex-start);
     background: @c_gray_l;
     padding: 30px;
+
+    @media @sm_m {
+      .flex_cols(16);
+    }
   }
 }

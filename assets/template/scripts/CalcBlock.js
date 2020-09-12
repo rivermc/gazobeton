@@ -1,4 +1,4 @@
-import {getModule} from './Tools.js';
+import {getModule, shake} from './Tools.js';
 import Accordion from './Accordion.js';
 import Tabs from './Tabs.js';
 
@@ -20,8 +20,8 @@ export default class CalcBlock {
   }
 
   events() {
-    this.$el.on('keyup.Calc', this.$inputs, this.getDataForm.bind(this));
-    //this.$el.on('change', this.$selects, this.getDataForm.bind(this));
+    this.$inputs.change(this.getDataForm.bind(this));
+    this.$selects.change(this.getDataForm.bind(this));
     this.$button.click(this.setResultCallback.bind(this));
     this.$add_button.click(this.addStage.bind(this));
   }
@@ -29,39 +29,37 @@ export default class CalcBlock {
   reInit() {
     this.destroy();
     this.init();
-    this.$el.on('keyup.Calc', this.$inputs, this.getDataForm.bind(this));
+    this.$inputs.change(this.getDataForm.bind(this));
   }
 
   destroy() {
-    this.$el.off('keyup.Calc');
+    this.$inputs.off('change');
   }
 
   addStage() {
-    const self = this;
     const $calcBlock = this.$el.find('.CalcBlock__calc');
     const $tabs = this.$el.find('[data-js=Tabs]');
-    getModule('Chunk', 'CalcForm', 'status => false', function (data) {
+    $tabs.find('[data-type=menu] [data-tab=button]').off();
+    getModule('Chunk', 'CalcForm', 'status => false', (data) => {
       $calcBlock.append(data);
-      new Accordion($calcBlock.last());
-      self.reInit();
+      new Accordion($calcBlock.find('.Accordion'));
+      new Tabs($tabs);
+      this.reInit();
     });
+    const $stageButtonsWrapper = $('.CalcBlock__stageButtons');
+    const countTabs = $stageButtonsWrapper.children().length + 1;
+    $stageButtonsWrapper.append($('<div><button class=" T_s1 T_c1 Button_clear" data-status="false" data-tab="button">'+ countTabs +' этаж</button></div>'));
   }
 
   getDataForm() {
-    let form_total = [];
     let data;
-    if (this.$form.length > 1) {
-      this.$form.each((index, item) => {
-        data = this.serializeForm($(item));
-        form_total.push(this.calcForm(data));
-      });
-    }
-    else {
-      data = this.serializeForm(this.$form);
+    let form_total = [];
+    this.calc_square = [];
+    this.$form.each((index, item) => {
+      data = this.serializeForm($(item));
       form_total.push(this.calcForm(data));
-    }
-    const calc_square = data[1];
-    this.calcResult(form_total, calc_square);
+    });
+    this.calcResult(form_total);
   }
 
   serializeForm($form) {
@@ -118,19 +116,31 @@ export default class CalcBlock {
   }
 
   setResultCallback() {
-    let index = 0;
-    console.log(this.total_result);
     const reducer = (accumulator, currentValue) => {
-      const _result = accumulator + currentValue - this.calc_square[index];
-      index++;
-      return _result;
+      return parseFloat(accumulator) + parseFloat(currentValue);
     }
-    let count = this.total_result.reduce(reducer);
-    if (isNaN(count)) {
-      count = 0;
+    let count;
+    let square;
+    if (this.total_result) {
+      count = this.total_result.reduce(reducer);
+      square = this.calc_square.reduce(reducer);
     }
-    console.log(count);
-    this.calc_square = [];
-    $('.ShipPriceBlock [name=count]').val(parseInt(count));
+    if (!!count && !isNaN(count)) {
+      $('.CalcBlock__error').addClass('hidden');
+      $('.ShipPriceBlock [name=count]').val(parseFloat(count - square).toFixed(2));
+      this.scrollToCallback();
+    }
+    else {
+      shake(this.$inputs);
+      $('.CalcBlock__error').removeClass('hidden');
+    }
+  }
+
+  scrollToCallback() {
+    const $toElem = $(this.$button.data('scroll_to'));
+    const toTop = $toElem.offset().top - parseInt($('.Header').height());
+    $('html').animate({
+      scrollTop: toTop
+    }, 600);
   }
 }

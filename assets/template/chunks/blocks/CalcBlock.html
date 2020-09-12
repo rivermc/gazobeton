@@ -12,20 +12,20 @@
       <h2 class="T_bold T_c1 T_w1 T_s9 T_m4 T_center T_upper">Калькулятор Газобетона</h2>
     </div>
     <div class="CalcBlock__wrap" data-js="Tabs">
-      <div class="Tabs__menu additional_buttons" data-type="menu">
-        <div>
-          <button class=" T_s1 T_c1 Button_clear" data-status="true" data-tab="button">Без захватных карманов</button>
-        </div>
-        <div>
-          <button class=" T_s1 T_c1 Button_clear" data-status="false" data-tab="button">Без захватных карманов</button>
-        </div>
-        <div>
-          <button class=" T_s1 T_c1 Button_clear" data-status="false" data-tab="button">Без захватных карманов</button>
-        </div>
-        <div>
+      <div class="CalcBlock__buttonsWrap">
+        <div class="CalcBlock__addButtonWrap">
           <button class=" T_s1 T_c1 Button_clear" data-button="add">Добавить этаж</button>
         </div>
+        <div class="CalcBlock__stageButtons" data-type="menu">
+          <div>
+            <button class=" T_s1 T_c1 Button_clear" data-status="true" data-tab="button">1 этаж</button>
+          </div>
+          <div>
+            <button class=" T_s1 T_c1 Button_clear" data-status="false" data-tab="button">2 этаж</button>
+          </div>
+        </div>
       </div>
+
       <div class="CalcBlock__calc" data-type="items">
         {'CalcForm' | chunk: ['status' => 'true']}
         {'CalcForm' | chunk: ['status' => 'false']}
@@ -43,14 +43,13 @@
             <p class="T_s1 T_m1">{$result.title}</p>
             <p class="T_s1 T_m1 Box_flex">
               <span>[стеновой блок размер]</span>
-              <span class="js_calc_field_{$key}_0">0 шт</span>
               <span class="js_calc_field_{$key}_1">0.00 м<sup>3</sup></span>
-              <span class="js_calc_field_{$key}_2">0 палетт</span>
             </p>
           </div>
         {/foreach}
         <p class="T_s2 T_bold T_m10">Узнайте точную стоимость газобетона с доставкой</p>
-        <button class="Button Button_v1 js_calc_button" data-js="Scroll" data-scroll_to="#calc_scroll">Рассчитать</button>
+        <button class="Button Button_v1 js_calc_button" data-scroll_to="#calc_scroll">Рассчитать</button>
+        <p class="T_s0 T_m1 T_c5 CalcBlock__error hidden">Заполните данные для расчета</p>
       </div>
     </div>
   </div>
