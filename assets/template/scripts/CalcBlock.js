@@ -20,6 +20,8 @@ export default class CalcBlock {
   }
 
   events() {
+    this.$inputs.focus(this.focusInput.bind(this));
+    this.$inputs.blur(this.blurInput.bind(this));
     this.$inputs.change(this.getDataForm.bind(this));
     this.$selects.change(this.getDataForm.bind(this));
     this.$button.click(this.setResultCallback.bind(this));
@@ -34,6 +36,20 @@ export default class CalcBlock {
 
   destroy() {
     this.$inputs.off('change');
+  }
+
+  focusInput(event) {
+    const $event = $(event.currentTarget);
+    if ($event.val() === '0') {
+      $event.val('');
+    }
+  }
+
+  blurInput(event) {
+    const $event = $(event.currentTarget);
+    if ($event.val() === '') {
+      $event.val(0);
+    }
   }
 
   addStage() {
