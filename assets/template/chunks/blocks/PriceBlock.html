@@ -12,7 +12,7 @@
           {if $item.subtitle_2}
             <p class="T_s1 T_c3">{$item.subtitle_2}</p>
           {/if}
-          <p class="T_s3 T_m5 T_bold {if $key >= 2} T_c1 {else} T_c4 {/if}">{$item.price} руб./м<sup>3</sup></p>
+          <p class="T_s3 T_m5 T_bold {if $key >= 2} T_c1 {else} T_c4 {/if}">{$item.price} руб./{$parent | resource: 'CatalogUnit'}</p>
         </div>
       {/foreach}
     </div>

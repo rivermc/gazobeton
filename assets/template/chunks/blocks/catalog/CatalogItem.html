@@ -18,7 +18,7 @@
     ]}
   </div>
   <div class="CatalogItem__price">
-    <p class="T_c1 T_bold T_s2">{$price} руб./м<sup>3</sup></p>
+    <p class="T_c1 T_bold T_s2">{$price} руб./{$parent | resource: 'CatalogUnit'}</p>
   </div>
   <div class="CatalogItem__link">
     <a href="{$uri}" class="T__A T_c4 T_underline T_s1">Узнать подробнее</a>

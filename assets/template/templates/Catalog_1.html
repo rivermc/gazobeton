@@ -17,7 +17,7 @@
               <p class="T_s7 T_c2 T_bold T_m1 T_lh1">{$item.title}</p>
               <p class="T_s1 T_c2 T_m1">{$item.subtitle}</p>
               <p class="T_s0 T_c3 T_m2">{$item.broken}</p>
-              <p class="T_s3 T_c4 T_bold T_m2">{$item.price} руб./м<sup>3</sup></p>
+              <p class="T_s3 T_c4 T_bold T_m2">{$item.price} руб./{$parent | resource: 'CatalogUnit'}</p>
               <p class="T_s0 T_c2 T_m3">{$item.description}</p>
               <button class="Button Button_v6" data-js="Modal" data-modal="#callback_nekond">Узнать о наличии</button>
             </div>
